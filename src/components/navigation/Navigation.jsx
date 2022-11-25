@@ -1,21 +1,53 @@
 import React from 'react';
+import { FaHome } from 'react-icons/fa';
 
 import logo from '../../assets/guts.png';
 import NavigationLink from './NavigationLink';
 
-const Navigation = () => {
+const Navigation = ({ isFull }) => {
 	return (
-		<div className='h-full w-64 border-r border-0 border-solid border-gray-300'>
+		<div
+			className={`${
+				isFull ? 'w-64' : 'w-20'
+			} fixed top-0 left-0 h-full border-r border-0 border-solid border-gray-300 duration-500 transition-all`}>
 			<div className='flex p-6'>
 				<img src={logo} alt='logo' className='h-12 mr-8' />
-				<h2 className='text-lg font-bold flex items-center'>Gym app</h2>
+				<h2
+					className={
+						isFull
+							? 'text-lg font-bold flex items-center duration-1000 transition-all'
+							: 'hidden duration-1000 transition-all'
+					}>
+					Gym app
+				</h2>
 			</div>
-			<hr className='my-4' />
+			<hr
+				className={
+					isFull
+						? 'my-4 duration-500 transition-all'
+						: 'my-1 duration-500 transition-all'
+				}
+			/>
 			<div>
 				<ul className='text-sm font-bold'>
-					<NavigationLink linkText='home' linkUrl='/' />
-					<NavigationLink linkText='test' linkUrl='/test' />
-					<NavigationLink linkText='test' linkUrl='/test2' />
+					<NavigationLink
+						linkText='Overview'
+						linkUrl='/'
+						isFull={isFull}
+						icon={<FaHome className='text-xl' />}
+					/>
+					<NavigationLink
+						linkText='test'
+						linkUrl='/test'
+						isFull={isFull}
+						icon={<FaHome className='text-xl' />}
+					/>
+					<NavigationLink
+						linkText='test'
+						linkUrl='/test2'
+						isFull={isFull}
+						icon={<FaHome className='text-xl' />}
+					/>
 				</ul>
 			</div>
 		</div>
