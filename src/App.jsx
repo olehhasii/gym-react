@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import Navigation from './components/navigation/Navigation';
 import Overview from './pages/overview/Overview';
 import MainWrapper from './components/ui/MainWrapper';
+import Authentication from './pages/authentication/Authentication';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -14,11 +15,12 @@ function App() {
 
 	return (
 		<>
-			<Header isFull={isFullNavigation} onSetFull={onSetIsFullNavigation} />
+			{/* <Header isFull={isFullNavigation} onSetFull={onSetIsFullNavigation} />
 			<Navigation isFull={isFullNavigation} />
 			<MainWrapper>
 				<Overview />
-			</MainWrapper>
+			</MainWrapper> */}
+			<Authentication />
 		</>
 	);
 }
