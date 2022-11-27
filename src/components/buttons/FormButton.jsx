@@ -5,7 +5,7 @@ const FormButton = ({ text, onClick }) => {
 		<button
 			type='submit'
 			onClick={onClick}
-			className='h-12 bg-green_txt w-full rounded-md'>
+			className='h-12 bg-green_txt w-full rounded-md hover:scale-105 duration-300'>
 			{text}
 		</button>
 	);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import gymImg from '../../assets/gym.png';
 import LoginForm from '../../components/formElements/LoginForm';
@@ -18,15 +18,7 @@ const Authentication = () => {
 				</div>
 				<img src={gymImg} alt='gym' className=' w-2/3' />
 			</div>
-			<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>
-				<h2 className='font-bold text-3xl mb-8'>Sign into your account</h2>
-				<LoginForm />
-				<Link
-					to='/signup'
-					className='mt-6 block underline duration-300 hover:text-green_txt '>
-					Don't have an account? Create one!
-				</Link>
-			</div>
+			<Outlet />
 		</div>
 	);
 };
