@@ -5,4 +5,4 @@ export const REQUEST_METHODS = {
 	DELETE: 'DELETE',
 };
 
-export const API_URL = 'http://localhost:4000/login';
+export const API_URL = 'http://localhost:4000';

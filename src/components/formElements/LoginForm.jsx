@@ -1,24 +1,32 @@
 import React from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import FormButton from '../buttons/FormButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 import FormInput from './FormInput';
-import { API_URL, REQUEST_METHODS } from '../../constants/apiConstants';
+import FormButton from '../buttons/FormButton';
+import { API_URL } from '../../constants/apiConstants';
 
 const LoginForm = () => {
 	const { register, handleSubmit } = useForm();
+	const navigate = useNavigate();
+	const [cookies, setCookie] = useCookies(['access_token']);
 
 	const onSubmit = async (credentials) => {
-		const result = await fetch(API_URL, {
-			method: REQUEST_METHODS.POST,
-			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-			},
-			body: JSON.stringify(credentials),
+		axios.post(`${API_URL}/login`, credentials).then((res) => {
+			setCookie('access_token', res.data.access_token, { path: '/' });
+			sessionStorage.setItem('access_token', res.data.access_token);
 		});
-		const data = await result.json();
-		console.log(data);
+		/* navigate('/'); */
+
+		axios
+			.get('http://localhost:4000/training/mytrainings', {
+				withCredentials: true,
+			})
+			.then((res) => {
+				console.log(res.data);
+			});
 	};
 	return (
 		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>

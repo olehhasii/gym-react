@@ -34,7 +34,7 @@ const SignupForm = () => {
 					name='password'
 					type='password'
 				/>
-				<FormButton text='Sign in' />
+				<FormButton text='Sign up' />
 			</form>
 			<Link
 				to='/auth/login'
