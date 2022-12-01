@@ -14,11 +14,10 @@ const LoginForm = () => {
 	const [cookies, setCookie] = useCookies(['access_token']);
 
 	const onSubmit = async (credentials) => {
-		axios.post(`${API_URL}/login`, credentials).then((res) => {
+		await axios.post(`${API_URL}/login`, credentials).then((res) => {
 			setCookie('access_token', res.data.access_token, { path: '/' });
-			sessionStorage.setItem('access_token', res.data.access_token);
 		});
-		/* navigate('/'); */
+		navigate('/');
 
 		axios
 			.get('http://localhost:4000/training/mytrainings', {
