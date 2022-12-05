@@ -7,25 +7,22 @@ import { useCookies } from 'react-cookie';
 import FormInput from './FormInput';
 import FormButton from '../buttons/FormButton';
 import { API_URL } from '../../constants/apiConstants';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/actions/userActions';
 
 const LoginForm = () => {
 	const { register, handleSubmit } = useForm();
 	const navigate = useNavigate();
+	// eslint-disable-next-line no-unused-vars
 	const [cookies, setCookie] = useCookies(['access_token']);
+	const dispath = useDispatch();
 
 	const onSubmit = async (credentials) => {
 		await axios.post(`${API_URL}/login`, credentials).then((res) => {
 			setCookie('access_token', res.data.access_token, { path: '/' });
 		});
 		navigate('/');
-
-		axios
-			.get('http://localhost:4000/training/mytrainings', {
-				withCredentials: true,
-			})
-			.then((res) => {
-				console.log(res.data);
-			});
+		dispath(setUser());
 	};
 	return (
 		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>

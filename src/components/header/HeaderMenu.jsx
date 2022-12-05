@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import avatar from '../../assets/musashi.jpg';
 import NavigationLink from '../navigation/NavigationLink';
 
 const HeaderMenu = ({ show, wrapperRef }) => {
+	const userInfo = useSelector((state) => state.userInfo);
+	console.log(userInfo);
 	if (!show) {
 		return null;
 	}
