@@ -11,7 +11,12 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/actions/userActions';
 
 const LoginForm = () => {
-	const { register, handleSubmit } = useForm();
+	const {
+		register,
+		handleSubmit,
+
+		formState: { errors },
+	} = useForm();
 	const navigate = useNavigate();
 	// eslint-disable-next-line no-unused-vars
 	const [cookies, setCookie] = useCookies(['access_token']);
@@ -34,6 +39,9 @@ const LoginForm = () => {
 					required
 					name='email'
 				/>
+				{errors.email && (
+					<p className='bg-red-300 w-max rounded p-1 my-3'>Email is required</p>
+				)}
 				<FormInput
 					label='Password'
 					register={register}
@@ -41,6 +49,11 @@ const LoginForm = () => {
 					name='password'
 					type='password'
 				/>
+				{errors.password && (
+					<p className='bg-red-300 w-max rounded p-1 my-3'>
+						Password is required and min 6 symbols
+					</p>
+				)}
 				<FormButton text='Sign in' />
 			</form>
 			<Link

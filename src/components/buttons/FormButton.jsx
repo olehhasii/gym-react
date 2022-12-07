@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FormButton = ({ text, onClick }) => {
+const FormButton = ({ text, onClick, disabled = false }) => {
 	return (
 		<button
 			type='submit'
 			onClick={onClick}
-			className='h-12 bg-green_txt w-full rounded-md hover:scale-105 duration-300'>
+			className='cursor-pointer bg-green_txt hover:scale-105 duration-300 h-12 w-full rounded-md font-bold'>
 			{text}
 		</button>
 	);
