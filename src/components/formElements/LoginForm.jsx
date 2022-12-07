@@ -33,32 +33,38 @@ const LoginForm = () => {
 		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>
 			<h2 className='font-bold text-3xl mb-8'>Sign into your account</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
-				<FormInput
-					label='Email address'
-					register={register}
-					required
-					name='email'
-				/>
-				{errors.email && (
-					<p className='bg-red-300 w-max rounded p-1 my-3'>Email is required</p>
-				)}
-				<FormInput
-					label='Password'
-					register={register}
-					required
-					name='password'
-					type='password'
-				/>
-				{errors.password && (
-					<p className='bg-red-300 w-max rounded p-1 my-3'>
-						Password is required and min 6 symbols
-					</p>
-				)}
+				<div className='mb-6'>
+					<FormInput
+						label='Email address'
+						register={register}
+						required
+						name='email'
+					/>
+					{errors.email && (
+						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
+							Email is required
+						</p>
+					)}
+				</div>
+				<div className='mb-6'>
+					<FormInput
+						label='Password'
+						register={register}
+						required
+						name='password'
+						type='password'
+					/>
+					{errors.password && (
+						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
+							Password is required and min 6 symbols
+						</p>
+					)}
+				</div>
 				<FormButton text='Sign in' />
 			</form>
 			<Link
 				to='/auth/signup'
-				className='mt-6 block underline duration-300 hover:text-green_txt '>
+				className='mt-6 block underline duration-300 hover:text-green_txt font-bold'>
 				Don't have an account? Create one!
 			</Link>
 		</div>

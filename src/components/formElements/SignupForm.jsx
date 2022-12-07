@@ -15,25 +15,31 @@ const SignupForm = () => {
 		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>
 			<h2 className='font-bold text-3xl mb-8'>Create an account</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
-				<FormInput
-					label='Email address'
-					register={register}
-					required
-					name='email'
-				/>
-				<FormInput
-					label='Username'
-					register={register}
-					required
-					name='username'
-				/>
-				<FormInput
-					label='Password'
-					register={register}
-					required
-					name='password'
-					type='password'
-				/>
+				<div className='mb-6'>
+					<FormInput
+						label='Email address'
+						register={register}
+						required
+						name='email'
+					/>
+				</div>
+				<div className='mb-6'>
+					<FormInput
+						label='Username'
+						register={register}
+						required
+						name='username'
+					/>
+				</div>
+				<div className='mb-6'>
+					<FormInput
+						label='Password'
+						register={register}
+						required
+						name='password'
+						type='password'
+					/>
+				</div>
 				<FormButton text='Sign up' />
 			</form>
 			<Link
