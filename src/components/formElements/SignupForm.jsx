@@ -44,7 +44,7 @@ const SignupForm = () => {
 			</form>
 			<Link
 				to='/auth/login'
-				className='mt-6 block underline duration-300 hover:text-green_txt font-bold'>
+				className='mt-6 block underline duration-300 hover:text-green_txt '>
 				Already have an account? Sign in!
 			</Link>
 		</div>

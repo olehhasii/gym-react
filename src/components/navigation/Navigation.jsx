@@ -9,7 +9,7 @@ const Navigation = ({ isFull }) => {
 		<div
 			className={`${
 				isFull ? 'w-64' : 'w-20'
-			} fixed top-0 left-0 h-full border-r-2 border-0 border-solid border-black duration-500 transition-all`}>
+			} fixed top-0 left-0 h-full border-r border-0 border-solid border-gray-300 duration-500 transition-all`}>
 			<div className='flex p-6'>
 				<img src={logo} alt='logo' className='h-12 mr-8' />
 				<h2
@@ -24,7 +24,7 @@ const Navigation = ({ isFull }) => {
 			<hr
 				className={
 					isFull
-						? 'my-4 border-1 h-0 border-black bg-black  duration-500 transition-all'
+						? 'my-4 duration-500 transition-all'
 						: 'my-1 duration-500 transition-all'
 				}
 			/>
