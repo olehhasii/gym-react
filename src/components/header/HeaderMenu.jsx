@@ -6,7 +6,6 @@ import NavigationLink from '../navigation/NavigationLink';
 
 const HeaderMenu = ({ show, wrapperRef }) => {
 	const userInfo = useSelector((state) => state.userInfo);
-	console.log(userInfo);
 	if (!show) {
 		return null;
 	}
@@ -17,8 +16,8 @@ const HeaderMenu = ({ show, wrapperRef }) => {
 			<div className='flex p-4 items-center'>
 				<img src={avatar} alt='avatar' className='rounded-full w-12 h-12' />
 				<div className='flex flex-col pl-2'>
-					<span className='font-bold'>Oleh</span>
-					<span>oleh@test.com</span>
+					<span className='font-bold'>{userInfo.username}</span>
+					<span>{userInfo.email}</span>
 				</div>
 			</div>
 			<hr />

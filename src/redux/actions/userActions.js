@@ -3,7 +3,7 @@ import { ActionTypes } from '../constants/action-types';
 
 export const setUser = () => {
 	return (dispatch) => {
-		dispatch(setUserStarted);
+		dispatch(setUserStarted());
 
 		axios
 			.get('http://localhost:4000/me', {
@@ -27,6 +27,7 @@ const setUserSuccess = (user) => ({
 
 const setUserStarted = () => ({
 	type: ActionTypes.SET_USER_STARTED,
+	payload: {},
 });
 
 const setUserError = (error) => ({
