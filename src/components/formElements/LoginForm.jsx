@@ -1,20 +1,19 @@
 import React from 'react';
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 import FormInput from './FormInput';
 import FormButton from '../buttons/FormButton';
-import { API_URL } from '../../constants/apiConstants';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/actions/userActions';
+import api from '../../features/api';
+import { EMAIL_PATTERN, MIN_PASSWORD } from '../../constants/constatns';
 
 const LoginForm = () => {
 	const {
 		register,
 		handleSubmit,
-
 		formState: { errors },
 	} = useForm();
 	const navigate = useNavigate();
@@ -23,7 +22,7 @@ const LoginForm = () => {
 	const dispathc = useDispatch();
 
 	const onSubmit = async (credentials) => {
-		await axios.post(`${API_URL}/login`, credentials).then((res) => {
+		await api.post('/login', credentials).then((res) => {
 			setCookie('access_token', res.data.access_token, { path: '/' });
 		});
 		navigate('/');
@@ -39,10 +38,11 @@ const LoginForm = () => {
 						register={register}
 						required
 						name='email'
+						pattern={EMAIL_PATTERN}
 					/>
 					{errors.email && (
 						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
-							Email is required
+							Please enter a valid email
 						</p>
 					)}
 				</div>
@@ -53,6 +53,7 @@ const LoginForm = () => {
 						required
 						name='password'
 						type='password'
+						minLength={MIN_PASSWORD}
 					/>
 					{errors.password && (
 						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>

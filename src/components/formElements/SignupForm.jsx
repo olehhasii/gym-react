@@ -1,15 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import FormButton from '../buttons/FormButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import FormInput from './FormInput';
+import api from '../../features/api';
+import { EMAIL_PATTERN } from '../../constants/constatns';
 
 const SignupForm = () => {
-	const { register, handleSubmit } = useForm();
+	const navigate = useNavigate();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 
-	const onSubmit = (data) => {
-		alert(JSON.stringify(data));
+	const onSubmit = async (data) => {
+		await api.post('/signup', data).catch((err) => {
+			console.log(err);
+		});
+		navigate('/auth/login');
 	};
 	return (
 		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>
@@ -21,7 +31,13 @@ const SignupForm = () => {
 						register={register}
 						required
 						name='email'
+						pattern={EMAIL_PATTERN}
 					/>
+					{errors.email && (
+						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
+							Please enter a valid email
+						</p>
+					)}
 				</div>
 				<div className='mb-6'>
 					<FormInput
@@ -30,6 +46,11 @@ const SignupForm = () => {
 						required
 						name='username'
 					/>
+					{errors.username && (
+						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
+							Username is required and min 3 symbols
+						</p>
+					)}
 				</div>
 				<div className='mb-6'>
 					<FormInput
@@ -39,6 +60,11 @@ const SignupForm = () => {
 						name='password'
 						type='password'
 					/>
+					{errors.password && (
+						<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
+							Password is required and min 6 symbols
+						</p>
+					)}
 				</div>
 				<FormButton text='Sign up' />
 			</form>
