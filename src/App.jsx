@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Overview from './pages/overview/Overview';
-import MainWrapper from './components/ui/MainWrapper';
 import Authentication from './pages/authentication/Authentication';
-import LoginForm from './components/formElements/LoginForm';
-import SignupForm from './components/formElements/SignupForm';
+import LoginForm from './components/formElements/auth/LoginForm';
+import SignupForm from './components/formElements/auth/SignupForm';
 import NavLayout from './components/ui/NavLayout';
 import AuthVerify from './features/AuthVerify';
 import ProtectedRouter from './features/ProtectedRouter';
+import Nutrition from './pages/nutrition/Nutrition';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -34,16 +34,16 @@ function App() {
 					<Route
 						index
 						element={
-							<MainWrapper>
+							<ProtectedRouter>
 								<Overview />
-							</MainWrapper>
+							</ProtectedRouter>
 						}
 					/>
 					<Route
-						path='test'
+						path='/nutrition'
 						element={
 							<ProtectedRouter>
-								<p>hi</p>
+								<Nutrition />
 							</ProtectedRouter>
 						}
 					/>

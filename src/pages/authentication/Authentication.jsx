@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import gymImg from '../../assets/gym.png';
-import LoginForm from '../../components/formElements/LoginForm';
 
 const Authentication = () => {
 	return (
