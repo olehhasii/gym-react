@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormButton = ({ text, onClick, disabled = false }) => {
+const AuthButton = ({ text, onClick, disabled = false }) => {
 	return (
 		<button
 			type='submit'
@@ -11,4 +11,4 @@ const FormButton = ({ text, onClick, disabled = false }) => {
 	);
 };
 
-export default FormButton;
+export default AuthButton;

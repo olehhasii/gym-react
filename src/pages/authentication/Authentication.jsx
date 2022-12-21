@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
-import gymImg from '../../assets/gym.png';
+import img from '../../assets/main.jpg';
 
 const Authentication = () => {
 	return (
@@ -15,7 +15,11 @@ const Authentication = () => {
 						Become focused, organized, and calm with Gym App. Reach your goals!
 					</h2>
 				</div>
-				<img src={gymImg} alt='gym' className=' w-2/3' />
+				<img
+					src={img}
+					alt='gym'
+					className='absolute left-0 bottom-0 -z-10 h-3/4'
+				/>
 			</div>
 			<Outlet />
 		</div>

@@ -5,7 +5,7 @@ import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 
 import FormInput from '../FormInput';
-import FormButton from '../../buttons/FormButton';
+import AuthButton from './AuthButton';
 import { setUser } from '../../../redux/actions/userActions';
 import api from '../../../features/api';
 import { EMAIL_PATTERN, MIN_PASSWORD } from '../../../constants/constatns';
@@ -61,7 +61,7 @@ const LoginForm = () => {
 						</p>
 					)}
 				</div>
-				<FormButton text='Sign in' />
+				<AuthButton text='Sign in' />
 			</form>
 			<Link
 				to='/auth/signup'

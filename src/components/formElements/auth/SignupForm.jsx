@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import FormButton from '../../buttons/FormButton';
+import AuthButton from './AuthButton';
 import { Link, useNavigate } from 'react-router-dom';
 
 import FormInput from '../FormInput';
@@ -66,7 +66,7 @@ const SignupForm = () => {
 						</p>
 					)}
 				</div>
-				<FormButton text='Sign up' />
+				<AuthButton text='Sign up' />
 			</form>
 			<Link
 				to='/auth/login'
