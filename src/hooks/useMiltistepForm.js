@@ -24,6 +24,8 @@ export function useMiltistepForm(steps) {
 	return {
 		currentStepIndex,
 		step: steps[currentStepIndex],
+		isFirstStep: currentStepIndex === 0,
+		isLastStep: currentStepIndex === steps.length - 1,
 		goTo,
 		next,
 		back,
