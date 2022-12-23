@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 
-import FormInput from '../FormInput';
+import AuthInput from '../AuthInput';
 import AuthButton from './AuthButton';
 import { setUser } from '../../../redux/actions/userActions';
 import api from '../../../features/api';
@@ -33,7 +33,7 @@ const LoginForm = () => {
 			<h2 className='font-bold text-3xl mb-8'>Sign into your account</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 				<div className='mb-6'>
-					<FormInput
+					<AuthInput
 						label='Email address'
 						register={register}
 						required
@@ -47,7 +47,7 @@ const LoginForm = () => {
 					)}
 				</div>
 				<div className='mb-6'>
-					<FormInput
+					<AuthInput
 						label='Password'
 						register={register}
 						required

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import AuthButton from './AuthButton';
 import { Link, useNavigate } from 'react-router-dom';
 
-import FormInput from '../FormInput';
+import AuthInput from '../AuthInput';
 import api from '../../../features/api';
 import { EMAIL_PATTERN } from '../../../constants/constatns';
 
@@ -26,7 +26,7 @@ const SignupForm = () => {
 			<h2 className='font-bold text-3xl mb-8'>Create an account</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 				<div className='mb-6'>
-					<FormInput
+					<AuthInput
 						label='Email address'
 						register={register}
 						required
@@ -40,7 +40,7 @@ const SignupForm = () => {
 					)}
 				</div>
 				<div className='mb-6'>
-					<FormInput
+					<AuthInput
 						label='Username'
 						register={register}
 						required
@@ -53,7 +53,7 @@ const SignupForm = () => {
 					)}
 				</div>
 				<div className='mb-6'>
-					<FormInput
+					<AuthInput
 						label='Password'
 						register={register}
 						required
