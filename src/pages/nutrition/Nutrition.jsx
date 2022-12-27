@@ -7,7 +7,7 @@ const Nutrition = () => {
 	return (
 		<div className='flex'>
 			<img src={img} alt='food' className='h-[calc(100vh_-_4rem)]' />
-			<div className='p-14 w-full'>
+			<div className='p-14 py-12 w-full'>
 				<div>
 					<h1 className='font-bold text-3xl mb-2'>
 						Start tracking your daily nutrition!

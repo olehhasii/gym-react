@@ -4,7 +4,7 @@ import FormStep from '../../formElements/FormStep';
 
 const NutritionFormSteps = ({ stepIndex }) => {
 	return (
-		<div className='flex py-8'>
+		<div className='flex py-6'>
 			<FormStep
 				text='Your Goals'
 				icon={<FaDumbbell className='w-10 h-10 text-white' />}

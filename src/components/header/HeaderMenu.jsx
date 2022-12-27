@@ -12,7 +12,7 @@ const HeaderMenu = ({ show, wrapperRef }) => {
 	return (
 		<div
 			ref={wrapperRef}
-			className='absolute w-72 top-12 bg-white right-0 rounded-lg border '>
+			className='absolute w-72 top-12 bg-white right-0 rounded-lg border z-20'>
 			<div className='flex p-4 items-center'>
 				<img src={avatar} alt='avatar' className='rounded-full w-12 h-12' />
 				<div className='flex flex-col pl-2'>
