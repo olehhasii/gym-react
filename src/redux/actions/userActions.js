@@ -10,6 +10,7 @@ export const setUser = () => {
 				withCredentials: true,
 			})
 			.then((res) => {
+				console.log(res.data);
 				dispatch(setUserSuccess(res.data));
 			})
 			.catch((err) => {

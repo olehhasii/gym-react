@@ -4,6 +4,7 @@ const initialState = {
 	id: '',
 	username: '',
 	email: '',
+	parameters: null,
 	loading: false,
 	error: null,
 };
@@ -21,6 +22,7 @@ export const useReducer = (state = initialState, { type, payload }) => {
 				id: payload._id,
 				username: payload.username,
 				email: payload.email,
+				parameters: payload.parameters,
 				loading: false,
 			};
 		case ActionTypes.SET_USER_ERROR:

@@ -4,7 +4,6 @@ import RadioInput from '../../formElements/RadioInput';
 import FormInput from '../../formElements/FormInput';
 
 const ParametersStep = ({ register, errors }) => {
-	console.log(errors);
 	return (
 		<>
 			<div>
