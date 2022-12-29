@@ -5,8 +5,8 @@ import {
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const ProgressCircle = ({ total, current }) => {
-	const percentage = 66;
+const ProgressCircle = ({ total, current, valueName }) => {
+	const percentage = (current / total) * 100;
 
 	return (
 		<CircularProgressbarWithChildren
@@ -18,9 +18,9 @@ const ProgressCircle = ({ total, current }) => {
 				textColor: 'black',
 			})}>
 			<span className='font-bold text-xl'>
-				{2000}/{total}
+				{current}/{total}
 			</span>
-			<span className='text-lg'>kcal</span>
+			<span className='text-lg'>{valueName}</span>
 		</CircularProgressbarWithChildren>
 	);
 };

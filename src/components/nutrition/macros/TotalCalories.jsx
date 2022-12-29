@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { useSelector } from 'react-redux';
+import ProgressBar from '../../ui/ProgressBar';
 import ProgressCircle from '../../ui/ProgressCircle';
 
 const TotalCalories = () => {
-	const { caloriesPerDay } = useSelector(
+	const { caloriesPerDay, carbs, protein, fats } = useSelector(
 		(state) => state.userInfo.parameters.macros
 	);
 	return (
@@ -12,17 +13,41 @@ const TotalCalories = () => {
 			<div className='flex justify-between items-center'>
 				<div className='relative flex flex-col items-center'>
 					<span className='text-xl font-bold'>Eaten</span>
-					<span className='text-xl'>243 kcal</span>
+					<span className='text-xl'>{1500} kcal</span>
 				</div>
 				<div className='w-40 h-40'>
-					<ProgressCircle total={caloriesPerDay} current={0} />
+					<ProgressCircle
+						total={caloriesPerDay}
+						current={1500}
+						valueName='kcal'
+					/>
 				</div>
 				<div className='relative flex flex-col items-center'>
 					<span className='text-xl font-bold'>Left</span>
-					<span className='text-xl '>2000 kcal</span>
+					<span className='text-xl '>{caloriesPerDay - 1500} kcal</span>
 				</div>
 			</div>
 			<hr className='h-0.5 bg-green-400' />
+			<div className='flex justify-between'>
+				<ProgressBar
+					label='Carbs'
+					current={190}
+					total={carbs}
+					color='bg-sky-400'
+				/>
+				<ProgressBar
+					label='Protein'
+					current={113}
+					total={protein}
+					color='bg-rose-500'
+				/>
+				<ProgressBar
+					label='Fats'
+					current={31}
+					total={fats}
+					color='bg-orange-500'
+				/>
+			</div>
 		</div>
 	);
 };
