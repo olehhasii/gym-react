@@ -1,5 +1,5 @@
 import React from 'react';
-import MealsList from './MealsList';
+import MealsWrapper from './MealsWrapper';
 import TotalCalories from './TotalCalories';
 
 const NutritionMacros = () => {
@@ -8,7 +8,7 @@ const NutritionMacros = () => {
 			<h1 className='font-bold text-4xl mb-8'>Calories for today </h1>
 			<div className='flex gap-8 '>
 				<TotalCalories />
-				<MealsList />
+				<MealsWrapper />
 			</div>
 		</div>
 	);

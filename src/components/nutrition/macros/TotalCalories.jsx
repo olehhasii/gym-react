@@ -12,7 +12,7 @@ const TotalCalories = () => {
 		(state) => state.userInfo.parameters.macros
 	);
 	return (
-		<div className='w-1/2 p-8 px-12 rounded-lg shadow-card flex flex-col gap-4'>
+		<div className='w-1/2 max-h-96 p-8 px-12 rounded-lg shadow-card flex flex-col gap-4'>
 			<div className='flex justify-between items-center'>
 				<div className='relative flex flex-col items-center'>
 					<span className='text-xl font-bold'>Eaten</span>
@@ -31,7 +31,7 @@ const TotalCalories = () => {
 				</div>
 			</div>
 			<hr className='h-0.5 bg-green-400' />
-			<div className='flex justify-between'>
+			<div className='flex justify-between mt-8'>
 				<ProgressBar
 					label='Carbs'
 					current={190}
