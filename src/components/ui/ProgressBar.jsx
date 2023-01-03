@@ -2,7 +2,6 @@ import React from 'react';
 
 const ProgressBar = ({ label, current, total, color, img }) => {
 	const percentage = Math.round((current / total) * 100);
-	console.log(percentage);
 	return (
 		<div className='w-[25%] flex flex-col items-center '>
 			<div className='flex gap-2 items-center mb-2'>

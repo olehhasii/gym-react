@@ -9,7 +9,7 @@ const initialState = {
 	error: null,
 };
 
-export const useReducer = (state = initialState, { type, payload }) => {
+export const userReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case ActionTypes.SET_USER_STARTED:
 			return {

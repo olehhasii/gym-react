@@ -23,7 +23,6 @@ const NutritionUserDataForm = () => {
 		]);
 	const onSubmit = (data) => {
 		if (!isLastStep) return next();
-		console.log(data);
 	};
 
 	return (

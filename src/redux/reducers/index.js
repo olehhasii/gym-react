@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { useReducer } from './useReducer';
+import { dailyMacrosReducer } from './dailyMacros';
+import { userReducer } from './userReducer';
 
 const reducers = combineReducers({
-	userInfo: useReducer,
+	userInfo: userReducer,
+	dailyMacros: dailyMacrosReducer,
 });
 
 export default reducers;
