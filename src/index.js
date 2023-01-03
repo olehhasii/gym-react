@@ -10,15 +10,13 @@ import store from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<CookiesProvider>
-				<Provider store={store}>
-					<App />
-				</Provider>
-			</CookiesProvider>
-		</BrowserRouter>
-	</React.StrictMode>
+	<BrowserRouter>
+		<CookiesProvider>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</CookiesProvider>
+	</BrowserRouter>
 );
 
 reportWebVitals();

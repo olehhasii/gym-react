@@ -1,16 +1,18 @@
-const initialState = {
-	caloriesConsumed: 0,
-	carbsConsumed: 0,
-	proteinConsumed: 0,
-	fatsConsumed: 0,
-	meals: {
-		breakfast: { name: 'breakfast' },
-		lunch: { name: 'lunch' },
-		dinner: { name: 'dinner' },
-		snacks: { snacks: 'snacks' },
-	},
-};
+import { initialDailyMacrosState } from '../../constants/constatns';
+import { DailyMacrosActionTypes } from '../constants/action-types';
 
-export const dailyMacrosReducer = (state = initialState, { type, payload }) => {
-	return state;
+export const dailyMacrosReducer = (
+	state = { ...initialDailyMacrosState, loading: false, error: null },
+	{ type, payload }
+) => {
+	switch (type) {
+		case DailyMacrosActionTypes.SET_DAILY_MACROS_STARTED:
+			return { ...state, loading: true };
+		case DailyMacrosActionTypes.SET_DAILY_MACROS_SUCCESS:
+			return { ...payload, loading: false, error: null };
+		case DailyMacrosActionTypes.SET_DAILY_MACROS_ERROR:
+			return { ...state, loading: false, error: payload.error };
+		default:
+			return state;
+	}
 };

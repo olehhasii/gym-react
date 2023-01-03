@@ -4,19 +4,6 @@ import { useSelector } from 'react-redux';
 
 import OpenedMeal from './OpenedMeal';
 
-const meal = {
-	name: 'breakfast',
-	food: [
-		{ name: 'apple', weight: 50, calories: 30, protein: 2, carbs: 15, fats: 5 },
-		{ name: 'apple', weight: 50, calories: 30, protein: 2, carbs: 15, fats: 5 },
-		{ name: 'apple', weight: 50, calories: 30, protein: 2, carbs: 15, fats: 5 },
-	],
-	totalCalories: 291,
-	totalProtein: 50,
-	totalFats: 23,
-	totalCarbs: 70,
-};
-
 const MealsListItem = ({ img, mealName }) => {
 	const [active, setIsActive] = useState(false);
 
