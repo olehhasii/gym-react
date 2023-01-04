@@ -14,7 +14,6 @@ const TotalCalories = () => {
 	const { caloriesConsumed, proteinConsumed, fatsConsumed, carbsConsumed } =
 		useSelector((state) => state.dailyMacros);
 
-	console.log(caloriesConsumed);
 	return (
 		<div className='w-1/2 max-h-96 p-8 px-12 rounded-lg shadow-card flex flex-col gap-4'>
 			<div className='flex justify-between items-center'>

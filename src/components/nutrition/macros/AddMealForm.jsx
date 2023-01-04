@@ -24,6 +24,8 @@ const AddMealForm = () => {
 		},
 	});
 
+	const onSubmit = () => {};
+
 	return (
 		<form onSubmit={handleSubmit((data) => console.log(data))} className='mt-4'>
 			<p className='mb-4 text-center font-bold '>
@@ -62,14 +64,14 @@ const AddMealForm = () => {
 			})}
 			<button
 				type='button'
-				className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-12 w-1/3 rounded-md font-bold border-none '
+				className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-10 w-32 rounded-md font-bold border-none '
 				onClick={() => append({ name: '', weight: 0 })}>
 				Add product
 			</button>
 			{!errors.food?.root?.message && (
 				<button
 					type='submit'
-					className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-12 w-1/3 rounded-md font-bold border-none ml-4'>
+					className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-10 w-32 rounded-md font-bold border-none ml-4'>
 					Save meal
 				</button>
 			)}

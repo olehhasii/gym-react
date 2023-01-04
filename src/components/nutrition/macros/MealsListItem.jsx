@@ -8,7 +8,7 @@ const MealsListItem = ({ img, mealName }) => {
 	const [active, setIsActive] = useState(false);
 
 	const meal = useSelector((state) => state.dailyMacros.meals[mealName]);
-	console.log(meal);
+
 	return (
 		<div className='shadow-card rounded-md p-3'>
 			<div className='flex items-center justify-between h-16'>

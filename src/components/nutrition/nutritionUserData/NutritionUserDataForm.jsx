@@ -7,6 +7,9 @@ import FormStepButton from '../../formElements/FormStepButton';
 import GoalStep from './GoalStep';
 import ParametersStep from './ParametersStep';
 import ActivityStep from './ActivityStep';
+import api from '../../../features/api';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../../redux/actions/userActions';
 
 const NutritionUserDataForm = () => {
 	const {
@@ -21,8 +24,14 @@ const NutritionUserDataForm = () => {
 			<ParametersStep register={register} errors={errors} />,
 			<ActivityStep register={register} />,
 		]);
+
+	const dispatch = useDispatch();
+
 	const onSubmit = (data) => {
 		if (!isLastStep) return next();
+		api.patch('/user/add-parameters', data).then((res) => {
+			dispatch(setUser(res.data));
+		});
 	};
 
 	return (
