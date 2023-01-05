@@ -4,6 +4,23 @@ export const MIN_PASSWORD = 6;
 
 export const EMAIL_PATTERN = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
+export const WEEK_DAYS = ['Sund', 'Mond', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+export const MONTH_NAME = [
+	'Jan',
+	'Feb',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'Aug',
+	'Sept',
+	'Oct',
+	'Nov',
+	'Dec',
+];
+
 export const initialDailyMacrosState = {
 	date: new Date().toISOString().split('T')[0],
 	caloriesConsumed: 0,
@@ -36,7 +53,7 @@ export const initialDailyMacrosState = {
 			totalFats: 0,
 		},
 		snacks: {
-			snacks: 'snacks',
+			name: 'snacks',
 			food: [],
 			totalCalories: 0,
 			totalCarbs: 0,

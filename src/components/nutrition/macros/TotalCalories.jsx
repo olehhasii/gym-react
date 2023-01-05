@@ -31,7 +31,7 @@ const TotalCalories = () => {
 				<div className='relative flex flex-col items-center'>
 					<span className='text-xl font-bold'>Left</span>
 					<span className='text-xl '>
-						{caloriesPerDay - caloriesConsumed} kcal
+						{Math.round((caloriesPerDay - caloriesConsumed) * 10) / 10} kcal
 					</span>
 				</div>
 			</div>
