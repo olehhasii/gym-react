@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
+import React from 'react';
+
 import AddMealForm from './AddMealForm';
 
-const OpenedMeal = ({ meal }) => {
-	const { food } = meal;
+const OpenedMeal = ({ meal, onCloseOpened }) => {
+	const { food, name } = meal;
 
 	return (
 		<div className='mt-2'>
-			<ul className='flex justify-around flex-wrap'>
+			<ul className='ml-4 flex justify-start flex-wrap gap-8'>
 				{food &&
 					food.length !== 0 &&
 					food.map((product) => (
@@ -19,7 +19,7 @@ const OpenedMeal = ({ meal }) => {
 						</li>
 					))}
 			</ul>
-			<AddMealForm />
+			<AddMealForm mealName={name} onCloseOpened={onCloseOpened} />
 		</div>
 	);
 };

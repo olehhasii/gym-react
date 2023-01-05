@@ -16,7 +16,7 @@ const MealsListItem = ({ img, mealName }) => {
 					<img src={img} alt='meal' className='w-12 h-12' />
 					<div className='ml-5'>
 						<h3 className='font-bold first-letter:capitalize'>{mealName}</h3>
-						{meal.caloriesConsumed && (
+						{meal.totalCalories !== 0 && (
 							<>
 								<span className=''>{meal.totalCalories} kcal / </span>
 								<span>Carbs - {meal.totalCarbs ? meal.totalCarbs : 0}g/ </span>
@@ -26,7 +26,7 @@ const MealsListItem = ({ img, mealName }) => {
 								<span>Fats - {meal.totalFats ? meal.totalFats : 0}g</span>
 							</>
 						)}
-						{!meal.caloriesConsumed && (
+						{!meal.totalCalories && (
 							<span className='text-sm font-bold'>
 								No data, please add products.
 							</span>
@@ -40,7 +40,9 @@ const MealsListItem = ({ img, mealName }) => {
 					onClick={() => setIsActive((state) => !state)}
 				/>
 			</div>
-			{active && <OpenedMeal meal={meal} />}
+			{active && (
+				<OpenedMeal meal={meal} onCloseOpened={() => setIsActive(false)} />
+			)}
 		</div>
 	);
 };

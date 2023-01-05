@@ -1,10 +1,15 @@
 import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { FaTrashAlt } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setDailyMacros } from '../../../redux/actions/dailyMacrosActions';
 import FormInput from '../../formElements/FormInput';
+import api from '../../../features/api';
 
-const AddMealForm = () => {
+const AddMealForm = ({ mealName, onCloseOpened }) => {
+	const date = useSelector((state) => state.dailyMacros.date);
+	const dispatch = useDispatch();
 	const {
 		handleSubmit,
 		register,
@@ -24,10 +29,16 @@ const AddMealForm = () => {
 		},
 	});
 
-	const onSubmit = () => {};
+	const onSubmit = (data) => {
+		const dataForUpdate = { date, name: mealName, ...data };
+		api.patch('/meals/update-meal', dataForUpdate).then(() => {
+			dispatch(setDailyMacros(date));
+			onCloseOpened();
+		});
+	};
 
 	return (
-		<form onSubmit={handleSubmit((data) => console.log(data))} className='mt-4'>
+		<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 			<p className='mb-4 text-center font-bold '>
 				{errors.food?.root?.message}
 			</p>

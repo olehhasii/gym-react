@@ -11,7 +11,7 @@ const ProgressBar = ({ label, current, total, color, img }) => {
 			<div className='bg-gray-200 relative h-[10px] w-full rounded-2xl'>
 				<div
 					className={`${color} absolute top-0 left-0 h-full  rounded-2xl`}
-					style={{ width: `${percentage}%` }}></div>
+					style={{ width: `${percentage > 100 ? 100 : percentage}%` }}></div>
 			</div>
 			<span className='mt-2 text-sm'>
 				{current} / {total}
