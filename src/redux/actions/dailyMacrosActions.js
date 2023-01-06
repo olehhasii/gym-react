@@ -13,8 +13,11 @@ export const setDailyMacros = (date) => {
 					dispatch(setDailyMacrosSuccess(res.data));
 				} else {
 					api
-						.post('/meals/initial', initialDailyMacrosState)
-						.then((res) => dispatch(setDailyMacrosSuccess(res.data)))
+						.post('/meals/initial', { ...initialDailyMacrosState, date: date })
+						.then((res) => {
+							console.log(res.data);
+							dispatch(setDailyMacrosSuccess(res.data));
+						})
 						.catch((err) => dispatch(setDailyMacrosError(err)));
 				}
 			})

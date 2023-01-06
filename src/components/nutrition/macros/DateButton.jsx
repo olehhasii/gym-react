@@ -1,16 +1,29 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { MONTH_NAME, WEEK_DAYS } from '../../../constants/constatns';
+import { setDailyMacros } from '../../../redux/actions/dailyMacrosActions';
 
-const DateButton = ({ date, keyProp, disabled, color }) => {
+import {
+	dateToIsoSting,
+	getDateNumber,
+	getDayName,
+	getMonthName,
+} from '../../../helpers/dates';
+
+const DateButton = ({ date, keyProp, disabled = false, active }) => {
+	const dispatch = useDispatch();
+
 	return (
 		<li className='' key={keyProp}>
 			<button
+				onClick={() => dispatch(setDailyMacros(dateToIsoSting(date)))}
 				disabled={disabled}
-				className='flex flex-col items-center bg-green-100 w-16 h-20 rounded-full'>
-				<span className='font-bold'>{MONTH_NAME[date.getMonth()]}</span>
-				<span className='font-bold'>{date.getDate()}</span>
-				<span className='font-bold'>{WEEK_DAYS[date.getDay()]}</span>
+				className={`${
+					active ? 'bg-green-500' : 'bg-green-100'
+				}  flex flex-col items-center w-16 h-20 rounded-full`}>
+				<span className='font-bold'>{getMonthName(date)}</span>
+				<span className='font-bold'>{getDateNumber(date)}</span>
+				<span className='font-bold'>{getDayName(date)}</span>
 			</button>
 		</li>
 	);

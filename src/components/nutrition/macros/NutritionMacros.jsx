@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
-import { MONTH_NAME } from '../../../constants/constatns';
 
+import { getDateNumber, getMonthName } from '../../../helpers/dates';
 import { setDailyMacros } from '../../../redux/actions/dailyMacrosActions';
 import MealsWrapper from './MealsWrapper';
 import NutritionDates from './NutritionDates';
 import TotalCalories from './TotalCalories';
 
 const NutritionMacros = () => {
-	const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
-
 	const dispatch = useDispatch();
-	const loading = useSelector((state) => state.dailyMacros.loading);
+	const { loading, date } = useSelector((state) => state.dailyMacros);
 	useEffect(() => {
 		dispatch(setDailyMacros(date));
 	}, [dispatch, date]);
@@ -35,8 +33,8 @@ const NutritionMacros = () => {
 	return (
 		<div className='p-12 py-8'>
 			<h1 className='font-bold text-4xl mb-5'>
-				Calories for {new Date(date).getDate()} {` `}
-				{MONTH_NAME[new Date(date).getMonth()]}
+				Calories for {getDateNumber(date)} {` `}
+				{getMonthName(date)}
 			</h1>
 			<NutritionDates />
 

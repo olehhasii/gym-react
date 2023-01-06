@@ -1,68 +1,30 @@
 import React from 'react';
-import { MONTH_NAME, WEEK_DAYS } from '../../../constants/constatns';
+import { useSelector } from 'react-redux';
+import {
+	getNew6days,
+	getPast6Days,
+	getTodaysDate,
+} from '../../../helpers/dates';
+
 import DateButton from './DateButton';
 
 const NutritionDates = () => {
-	const todayDate = new Date();
+	const activeDate = useSelector(
+		(state) => state.dailyMacros.date.split('T')[0]
+	);
 
-	const past6Days = [...Array(6).keys()]
-		.map((index) => {
-			const date = new Date();
-			date.setDate(date.getDate() - (index + 1));
+	const todayDate = getTodaysDate();
+	const past6Days = getPast6Days();
+	const new6Days = getNew6days();
 
-			return date.toISOString().split('T')[0];
-		})
-		.reverse();
-
-	const new6Days = [...Array(6).keys()].map((index) => {
-		const date = new Date();
-		date.setDate(date.getDate() + (index + 1));
-
-		return date.toISOString().split('T')[0];
-	});
-
-	/* const dates = [todayDate, ...past6Days]; */
+	const datesArray = [...past6Days, todayDate, ...new6Days];
 
 	return (
 		<div className='h-16 grow flex justify-center'>
 			<ul className='flex gap-6 '>
-				{past6Days.map((date) => {
-					const dateObj = new Date(date);
-					return (
-						<li className=''>
-							<button className='flex flex-col items-center bg-green-200 w-16 h-20 rounded-full'>
-								<span className='font-bold'>
-									{MONTH_NAME[dateObj.getMonth()]}
-								</span>
-								<span className='font-bold'>{dateObj.getDate()}</span>
-								<span className='font-bold'>
-									{WEEK_DAYS[new Date(date).getDay()]}
-								</span>
-							</button>
-						</li>
-					);
-				})}
-				<li className=''>
-					<button className='flex flex-col items-center bg-green-400 w-16 h-20 rounded-full'>
-						<span className='font-bold'>
-							{MONTH_NAME[todayDate.getMonth()]}
-						</span>
-						<span className='font-bold'>{todayDate.getDate()}</span>
-						<span className='font-bold'>
-							{WEEK_DAYS[new Date(todayDate).getDay()]}
-						</span>
-					</button>
-				</li>
-				{new6Days.map((date) => {
-					const dateObj = new Date(date);
-					return (
-						<DateButton
-							date={dateObj}
-							keyProp={date}
-							disabled={true}
-							color='bg-green-200'
-						/>
-					);
+				{datesArray.map((date) => {
+					const active = date === activeDate ? true : false;
+					return <DateButton date={date} keyProp={date} active={active} />;
 				})}
 			</ul>
 		</div>
