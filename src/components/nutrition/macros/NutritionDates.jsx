@@ -1,11 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+
 import {
-	getNew6days,
+	getNextDay,
 	getPast6Days,
+	getPreviousDay,
 	getTodaysDate,
 } from '../../../helpers/dates';
-
 import DateButton from './DateButton';
 
 const NutritionDates = () => {
@@ -14,19 +17,44 @@ const NutritionDates = () => {
 	);
 
 	const todayDate = getTodaysDate();
-	const past6Days = getPast6Days();
-	const new6Days = getNew6days();
+	const past6Days = getPast6Days().reverse();
 
-	const datesArray = [...past6Days, todayDate, ...new6Days];
+	const [datesArray, setDatesArray] = useState([todayDate, ...past6Days]);
+
+	const onPastDate = () => {
+		const newPastDate = getPreviousDay(
+			new Date(datesArray[datesArray.length - 1])
+		);
+		const newDateArray = [...datesArray, newPastDate];
+		newDateArray.shift();
+
+		setDatesArray(newDateArray);
+	};
+
+	const onNewDate = () => {
+		const nextDay = getNextDay(new Date(datesArray[0]));
+		const newDateArray = [nextDay, ...datesArray];
+		newDateArray.pop();
+
+		setDatesArray(newDateArray);
+	};
 
 	return (
-		<div className='h-16 grow flex justify-center'>
+		<div className='flex'>
+			{datesArray[0] !== todayDate && (
+				<button onClick={onNewDate} className='outline-none'>
+					<FaChevronLeft className='w-6 h-6 hover:scale-125 cursor-pointer duration-300 mr-4' />
+				</button>
+			)}
 			<ul className='flex gap-6 '>
 				{datesArray.map((date) => {
 					const active = date === activeDate ? true : false;
 					return <DateButton date={date} keyProp={date} active={active} />;
 				})}
 			</ul>
+			<button onClick={onPastDate} className='outline-none'>
+				<FaChevronRight className='w-6 h-6 hover:scale-125 cursor-pointer duration-300 ml-4' />
+			</button>
 		</div>
 	);
 };

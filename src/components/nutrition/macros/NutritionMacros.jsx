@@ -32,11 +32,13 @@ const NutritionMacros = () => {
 
 	return (
 		<div className='p-12 py-8'>
-			<h1 className='font-bold text-4xl mb-5'>
-				Calories for {getDateNumber(date)} {` `}
-				{getMonthName(date)}
-			</h1>
-			<NutritionDates />
+			<div className='flex items-center justify-between'>
+				<h1 className='font-bold text-4xl'>
+					Calories for {getDateNumber(date)} {` `}
+					{getMonthName(date)}
+				</h1>
+				<NutritionDates />
+			</div>
 
 			<div className='flex gap-8 mt-8'>
 				<TotalCalories />

@@ -10,7 +10,7 @@ export const getPast6Days = () => {
 			const date = new Date();
 			date.setDate(date.getDate() - (index + 1));
 
-			return date.toISOString().split('T')[0];
+			return dateToIsoSting(date);
 		})
 		.reverse();
 };
@@ -20,8 +20,22 @@ export const getNew6days = () => {
 		const date = new Date();
 		date.setDate(date.getDate() + (index + 1));
 
-		return date.toISOString().split('T')[0];
+		return dateToIsoSting(date);
 	});
+};
+
+export const getPreviousDay = (date = new Date()) => {
+	const previous = new Date(date.getTime());
+	previous.setDate(date.getDate() - 1);
+
+	return dateToIsoSting(previous);
+};
+
+export const getNextDay = (date = new Date()) => {
+	const next = new Date(date.getTime());
+	next.setDate(date.getDate() + 1);
+
+	return dateToIsoSting(next);
 };
 
 export const getDayName = (date) => {
