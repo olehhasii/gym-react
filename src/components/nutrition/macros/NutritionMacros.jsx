@@ -39,7 +39,7 @@ const NutritionMacros = () => {
 				</h1>
 				<NutritionDates />
 			</div>
-
+			<hr className='mt-4' />
 			<div className='flex gap-8 mt-8'>
 				<TotalCalories />
 				<MealsWrapper />

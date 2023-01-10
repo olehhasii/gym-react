@@ -9,6 +9,7 @@ import NavLayout from './components/ui/NavLayout';
 import AuthVerify from './features/AuthVerify';
 import ProtectedRouter from './features/ProtectedRouter';
 import Nutrition from './pages/nutrition/Nutrition';
+import ReportsNutrition from './pages/reports/ReportsNutrition';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -44,6 +45,14 @@ function App() {
 						element={
 							<ProtectedRouter>
 								<Nutrition />
+							</ProtectedRouter>
+						}
+					/>
+					<Route
+						path='/nutrition-charts'
+						element={
+							<ProtectedRouter>
+								<ReportsNutrition />
 							</ProtectedRouter>
 						}
 					/>
