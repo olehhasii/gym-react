@@ -4,7 +4,7 @@ export const MIN_PASSWORD = 6;
 
 export const EMAIL_PATTERN = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-export const WEEK_DAYS = ['Sund', 'Mond', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+export const WEEK_DAYS = ['Sund', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export const MONTH_NAME = [
 	'Jan',

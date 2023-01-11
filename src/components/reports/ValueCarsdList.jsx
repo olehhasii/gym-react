@@ -8,7 +8,7 @@ import fastImg from '../../assets/macros/fats.png';
 
 const ValueCarsdList = () => {
 	return (
-		<div className='flex justify-between'>
+		<div className='flex flex-col gap-6'>
 			<ValueCard
 				amount={14578}
 				value='kcal'
