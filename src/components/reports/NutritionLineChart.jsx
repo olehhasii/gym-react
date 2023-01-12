@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 
 import { WEEK_DAYS } from '../../constants/constatns';
+import { LINE_CHART_OPTIONS } from '../../constants/chartsConstants';
 
 ChartJS.register(
 	CategoryScale,
@@ -24,22 +25,23 @@ ChartJS.register(
 const NutritionChart = () => {
 	const options = {
 		maintainAspectRatio: false,
-		plugins: {
-			customCanvasBackgroundColor: {
-				color: 'black',
-			},
-		},
 		scales: {
 			x: {
-				ticks: { font: { size: 20 } },
+				ticks: { font: { size: 18 }, padding: 10 },
 				grid: {
 					display: false,
 				},
 			},
 			y: {
+				ticks: { font: { size: 14 }, padding: 5 },
 				grid: {
 					display: false,
 				},
+			},
+		},
+		plugins: {
+			legend: {
+				display: false,
 			},
 		},
 		layout: {},
@@ -54,15 +56,18 @@ const NutritionChart = () => {
 			{
 				fill: true,
 				tension: 0.4,
-				label: 'TEST',
 				data: [1800, 1953, 1732, 2145, 1478, 1889, 1980],
-				borderColor: '#86efac',
-				backgroundColor: '#bbf7d0',
+				borderColor: LINE_CHART_OPTIONS.borderColors.caloriesBorderColor,
+				backgroundColor: LINE_CHART_OPTIONS.backgroundColors.caloriesBgColor,
 			},
 		],
 	};
 
-	return <Line data={data} options={options} />;
+	return (
+		<div className='h-80'>
+			<Line data={data} options={options} />
+		</div>
+	);
 };
 
 export default NutritionChart;
