@@ -1,3 +1,13 @@
+export const WEEK_DAYS_LINE_CHART = [
+	'Mon',
+	'Tue',
+	'Wed',
+	'Thu',
+	'Fri',
+	'Sat',
+	'Sund',
+];
+
 export const LINE_CHART_OPTIONS = {
 	borderColors: {
 		caloriesBorderColor: '#86efac',

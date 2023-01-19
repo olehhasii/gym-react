@@ -49,3 +49,26 @@ export const getMonthName = (date) => {
 export const getDateNumber = (date) => {
 	return new Date(date).getDate();
 };
+
+export const getFirstDayOfWeek = (d) => {
+	const date = new Date(d);
+	const day = date.getDay(); // 👉️ get day of week
+
+	// 👇️ day of month - day of week (-6 if Sunday), otherwise +1
+	const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+
+	return new Date(date.setDate(diff));
+};
+
+export const getLastDayOfWeek = (firstDay) => {
+	const lastDay = new Date(firstDay);
+	lastDay.setDate(lastDay.getDate() + 6);
+	return lastDay;
+};
+
+export const getFirstAndLastDayOfWeek = (date = new Date()) => {
+	const firstDay = getFirstDayOfWeek(date);
+	const lastDay = getLastDayOfWeek(firstDay);
+
+	return { startDate: firstDay, endDate: lastDay };
+};

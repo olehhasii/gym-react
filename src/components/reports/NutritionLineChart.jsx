@@ -10,8 +10,10 @@ import {
 	Filler,
 } from 'chart.js';
 
-import { WEEK_DAYS } from '../../constants/constatns';
-import { LINE_CHART_OPTIONS } from '../../constants/chartsConstants';
+import {
+	LINE_CHART_OPTIONS,
+	WEEK_DAYS_LINE_CHART,
+} from '../../constants/chartsConstants';
 
 ChartJS.register(
 	CategoryScale,
@@ -48,7 +50,7 @@ const NutritionChart = () => {
 		elements: {},
 	};
 
-	const labels = WEEK_DAYS;
+	const labels = WEEK_DAYS_LINE_CHART;
 
 	const data = {
 		labels,
@@ -56,7 +58,7 @@ const NutritionChart = () => {
 			{
 				fill: true,
 				tension: 0.4,
-				data: [1800, 1953, 1732, 2145, 1478, 1889, 1980],
+				data: [1800, 0, 0, 0, 0, 0, 0],
 				borderColor: LINE_CHART_OPTIONS.borderColors.caloriesBorderColor,
 				backgroundColor: LINE_CHART_OPTIONS.backgroundColors.caloriesBgColor,
 			},
