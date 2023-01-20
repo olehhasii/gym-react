@@ -9,17 +9,21 @@ export const WEEK_DAYS_LINE_CHART = [
 ];
 
 export const LINE_CHART_OPTIONS = {
-	borderColors: {
-		caloriesBorderColor: '#86efac',
-		carbsBorderColor: 0,
-		proteinBorderColor: 0,
-		fatsBorderColor: 0,
+	calories: {
+		borderColor: '#86efac',
+		backgroundColor: '#bbf7d0',
 	},
-	backgroundColors: {
-		caloriesBgColor: '#bbf7d0',
-		carbsBgColor: 0,
-		proteinBgColor: 0,
-		fatsBgColor: 0,
+	carbs: {
+		borderColor: '#93c5fd',
+		backgroundColor: '#bfdbfe',
+	},
+	protein: {
+		borderColor: '#f87171',
+		backgroundColor: '#fca5a5',
+	},
+	fats: {
+		borderColor: '#fde047',
+		backgroundColor: '#fef08a',
 	},
 };
 
@@ -30,8 +34,8 @@ export const ROUND_CHART_OPTIONS = {
 		fatsBorderColor: '#fde047',
 	},
 	backgroundColors: {
-		carbsBgColor: '#93c5fd',
-		proteinBgColor: '#f87171',
-		fatsBgColor: '#fde047',
+		carbsBgColor: '#bfdbfe',
+		proteinBgColor: '#fca5a5',
+		fatsBgColor: '#fef08a',
 	},
 };
