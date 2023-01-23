@@ -14,8 +14,10 @@ const Header = ({ isFull, onSetFull }) => {
 	useEffect(() => {
 		const closeMenu = (e) => {
 			if (
-				e.path[0] !== menuRef.current &&
-				e.path[0] !== menuWrapperRef.current
+				/* e.path[0] !== menuRef.current &&
+				e.path[0] !== menuWrapperRef.current */
+				e.composedPath()[0] !== menuRef.current &&
+				e.composedPath()[0] !== menuWrapperRef.current
 			) {
 				setShowMenu(false);
 			}

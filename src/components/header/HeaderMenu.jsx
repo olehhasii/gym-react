@@ -1,11 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useCookies } from 'react-cookie';
 
 import avatar from '../../assets/musashi.jpg';
 import NavigationLink from '../navigation/NavigationLink';
 
 const HeaderMenu = ({ show, wrapperRef }) => {
+	const [, , removeCookie] = useCookies();
+
 	const userInfo = useSelector((state) => state.userInfo);
+
 	if (!show) {
 		return null;
 	}
@@ -27,7 +31,13 @@ const HeaderMenu = ({ show, wrapperRef }) => {
 			</ul>
 			<hr />
 			<ul className='py-1'>
-				<NavigationLink linkText='Logout' linkUrl='/test' isFull={true} />
+				<li className='px-4 mb-1 items-center duration-600 transition-all'>
+					<button
+						className='w-full px-6 py-3 flex items-center rounded-lg transition-colors duration-300 hover:bg-green_bg hover:text-green_txt'
+						onClick={() => removeCookie('access_token')}>
+						Logout
+					</button>
+				</li>
 			</ul>
 		</div>
 	);

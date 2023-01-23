@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDateNumber, getMonthName } from '../../helpers/dates';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+
+import {
+	dateToIsoSting,
+	getDateNumber,
+	getFirstDayOfWeek,
+	getMonthName,
+} from '../../helpers/dates';
 import { setReportNutritionTimeLine } from '../../redux/actions/reportNutritionsActions';
 import NutritionLineChart from './NutritionLineChart';
 
@@ -14,14 +21,25 @@ const NutritionChartWrapper = () => {
 		console.log(e.target.value);
 	};
 
+	const dateForChecingButton = getFirstDayOfWeek(new Date());
+
 	return (
 		<div className='h-96 p-4 shadow-card rounded-lg'>
 			<div className='flex items-center'>
-				<h1 className='text-2xl font-bold text-center mb-3'>
+				<button className='outline-none'>
+					<FaChevronLeft className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 mr-2' />
+				</button>
+				<h1 className='text-xl font-bold text-center'>
 					Analysis for {nutrientName} (
 					{`${getMonthName(startDate)} ${getDateNumber(startDate)}`} -{' '}
 					{`${getMonthName(endDate)} ${getDateNumber(endDate)}`})
 				</h1>
+				{dateToIsoSting(dateForChecingButton) !==
+					dateToIsoSting(new Date(startDate)) && (
+					<button className='outline-none'>
+						<FaChevronRight className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 ml-2' />
+					</button>
+				)}
 				<div className='ml-auto'>
 					<select
 						onChange={(e) => {

@@ -15,7 +15,6 @@ export const setDailyMacros = (date) => {
 					api
 						.post('/meals/initial', { ...initialDailyMacrosState, date: date })
 						.then((res) => {
-							console.log(res.data);
 							dispatch(setDailyMacrosSuccess(res.data));
 						})
 						.catch((err) => dispatch(setDailyMacrosError(err)));

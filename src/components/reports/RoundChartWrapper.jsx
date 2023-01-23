@@ -11,6 +11,10 @@ const RoundChartWrapper = () => {
 	const totalMacros = totalCarbs + totalProtein + totalFats;
 
 	const findMacrosPercantage = (totalMacros, nutrient) => {
+		if (nutrient === 0 || totalMacros === 0) {
+			return 0;
+		}
+
 		const percantage = (nutrient / totalMacros) * 100;
 		return Math.round(percantage * 10) / 10;
 	};

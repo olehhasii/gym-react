@@ -26,7 +26,7 @@ const NutritionMacrosRoundChart = () => {
 		labels: ['Carbs', 'Protein', 'Fats'],
 		datasets: [
 			{
-				label: '%',
+				label: 'Grams',
 				data: [totalCarbs, totalProtein, totalFats],
 				backgroundColor: [
 					ROUND_CHART_OPTIONS.backgroundColors.carbsBgColor,
