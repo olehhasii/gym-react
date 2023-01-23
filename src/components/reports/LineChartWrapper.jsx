@@ -5,8 +5,11 @@ import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import {
 	dateToIsoSting,
 	getDateNumber,
+	getFirstAndLastDayOfWeek,
 	getFirstDayOfWeek,
 	getMonthName,
+	getNextDay,
+	getPreviousDay,
 } from '../../helpers/dates';
 import { setReportNutritionTimeLine } from '../../redux/actions/reportNutritionsActions';
 import NutritionLineChart from './NutritionLineChart';
@@ -15,10 +18,37 @@ const NutritionChartWrapper = () => {
 	const [nutrientName, setNutrientName] = useState('calories');
 	const dispatch = useDispatch();
 
-	const { startDate, endDate } = useSelector((state) => state.reportNutrition);
+	const { startDate, endDate, timeLine } = useSelector(
+		(state) => state.reportNutrition
+	);
 
 	const test = (e) => {
 		console.log(e.target.value);
+	};
+
+	const selectPreviousWeek = () => {
+		const previousSunday = getPreviousDay(new Date(startDate));
+		console.log(previousSunday);
+		const previousWeek = getFirstAndLastDayOfWeek(new Date(previousSunday));
+		dispatch(
+			setReportNutritionTimeLine({
+				timeLine,
+				startDate: previousWeek.startDate,
+				endDate: previousWeek.endDate,
+			})
+		);
+	};
+
+	const selectNextWeek = () => {
+		const nextMonday = getNextDay(new Date(endDate));
+		const nextWeek = getFirstAndLastDayOfWeek(new Date(nextMonday));
+		dispatch(
+			setReportNutritionTimeLine({
+				timeLine,
+				startDate: nextWeek.startDate,
+				endDate: nextWeek.endDate,
+			})
+		);
 	};
 
 	const dateForChecingButton = getFirstDayOfWeek(new Date());
@@ -26,7 +56,7 @@ const NutritionChartWrapper = () => {
 	return (
 		<div className='h-96 p-4 shadow-card rounded-lg'>
 			<div className='flex items-center'>
-				<button className='outline-none'>
+				<button className='outline-none' onClick={selectPreviousWeek}>
 					<FaChevronLeft className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 mr-2' />
 				</button>
 				<h1 className='text-xl font-bold text-center'>
@@ -36,7 +66,7 @@ const NutritionChartWrapper = () => {
 				</h1>
 				{dateToIsoSting(dateForChecingButton) !==
 					dateToIsoSting(new Date(startDate)) && (
-					<button className='outline-none'>
+					<button className='outline-none' onClick={selectNextWeek}>
 						<FaChevronRight className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 ml-2' />
 					</button>
 				)}
