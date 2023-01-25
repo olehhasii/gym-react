@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 
 import { useMiltistepForm } from '../../../hooks/useMiltistepForm';
 import NutritionFormSteps from './NutritionFormSteps';
@@ -8,7 +9,7 @@ import GoalStep from './GoalStep';
 import ParametersStep from './ParametersStep';
 import ActivityStep from './ActivityStep';
 import api from '../../../features/api';
-import { useDispatch } from 'react-redux';
+
 import { setUser } from '../../../redux/actions/userActions';
 
 const NutritionUserDataForm = () => {

@@ -1,5 +1,10 @@
 import React from 'react';
-import { FaHome, FaNutritionix, FaRegChartBar } from 'react-icons/fa';
+import {
+	FaHome,
+	FaNutritionix,
+	FaRegChartBar,
+	FaDumbbell,
+} from 'react-icons/fa';
 
 import logo from '../../assets/guts.png';
 import NavigationLink from './NavigationLink';
@@ -35,6 +40,12 @@ const Navigation = ({ isFull }) => {
 						linkUrl='/'
 						isFull={isFull}
 						icon={<FaHome className='text-xl' />}
+					/>
+					<NavigationLink
+						linkText='Workouts'
+						linkUrl='/workouts'
+						isFull={isFull}
+						icon={<FaDumbbell className='text-xl' />}
 					/>
 					<NavigationLink
 						linkText='Nutrition'

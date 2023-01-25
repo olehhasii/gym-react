@@ -10,6 +10,8 @@ import AuthVerify from './features/AuthVerify';
 import ProtectedRouter from './features/ProtectedRouter';
 import Nutrition from './pages/nutrition/Nutrition';
 import ReportsNutrition from './pages/reports/ReportsNutrition';
+import Workout from './pages/workouts/Workout';
+import CreateWorkout from './components/workouts/createWorkout/CreateWorkout';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -56,6 +58,24 @@ function App() {
 							</ProtectedRouter>
 						}
 					/>
+					<Route path='/workouts'>
+						<Route
+							index
+							element={
+								<ProtectedRouter>
+									<Workout />
+								</ProtectedRouter>
+							}
+						/>
+						<Route
+							path='create-workout'
+							element={
+								<ProtectedRouter>
+									<CreateWorkout />
+								</ProtectedRouter>
+							}
+						/>
+					</Route>
 				</Route>
 			</Routes>
 			<AuthVerify />
