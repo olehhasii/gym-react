@@ -28,7 +28,6 @@ const NutritionChartWrapper = () => {
 
 	const selectPreviousWeek = () => {
 		const previousSunday = getPreviousDay(new Date(startDate));
-		console.log(previousSunday);
 		const previousWeek = getFirstAndLastDayOfWeek(new Date(previousSunday));
 		dispatch(
 			setReportNutritionTimeLine({

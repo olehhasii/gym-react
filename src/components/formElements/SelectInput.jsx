@@ -50,11 +50,7 @@ const SelectInput = ({ multiple, value, onChange, options, placeholder }) => {
 							<span>&times;</span>
 						</button>
 					))}
-				{/* {value && !multiple ? (
-					value?.label
-				) : (
-					<span className='text-gray-400'>{placeholder}</span>
-				)} */}
+
 				{value && !multiple && value?.label}
 				{multiple && value.length === 0 && (
 					<span className='text-gray-400'>{placeholder}</span>

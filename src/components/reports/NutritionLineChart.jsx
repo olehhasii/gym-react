@@ -76,7 +76,6 @@ const NutritionChart = ({ nutrientName }) => {
 			};
 			return dayName;
 		});
-		console.log(dataDays);
 	}
 
 	const data = {

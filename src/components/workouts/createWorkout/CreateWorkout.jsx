@@ -6,7 +6,7 @@ import CreateWorkoutForm from './CreateWorkoutForm';
 const CreateWorkout = () => {
 	return (
 		<div className='flex'>
-			<div className='p-10 w-full'>
+			<div className='p-10 w-full overflow-auto max-h-[690px]'>
 				<div>
 					<h1 className='font-bold text-3xl mb-2'>
 						Create your own workout plan!
@@ -19,7 +19,7 @@ const CreateWorkout = () => {
 				</div>
 				<CreateWorkoutForm />
 			</div>
-			<img src={img} alt='food' className='h-[calc(100vh_-_4rem)]' />
+			<img src={img} alt='food' className='h-[calc(100vh_-_4rem)] ' />
 		</div>
 	);
 };
