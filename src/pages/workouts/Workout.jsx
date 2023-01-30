@@ -36,6 +36,7 @@ const Workout = () => {
 			</div>
 		);
 	}
+	return <p>working</p>;
 };
 
 export default Workout;

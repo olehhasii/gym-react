@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { FaPlus, FaTrashAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import api from '../../../features/api';
 
 import FormInput from '../../formElements/FormInput';
 import FormStepButton from '../../formElements/FormStepButton';
@@ -30,6 +32,8 @@ const CreateWorkoutForm = () => {
 	const [muscleValue, setMuscleValue] = useState([]);
 	const [daysValue, setDaysValue] = useState([]);
 
+	const navigate = useNavigate();
+
 	const {
 		register,
 		handleSubmit,
@@ -37,7 +41,7 @@ const CreateWorkoutForm = () => {
 		formState: { errors },
 	} = useForm({
 		defaultValues: {
-			exercises: [{ name: '', sets: 0, reps: 0 }],
+			exercises: [{ exerciseName: '', sets: '', reps: '', weight: '' }],
 		},
 	});
 
@@ -49,22 +53,29 @@ const CreateWorkoutForm = () => {
 		},
 	});
 
-	const onSubmit = (data) => {
-		const daysOfWokorkout = daysValue.map((day) => {
+	const onSubmit = async (data) => {
+		const daysOfWorkout = daysValue.map((day) => {
 			return day.label;
 		});
 		const muscleGroups = muscleValue.map((group) => group.label);
-		const workout = { ...data, muscleGroups, daysOfWokorkout };
+		const workout = { ...data, muscleGroups, daysOfWorkout };
+		await api.post('/training/new', workout);
+		navigate('/workouts');
 	};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 			<div className='flex justify-between gap-4 flex-wrap'>
+				{errors.workoutName && (
+					<p className='bg-red-400 w-max rounded p-1 mt-4 border-2 border-black'>
+						Please enter a name of workout
+					</p>
+				)}
 				<FormInput
 					type='text'
 					placeholder='Name of workout'
 					register={register}
-					registerName='name'
+					registerName='workoutName'
 					required={true}
 					mb='mb-0'
 					width='w-full'
@@ -97,6 +108,7 @@ const CreateWorkoutForm = () => {
 								required={true}
 								width='w-72'
 							/>
+
 							<FormInput
 								type='number'
 								placeholder='Sets'
@@ -104,9 +116,10 @@ const CreateWorkoutForm = () => {
 								registerName={`exercises.${index}.sets`}
 								width='w-18'
 								min={1}
-								max={20}
+								max={200}
 								required={true}
 							/>
+
 							<FormInput
 								type='number'
 								placeholder='Reps'
@@ -117,6 +130,7 @@ const CreateWorkoutForm = () => {
 								max={500}
 								required={true}
 							/>
+
 							<FormInput
 								type='number'
 								placeholder='Weight'
@@ -127,6 +141,7 @@ const CreateWorkoutForm = () => {
 								max={500}
 								required={true}
 							/>
+
 							<FormInput
 								type='text'
 								placeholder='Description (optional)'
