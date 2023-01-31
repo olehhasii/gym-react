@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../../features/api';
 
 import FormInput from '../../formElements/FormInput';
-import FormStepButton from '../../formElements/FormStepButton';
 import SelectInput from '../../formElements/SelectInput';
 
 const muscleOptions = [

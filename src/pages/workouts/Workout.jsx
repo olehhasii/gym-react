@@ -5,6 +5,8 @@ import { TailSpin } from 'react-loader-spinner';
 
 import NoWorkouts from '../../components/workouts/NoWorkouts';
 import { setWorkouts } from '../../redux/actions/workoutsActions';
+import WorkoutsList from '../../components/workouts/WorkoutsList';
+import { Link } from 'react-router-dom';
 
 const Workout = () => {
 	const dispatch = useDispatch();
@@ -36,7 +38,26 @@ const Workout = () => {
 			</div>
 		);
 	}
-	return <p>working</p>;
+	return (
+		<div className='p-8'>
+			<div className='mb-6 flex items-center'>
+				<h1 className='font-bold text-3xl'>Your saved workouts</h1>
+				<div className='ml-auto flex items-center gap-6'>
+					<Link
+						to='/workouts/create-workout'
+						className='p-3 bg-blue-300 font-bold text-lg rounded-lg hover:scale-110 duration-200'>
+						Create workout
+					</Link>
+					<Link
+						to='/test'
+						className='p-3 bg-blue-300 font-bold text-lg rounded-lg hover:scale-110 duration-200'>
+						Browse ready workouts
+					</Link>
+				</div>
+			</div>
+			<WorkoutsList />
+		</div>
+	);
 };
 
 export default Workout;
