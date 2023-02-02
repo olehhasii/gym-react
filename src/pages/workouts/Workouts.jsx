@@ -8,7 +8,7 @@ import { setWorkouts } from '../../redux/actions/workoutsActions';
 import WorkoutsList from '../../components/workouts/WorkoutsList';
 import { Link } from 'react-router-dom';
 
-const Workout = () => {
+const Workouts = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -60,4 +60,4 @@ const Workout = () => {
 	);
 };
 
-export default Workout;
+export default Workouts;

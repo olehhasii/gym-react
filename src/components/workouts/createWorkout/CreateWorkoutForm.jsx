@@ -138,7 +138,6 @@ const CreateWorkoutForm = () => {
 								width='w-18'
 								min={1}
 								max={500}
-								required={true}
 							/>
 
 							<FormInput
