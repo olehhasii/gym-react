@@ -62,3 +62,22 @@ export const initialDailyMacrosState = {
 		},
 	},
 };
+
+export const MUSCLES_OPTIONS = [
+	{ label: 'Back', value: 'back' },
+	{ label: 'Biceps', value: 'biceps' },
+	{ label: 'Triceps', value: 'triceps' },
+	{ label: 'Chest', value: 'chest' },
+	{ label: 'Legs', value: 'legs' },
+	{ label: 'Shoulders', value: 'shoulders' },
+];
+
+export const DAYS_OPTION = [
+	{ label: 'Monday', value: 1 },
+	{ label: 'Tuesday', value: 2 },
+	{ label: 'Wednesday', value: 3 },
+	{ label: 'Thursday', value: 4 },
+	{ label: 'Friday', value: 5 },
+	{ label: 'Saturday', value: 6 },
+	{ label: 'Sunday', value: 0 },
+];

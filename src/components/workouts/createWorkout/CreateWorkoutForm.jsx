@@ -7,25 +7,7 @@ import api from '../../../features/api';
 
 import FormInput from '../../formElements/FormInput';
 import SelectInput from '../../formElements/SelectInput';
-
-const muscleOptions = [
-	{ label: 'Back', value: 'back' },
-	{ label: 'Biceps', value: 'biceps' },
-	{ label: 'Triceps', value: 'triceps' },
-	{ label: 'Chest', value: 'chest' },
-	{ label: 'Legs', value: 'legs' },
-	{ label: 'Shoulders', value: 'shoulders' },
-];
-
-const daysOptions = [
-	{ label: 'Monday', value: 1 },
-	{ label: 'Tuesday', value: 2 },
-	{ label: 'Wednesday', value: 3 },
-	{ label: 'Thursday', value: 4 },
-	{ label: 'Friday', value: 5 },
-	{ label: 'Saturday', value: 6 },
-	{ label: 'Sunday', value: 0 },
-];
+import { DAYS_OPTION, MUSCLES_OPTIONS } from '../../../constants/constatns';
 
 const CreateWorkoutForm = () => {
 	const [muscleValue, setMuscleValue] = useState([]);
@@ -80,14 +62,14 @@ const CreateWorkoutForm = () => {
 					width='w-full'
 				/>
 				<SelectInput
-					options={daysOptions}
+					options={DAYS_OPTION}
 					value={daysValue}
 					placeholder='Select days of training'
 					onChange={(o) => setDaysValue(o)}
 					multiple={true}
 				/>
 				<SelectInput
-					options={muscleOptions}
+					options={MUSCLES_OPTIONS}
 					value={muscleValue}
 					placeholder='Select muscle groups'
 					onChange={(o) => setMuscleValue(o)}

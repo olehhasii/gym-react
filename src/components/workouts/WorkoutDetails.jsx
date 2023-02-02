@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const WorkoutDetails = ({ workoutName, daysOfWorkout, muscleGroups }) => {
+	const [, setSearchParams] = useSearchParams();
+
 	return (
 		<div className='flex flex-col flex-wrap gap-4 '>
 			<div className='flex justify-between'>
@@ -12,11 +14,12 @@ const WorkoutDetails = ({ workoutName, daysOfWorkout, muscleGroups }) => {
 						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 						Train
 					</Link>
-					<Link
+					<button
 						to='/test'
+						onClick={() => setSearchParams({ edit: true })}
 						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 						Edit
-					</Link>
+					</button>
 					<button className='font-bold w-32 text-lg p-2 text-center bg-red-500 rounded-lg hover:scale-110 duration-200'>
 						Delete
 					</button>

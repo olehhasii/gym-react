@@ -43,7 +43,7 @@ const Header = ({ isFull, onSetFull }) => {
 				isFull
 					? 'left-64 w-[calc(100%_-_16rem)]'
 					: 'left-20 w-[calc(100%_-_5rem)]'
-			} pr-10 pl-4 flex items-center h-16 fixed top-0 shadow-md duration-500 transition-all z-10`}>
+			} pr-10 pl-4 flex items-center h-16 fixed top-0 shadow-md duration-500 transition-all z-10 bg-white`}>
 			<HeaderButton
 				icon={
 					<FaAngleDoubleLeft

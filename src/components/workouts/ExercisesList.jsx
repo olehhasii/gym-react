@@ -2,8 +2,6 @@ import React from 'react';
 import ExerciseItem from './ExerciseItem';
 
 const ExercisesList = ({ exercises }) => {
-	console.log(exercises);
-
 	return (
 		<div className='mt-4'>
 			<h2 className='font-bold text-3xl'>Exercises</h2>
