@@ -33,7 +33,7 @@ const WorkoutItem = ({ key, workout }) => {
 					Train
 				</Link>
 				<Link
-					to='/test'
+					to={`${workout._id}?edit=true`}
 					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 					Edit
 				</Link>

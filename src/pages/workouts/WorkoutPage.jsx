@@ -35,6 +35,7 @@ const WorkoutPage = () => {
 				workoutName={workout.workoutName}
 				daysOfWorkout={workout.daysOfWorkout}
 				muscleGroups={workout.muscleGroups}
+				workoutId={workout._id}
 			/>
 			<ExercisesList exercises={workout.exercises} />
 		</div>

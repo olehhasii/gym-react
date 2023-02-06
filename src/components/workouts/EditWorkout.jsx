@@ -184,7 +184,7 @@ const EditWorkout = ({ workout }) => {
 						Save workout
 					</button>
 					<Link
-						to='/workouts'
+						to={`/workouts/${workout._id}`}
 						className='flex items-center justify-center border-none outline-none w-40 h-12 bg-red-500 font-bold rounded-lg hover:scale-110 duration-300'>
 						Cancel
 					</Link>

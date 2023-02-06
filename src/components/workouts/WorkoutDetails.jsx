@@ -1,8 +1,29 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import api from '../../features/api';
+import ModalOverlay from '../ui/ModalOverlay';
 
-const WorkoutDetails = ({ workoutName, daysOfWorkout, muscleGroups }) => {
+const WorkoutDetails = ({
+	workoutName,
+	daysOfWorkout,
+	muscleGroups,
+	workoutId,
+}) => {
 	const [, setSearchParams] = useSearchParams();
+
+	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+	const navigate = useNavigate();
+
+	const rootDiv = document.getElementById('root');
+
+	const onDeleteWorkout = () => {
+		api
+			.delete(`/training/remove/${workoutId}`)
+			.then(() => navigate('/workouts'));
+	};
 
 	return (
 		<div className='flex flex-col flex-wrap gap-4 '>
@@ -15,12 +36,13 @@ const WorkoutDetails = ({ workoutName, daysOfWorkout, muscleGroups }) => {
 						Train
 					</Link>
 					<button
-						to='/test'
 						onClick={() => setSearchParams({ edit: true })}
 						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 						Edit
 					</button>
-					<button className='font-bold w-32 text-lg p-2 text-center bg-red-500 rounded-lg hover:scale-110 duration-200'>
+					<button
+						className='font-bold w-32 text-lg p-2 text-center bg-red-500 rounded-lg hover:scale-110 duration-200'
+						onClick={() => setOpenDeleteModal(true)}>
 						Delete
 					</button>
 				</div>
@@ -41,6 +63,18 @@ const WorkoutDetails = ({ workoutName, daysOfWorkout, muscleGroups }) => {
 					))}
 				</span>
 			</div>
+			{openDeleteModal &&
+				createPortal(
+					<ModalOverlay
+						onClose={() => {
+							console.log('close');
+							setOpenDeleteModal(false);
+						}}
+						onConfirmHandler={onDeleteWorkout}
+						text='Are you sure you want to delete this workout?'
+					/>,
+					rootDiv
+				)}
 		</div>
 	);
 };
