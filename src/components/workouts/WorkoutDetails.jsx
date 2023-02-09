@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../../features/api';
 import ModalOverlay from '../ui/ModalOverlay';
 
@@ -14,6 +14,7 @@ const WorkoutDetails = ({
 	const [, setSearchParams] = useSearchParams();
 
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+	const [openTrainModal, setOpenTrainModal] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -25,16 +26,20 @@ const WorkoutDetails = ({
 			.then(() => navigate('/workouts'));
 	};
 
+	const onStartTraining = () => {
+		navigate(`/training-session/${workoutId}`);
+	};
+
 	return (
 		<div className='flex flex-col flex-wrap gap-4 '>
 			<div className='flex justify-between'>
 				<h1 className='font-bold text-3xl'>{workoutName}</h1>
 				<div className='flex gap-3'>
-					<Link
-						to='/test'
-						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
+					<button
+						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'
+						onClick={() => setOpenTrainModal(true)}>
 						Train
-					</Link>
+					</button>
 					<button
 						onClick={() => setSearchParams({ edit: true })}
 						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
@@ -67,11 +72,21 @@ const WorkoutDetails = ({
 				createPortal(
 					<ModalOverlay
 						onClose={() => {
-							console.log('close');
 							setOpenDeleteModal(false);
 						}}
 						onConfirmHandler={onDeleteWorkout}
 						text='Are you sure you want to delete this workout?'
+					/>,
+					rootDiv
+				)}
+			{openTrainModal &&
+				createPortal(
+					<ModalOverlay
+						onClose={() => {
+							setOpenTrainModal(false);
+						}}
+						onConfirmHandler={onStartTraining}
+						text='Start training?'
 					/>,
 					rootDiv
 				)}

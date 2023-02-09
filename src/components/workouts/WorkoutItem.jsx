@@ -1,7 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import ModalOverlay from '../ui/ModalOverlay';
 
 const WorkoutItem = ({ key, workout }) => {
+	const [openTrainModal, setOpenTrainModal] = useState(false);
+
+	const navigate = useNavigate();
+
+	const rootDiv = document.getElementById('root');
+
+	const onStartTraining = () => {
+		navigate(`/training-session/${workout._id}`);
+	};
+
 	return (
 		<li
 			key={key}
@@ -27,17 +40,29 @@ const WorkoutItem = ({ key, workout }) => {
 					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 					View
 				</Link>
-				<Link
-					to='/test'
-					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
+				<button
+					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'
+					onClick={() => setOpenTrainModal(true)}>
 					Train
-				</Link>
+				</button>
 				<Link
 					to={`${workout._id}?edit=true`}
 					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 					Edit
 				</Link>
 			</div>
+
+			{openTrainModal &&
+				createPortal(
+					<ModalOverlay
+						onClose={() => {
+							setOpenTrainModal(false);
+						}}
+						onConfirmHandler={onStartTraining}
+						text='Start training?'
+					/>,
+					rootDiv
+				)}
 		</li>
 	);
 };

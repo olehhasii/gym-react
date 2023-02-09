@@ -132,7 +132,7 @@ const CreateWorkoutForm = () => {
 							<div className='flex gap-2 items-center ml-auto'>
 								{index === fields.length - 1 && (
 									<button
-										onClick={() => append({ name: '', sets: 0, reps: 0 })}
+										onClick={() => append({ name: '', sets: '', reps: '' })}
 										className='rounded-full border p-3 border-gray-400 mb-4 cursor-pointer hover:text-green-400 duration-150 hover:scale-110'>
 										<FaPlus />
 									</button>

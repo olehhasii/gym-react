@@ -13,6 +13,7 @@ import ReportsNutrition from './pages/reports/ReportsNutrition';
 import Workouts from './pages/workouts/Workouts';
 import CreateWorkout from './components/workouts/createWorkout/CreateWorkout';
 import WorkoutPage from './pages/workouts/WorkoutPage';
+import TrainingSession from './pages/trainingSession/TrainingSession';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -85,6 +86,14 @@ function App() {
 							}
 						/>
 					</Route>
+					<Route
+						path='/training-session/:id'
+						element={
+							<ProtectedRouter>
+								<TrainingSession />
+							</ProtectedRouter>
+						}
+					/>
 				</Route>
 			</Routes>
 			<AuthVerify />

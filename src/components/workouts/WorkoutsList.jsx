@@ -6,7 +6,7 @@ const WorkoutsList = () => {
 	const { workouts } = useSelector((state) => state.workouts);
 
 	return (
-		<ul className='flex flex-wrap gap-8 justify-center'>
+		<ul className='flex flex-wrap gap-8 justify-start'>
 			{workouts.map((workout) => (
 				<WorkoutItem key={workout.name} workout={workout} />
 			))}
