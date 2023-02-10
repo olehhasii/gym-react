@@ -1,28 +1,27 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import ActiveExercise from '../../components/trainingSession/ActiveExercise';
+
+import SessionExerciseList from '../../components/trainingSession/SessionExerciseList';
 import Timer from '../../components/trainingSession/Timer';
 
 const TrainingSession = () => {
-	const [time, setTime] = useState(0);
-	const [timeOn, setTimeOn] = useState(false);
+	const { workoutId } = useParams();
+	const dispatch = useDispatch();
 
-	useEffect(() => {
-		let interval = null;
+	const { trainingSession: workout } = useSelector((state) => state);
 
-		if (timeOn) {
-			interval = setInterval(() => {
-				setTime((prevTime) => prevTime + 10);
-			}, 10);
-		} else if (!timeOn) {
-			clearInterval(interval);
-		}
-
-		return () => clearInterval(interval);
-	}, [timeOn]);
+	/* useEffect(() => {}, [workoutId]); */
 
 	return (
 		<div className='p-8'>
 			<Timer />
+			{workout.activeExercise ? (
+				<ActiveExercise />
+			) : (
+				<SessionExerciseList exercises={workout.exercises} />
+			)}
 		</div>
 	);
 };

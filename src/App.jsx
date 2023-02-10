@@ -87,7 +87,7 @@ function App() {
 						/>
 					</Route>
 					<Route
-						path='/training-session/:id'
+						path='/training-session/:workoutId'
 						element={
 							<ProtectedRouter>
 								<TrainingSession />

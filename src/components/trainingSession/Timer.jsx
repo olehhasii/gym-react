@@ -27,12 +27,12 @@ const Timer = () => {
 		}, 1000);
 	};
 
-	/* const handleReset = () => {
+	const handleReset = () => {
 		clearInterval(increment.current);
 		setIsActive(false);
 		setIsPaused(false);
 		setTimer(0);
-	}; */
+	};
 
 	const formatTime = () => {
 		const getSeconds = `0${timer % 60}`.slice(-2);
@@ -56,17 +56,21 @@ const Timer = () => {
 	}, [isActive]);
 
 	return (
-		<div className='flex justify-center items-center'>
-			<div className='text-4xl font-bold'>
-				<span>{formatTime(timer)}</span>
-				<div className='flex justify-center items-center gap-4'>
-					{isPaused ? (
-						<button onClick={handlePause}>Pause</button>
-					) : (
-						<button onClick={handleResume}>Resume</button>
-					)}
-				</div>
-			</div>
+		<div className='flex justify-between items-center'>
+			<span className='font-bold text-3xl'>{formatTime(timer)}</span>
+			{isPaused ? (
+				<button
+					onClick={handlePause}
+					className='font-bold text-lg p-2 text-center bg-green-400 border-none outline-none rounded-lg hover:scale-110 duration-200'>
+					Pause workout
+				</button>
+			) : (
+				<button
+					onClick={handleResume}
+					className='font-bold w-32 text-lg p-2 text-center bg-green-400 border-none outline-none rounded-lg hover:scale-110 duration-200'>
+					Resume
+				</button>
+			)}
 		</div>
 	);
 };
