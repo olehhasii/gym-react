@@ -11,7 +11,7 @@ const setTrainingStarted = (workout) => ({
 	},
 });
 
-const setTrainingFinishExercise = (exercise) => ({
+export const setTrainingFinishExercise = (exercise) => ({
 	type: TrainingSessionActionTypes.SET_TRAINING_FINISH_EXERCISE,
 	payload: exercise,
 });
