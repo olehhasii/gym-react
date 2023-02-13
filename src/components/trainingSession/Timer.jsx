@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const Timer = () => {
 	const [timer, setTimer] = useState(0);
@@ -7,6 +8,9 @@ const Timer = () => {
 	const [isPaused, setIsPaused] = useState(true);
 	const increment = useRef(null);
 
+	const { timeWorkoutWasStarted } = useSelector(
+		(state) => state.trainingSession
+	);
 	/* const handleStart = () => {
 		setIsActive(true);
 		setIsPaused(true);
@@ -42,6 +46,14 @@ const Timer = () => {
 
 		return `${getHours} : ${getMinutes} : ${getSeconds}`;
 	};
+
+	useEffect(() => {
+		const timeNow = new Date();
+		const timeOfStart = new Date(timeWorkoutWasStarted);
+		const diff = (timeNow.getTime() - timeOfStart.getTime()) / 1000;
+
+		setTimer(Math.round(diff));
+	}, [timeWorkoutWasStarted]);
 
 	useEffect(() => {
 		if (isActive) {

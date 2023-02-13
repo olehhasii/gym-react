@@ -1,28 +1,9 @@
 import { TrainingSessionActionTypes } from '../constants/action-types';
 
-const workout = {
-	workoutName: 'Test',
-	activeExercise: null,
-	exercises: [
-		{
-			exerciseName: 'Test exercise 1',
-			sets: 4,
-			reps: 8,
-			weight: 15,
-			done: false,
-		},
-		{
-			exerciseName: 'Test exercise',
-			sets: 4,
-			reps: 8,
-			weight: 15,
-			done: false,
-		},
-	],
-};
-
-export const trainingSessionReducer = (state = workout, { type, payload }) => {
+export const trainingSessionReducer = (state = {}, { type, payload }) => {
 	switch (type) {
+		case TrainingSessionActionTypes.SET_TRAINING_STARTED:
+			return { ...payload, activeExercise: null };
 		case TrainingSessionActionTypes.SET_TRAINING_NEXT_EXERCISE:
 			return { ...state, activeExercise: payload };
 		case TrainingSessionActionTypes.SET_TRAINING_FINISH_EXERCISE:
@@ -35,6 +16,8 @@ export const trainingSessionReducer = (state = workout, { type, payload }) => {
 					} else return exercise;
 				}),
 			};
+		case TrainingSessionActionTypes.SET_EXISTING_TRAINING_SESSION:
+			return { ...payload };
 		default:
 			return state;
 	}

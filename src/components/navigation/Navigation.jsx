@@ -5,11 +5,15 @@ import {
 	FaRegChartBar,
 	FaDumbbell,
 } from 'react-icons/fa';
+import { CgGym } from 'react-icons/cg';
+import { useSelector } from 'react-redux';
 
 import logo from '../../assets/guts.png';
 import NavigationLink from './NavigationLink';
 
 const Navigation = ({ isFull }) => {
+	const { _id } = useSelector((state) => state.trainingSession);
+
 	return (
 		<div
 			className={`${
@@ -47,6 +51,14 @@ const Navigation = ({ isFull }) => {
 						isFull={isFull}
 						icon={<FaDumbbell className='text-xl' />}
 					/>
+					{_id && (
+						<NavigationLink
+							linkText='Active Training'
+							linkUrl={`/training-session/${_id}`}
+							isFull={isFull}
+							icon={<CgGym className='text-xl' />}
+						/>
+					)}
 					<NavigationLink
 						linkText='Nutrition'
 						linkUrl='/nutrition'

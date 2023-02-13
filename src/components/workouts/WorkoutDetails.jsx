@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../../features/api';
+import { setTrainingSession } from '../../redux/actions/trainingSessionActions';
 import ModalOverlay from '../ui/ModalOverlay';
 
 const WorkoutDetails = ({
@@ -10,13 +12,16 @@ const WorkoutDetails = ({
 	daysOfWorkout,
 	muscleGroups,
 	workoutId,
+	workout,
 }) => {
 	const [, setSearchParams] = useSearchParams();
-
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [openTrainModal, setOpenTrainModal] = useState(false);
 
+	const { _id } = useSelector((state) => state.trainingSession);
+
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const rootDiv = document.getElementById('root');
 
@@ -27,6 +32,14 @@ const WorkoutDetails = ({
 	};
 
 	const onStartTraining = () => {
+		const timeWorkoutWasStarted = new Date();
+		dispatch(
+			setTrainingSession({
+				...workout,
+				timeWorkoutWasStarted,
+				activeExercise: null,
+			})
+		);
 		navigate(`/training-session/${workoutId}`);
 	};
 
@@ -36,8 +49,13 @@ const WorkoutDetails = ({
 				<h1 className='font-bold text-3xl'>{workoutName}</h1>
 				<div className='flex gap-3'>
 					<button
-						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'
-						onClick={() => setOpenTrainModal(true)}>
+						className={`${
+							_id
+								? 'bg-gray-300 cursor-not-allowed '
+								: 'bg-green-400 hover:scale-110 duration-200'
+						} block font-bold w-32 text-lg p-2 text-center rounded-lg `}
+						onClick={() => setOpenTrainModal(true)}
+						disabled={_id}>
 						Train
 					</button>
 					<button

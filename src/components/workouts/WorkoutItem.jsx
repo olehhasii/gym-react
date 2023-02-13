@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { setTrainingSession } from '../../redux/actions/trainingSessionActions';
 
 import ModalOverlay from '../ui/ModalOverlay';
 
@@ -8,10 +10,21 @@ const WorkoutItem = ({ key, workout }) => {
 	const [openTrainModal, setOpenTrainModal] = useState(false);
 
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const rootDiv = document.getElementById('root');
 
+	const { _id } = useSelector((state) => state.trainingSession);
+
 	const onStartTraining = () => {
+		const timeWorkoutWasStarted = new Date();
+		dispatch(
+			setTrainingSession({
+				...workout,
+				timeWorkoutWasStarted,
+				activeExercise: null,
+			})
+		);
 		navigate(`/training-session/${workout._id}`);
 	};
 
@@ -41,8 +54,13 @@ const WorkoutItem = ({ key, workout }) => {
 					View
 				</Link>
 				<button
-					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'
-					onClick={() => setOpenTrainModal(true)}>
+					className={`${
+						_id
+							? 'bg-gray-300 cursor-not-allowed'
+							: 'bg-green-400 hover:scale-110 duration-200'
+					} font-bold w-20 p-2 text-center rounded-lg `}
+					onClick={() => setOpenTrainModal(true)}
+					disabled={_id}>
 					Train
 				</button>
 				<Link
