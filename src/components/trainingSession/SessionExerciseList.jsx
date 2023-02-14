@@ -1,11 +1,64 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import api from '../../features/api';
+import { setTrainingFisnish } from '../../redux/actions/trainingSessionActions';
 import SessionExerciseItem from './SessionExerciseItem';
 
 const SessionExerciseList = ({ exercises }) => {
+	const { trainingSession } = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	if (!exercises) {
+		return;
+	}
+
+	const checkIfAllExercisesIsDone = () => {
+		return exercises.every((exercise) => exercise.done);
+	};
+
+	const onFinishWorkout = () => {
+		const timeOfStart = new Date(trainingSession.timeWorkoutWasStarted);
+		const timeWorkoutFinished = new Date();
+		const { _id, activeExercise, ...trainingSessionRest } = trainingSession;
+
+		const timePassed = Math.round(
+			(timeWorkoutFinished.getTime() - timeOfStart.getTime()) / 1000
+		);
+
+		const trainingLog = {
+			...trainingSessionRest,
+			timeWorkoutFinished,
+			timePassed,
+			workoutId: _id,
+		};
+		api
+			.post('/training-session/save-training-log', trainingLog)
+			.then(() => {
+				dispatch(setTrainingFisnish());
+				navigate('/');
+			})
+			.catch((err) => console.log(err));
+	};
+
 	return (
 		<div>
-			<p className='font-bold text-3xl mt-5'>Select exercise from your list</p>
-			<ul className='list-none mt-6 flex flex-col gap-4'>
+			{checkIfAllExercisesIsDone() ? (
+				<p className='font-bold text-3xl mt-5 mb-6'>
+					You have finished all exercises. Please end your workout.
+				</p>
+			) : (
+				<p className='font-bold text-3xl mt-5 mb-6'>
+					Select exercise from your list
+				</p>
+			)}
+			<button
+				className='bordred-none outline-none p-3 text-lg bg-green-400 font-bold rounded-lg hover:scale-110 duration-200'
+				onClick={onFinishWorkout}>
+				Finish Workout
+			</button>
+			<ul className='list-none  flex flex-col gap-4'>
 				{exercises.map((exercise) => {
 					return exercise.done ? null : (
 						<SessionExerciseItem exercise={exercise} />

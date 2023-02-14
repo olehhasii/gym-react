@@ -8,6 +8,7 @@ import {
 	setActiveExercise,
 	setTrainingFinishExercise,
 } from '../../redux/actions/trainingSessionActions';
+import api from '../../features/api';
 
 const ActiveExercise = () => {
 	const dispatch = useDispatch();
@@ -43,14 +44,15 @@ const ActiveExercise = () => {
 	};
 
 	const onSubmit = (data) => {
-		dispatch(
-			setTrainingFinishExercise({
-				...activeExercise,
-				setsDone: data.setsDone,
-				done: true,
-			})
-		);
-		console.log(data);
+		const finishedExercise = {
+			...activeExercise,
+			setsDone: data.setsDone,
+			done: true,
+		};
+		api
+			.patch('/training-session/finish-exercise', finishedExercise)
+			.then((res) => dispatch(setTrainingFinishExercise(res.data)))
+			.catch((err) => console.log(err));
 	};
 
 	return (

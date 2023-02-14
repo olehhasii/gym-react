@@ -34,3 +34,7 @@ export const setExistingTrainingSession = (workout) => ({
 		...workout,
 	},
 });
+
+export const setTrainingFisnish = () => ({
+	type: TrainingSessionActionTypes.SET_TRAINING_END,
+});

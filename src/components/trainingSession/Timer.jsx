@@ -4,20 +4,13 @@ import { useSelector } from 'react-redux';
 
 const Timer = () => {
 	const [timer, setTimer] = useState(0);
-	const [isActive, setIsActive] = useState(true);
+	const [isActive] = useState(true);
 	const [isPaused, setIsPaused] = useState(true);
 	const increment = useRef(null);
 
 	const { timeWorkoutWasStarted } = useSelector(
 		(state) => state.trainingSession
 	);
-	/* const handleStart = () => {
-		setIsActive(true);
-		setIsPaused(true);
-		increment.current = setInterval(() => {
-			setTimer((timer) => timer + 1);
-		}, 1000);
-	}; */
 
 	const handlePause = () => {
 		clearInterval(increment.current);
@@ -29,13 +22,6 @@ const Timer = () => {
 		increment.current = setInterval(() => {
 			setTimer((timer) => timer + 1);
 		}, 1000);
-	};
-
-	const handleReset = () => {
-		clearInterval(increment.current);
-		setIsActive(false);
-		setIsPaused(false);
-		setTimer(0);
 	};
 
 	const formatTime = () => {

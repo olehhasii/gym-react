@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import api from '../../features/api';
 
 import { setActiveExercise } from '../../redux/actions/trainingSessionActions';
 
@@ -7,6 +8,9 @@ const SessionExerciseItem = ({ exercise, done }) => {
 	const dispatch = useDispatch();
 
 	const selectActiveExercise = () => {
+		api.patch('/training-session/set-active-exercise', {
+			activeExercise: exercise,
+		});
 		dispatch(setActiveExercise(exercise));
 	};
 
