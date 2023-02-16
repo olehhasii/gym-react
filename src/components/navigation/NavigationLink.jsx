@@ -6,7 +6,7 @@ const NavigationLink = ({ linkText, linkUrl, isFull, icon }) => {
 	const fullLinkStyles =
 		'px-6 py-3 flex items-center rounded-lg transition-colors duration-300 hover:bg-green_bg hover:text-green_txt ';
 	const smallLinkStyles =
-		'pt-3 pb-1 flex flex-col text-xs items-center rounded-lg transition-colors duration-300 hover:bg-green_bg hover:text-green_txt ';
+		'pt-3 pb-1 text-center flex flex-col text-xs items-center rounded-lg transition-colors duration-300 hover:bg-green_bg hover:text-green_txt ';
 	const linkStyle = isFull ? fullLinkStyles : smallLinkStyles;
 
 	return (

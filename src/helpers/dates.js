@@ -50,6 +50,10 @@ export const getDateNumber = (date) => {
 	return new Date(date).getDate();
 };
 
+const getDateYear = (date) => {
+	return new Date(date).getFullYear();
+};
+
 export const getFirstDayOfWeek = (d) => {
 	const date = new Date(d);
 	const day = date.getDay(); // 👉️ get day of week
@@ -71,4 +75,19 @@ export const getFirstAndLastDayOfWeek = (date = new Date()) => {
 	const lastDay = getLastDayOfWeek(firstDay);
 
 	return { startDate: firstDay, endDate: lastDay };
+};
+
+export const getDateString = (date) => {
+	const dayNumber = getDateNumber(date);
+	const dayMonth = getMonthName(date);
+	const dayYear = getDateYear(date);
+	return `${dayNumber} ${dayMonth} ${dayYear}`;
+};
+
+export const formatTimeSeconds = (seconds) => {
+	const minutes = `${Math.floor(seconds / 60)}`;
+	const getMinutes = `0${minutes % 60}`.slice(-2);
+	const getHours = `0${Math.floor(seconds / 3600)}`.slice(-2);
+
+	return `${getHours} : ${getMinutes}`;
 };

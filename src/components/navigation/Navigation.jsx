@@ -4,6 +4,7 @@ import {
 	FaNutritionix,
 	FaRegChartBar,
 	FaDumbbell,
+	FaHistory,
 } from 'react-icons/fa';
 import { CgGym } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
@@ -50,6 +51,12 @@ const Navigation = ({ isFull }) => {
 						linkUrl='/workouts'
 						isFull={isFull}
 						icon={<FaDumbbell className='text-xl' />}
+					/>
+					<NavigationLink
+						linkText='Training History'
+						linkUrl='/history'
+						isFull={isFull}
+						icon={<FaHistory className='text-xl' />}
 					/>
 					{_id && (
 						<NavigationLink

@@ -15,6 +15,8 @@ import CreateWorkout from './components/workouts/createWorkout/CreateWorkout';
 import WorkoutPage from './pages/workouts/WorkoutPage';
 import TrainingSession from './pages/trainingSession/TrainingSession';
 import TrainingSessionVerify from './features/TrainingSessionVerify';
+import TrainingHistoryPage from './pages/trainingSession/TrainingHistoryPage';
+import TrainingLogPage from './pages/trainingSession/TrainingLogPage';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -92,6 +94,22 @@ function App() {
 						element={
 							<ProtectedRouter>
 								<TrainingSession />
+							</ProtectedRouter>
+						}
+					/>
+					<Route
+						path='/history'
+						element={
+							<ProtectedRouter>
+								<TrainingHistoryPage />
+							</ProtectedRouter>
+						}
+					/>
+					<Route
+						path='/history/:logId'
+						element={
+							<ProtectedRouter>
+								<TrainingLogPage />
 							</ProtectedRouter>
 						}
 					/>

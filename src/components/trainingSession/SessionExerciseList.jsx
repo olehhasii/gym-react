@@ -58,7 +58,7 @@ const SessionExerciseList = ({ exercises }) => {
 				onClick={onFinishWorkout}>
 				Finish Workout
 			</button>
-			<ul className='list-none  flex flex-col gap-4'>
+			<ul className='list-none mt-6 flex flex-col gap-4'>
 				{exercises.map((exercise) => {
 					return exercise.done ? null : (
 						<SessionExerciseItem exercise={exercise} />
