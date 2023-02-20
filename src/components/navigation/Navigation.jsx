@@ -6,7 +6,7 @@ import {
 	FaDumbbell,
 	FaHistory,
 } from 'react-icons/fa';
-import { CgGym } from 'react-icons/cg';
+import { CgGym, CgChart } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
 
 import logo from '../../assets/guts.png';
@@ -57,6 +57,12 @@ const Navigation = ({ isFull }) => {
 						linkUrl='/history'
 						isFull={isFull}
 						icon={<FaHistory className='text-xl' />}
+					/>
+					<NavigationLink
+						linkText='Training Reports'
+						linkUrl='/trainings-chart'
+						isFull={isFull}
+						icon={<CgChart className='text-xl' />}
 					/>
 					{_id && (
 						<NavigationLink

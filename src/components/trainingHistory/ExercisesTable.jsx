@@ -3,6 +3,12 @@ import TableHeader from '../ui/TableHeader';
 import ExerciseRow from './ExerciseRow';
 
 const ExercisesTable = ({ exercise }) => {
+	if (JSON.stringify(exercise) === '{}') {
+		return;
+	}
+
+	console.log(exercise);
+
 	const allSetsDone =
 		+exercise.sets === exercise.setsDone.length ||
 		+exercise.sets - exercise.setsDone.length < 0;
@@ -10,10 +16,9 @@ const ExercisesTable = ({ exercise }) => {
 	const exerciseData = exercise;
 
 	if (!allSetsDone) {
-		const difference = +exercise.sets - exercise.setsDone.length;
+		const difference = +exercise.sets - exercise.setsDone?.length;
 
 		for (let index = 0; index < difference; index++) {
-			console.log(index);
 			exerciseData.setsDone.push({ repsDone: 0, weightDone: 0 });
 		}
 	}

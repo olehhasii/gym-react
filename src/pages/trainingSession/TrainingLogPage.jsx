@@ -34,8 +34,6 @@ const TrainingLogPage = () => {
 			/>
 		);
 
-	console.log(trainingLog);
-
 	return (
 		<div className='p-8'>
 			<h2 className='font-bold text-2xl'>Training Log Details</h2>

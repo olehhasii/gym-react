@@ -34,6 +34,15 @@ const TrainingHistoryPage = () => {
 			/>
 		);
 
+	if (trainingLogs.length === 0)
+		return (
+			<div className='flex justify-center items-center h-full'>
+				<p className='font-bold text-3xl mb-20'>
+					You have no trainings logs yet
+				</p>
+			</div>
+		);
+
 	return (
 		<div className='p-8'>
 			<h2 className='font-bold text-3xl'>Your training history</h2>

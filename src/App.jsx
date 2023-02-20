@@ -17,6 +17,7 @@ import TrainingSession from './pages/trainingSession/TrainingSession';
 import TrainingSessionVerify from './features/TrainingSessionVerify';
 import TrainingHistoryPage from './pages/trainingSession/TrainingHistoryPage';
 import TrainingLogPage from './pages/trainingSession/TrainingLogPage';
+import ReportsTrainings from './pages/reports/ReportsTrainings';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -94,6 +95,14 @@ function App() {
 						element={
 							<ProtectedRouter>
 								<TrainingSession />
+							</ProtectedRouter>
+						}
+					/>
+					<Route
+						path='/trainings-chart'
+						element={
+							<ProtectedRouter>
+								<ReportsTrainings />
 							</ProtectedRouter>
 						}
 					/>
