@@ -8,6 +8,7 @@ import api from '../../../features/api';
 import FormInput from '../../formElements/FormInput';
 import SelectInput from '../../formElements/SelectInput';
 import { DAYS_OPTION, MUSCLES_OPTIONS } from '../../../constants/constatns';
+import { useTranslation } from 'react-i18next';
 
 const CreateWorkoutForm = () => {
 	const [muscleValue, setMuscleValue] = useState([]);
@@ -44,6 +45,8 @@ const CreateWorkoutForm = () => {
 		navigate('/workouts');
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 			<div className='flex justify-between gap-4 flex-wrap'>
@@ -54,7 +57,7 @@ const CreateWorkoutForm = () => {
 				)}
 				<FormInput
 					type='text'
-					placeholder='Name of workout'
+					placeholder={t('trainings.form.nameOfWorkout')}
 					register={register}
 					registerName='workoutName'
 					required={true}
@@ -64,14 +67,14 @@ const CreateWorkoutForm = () => {
 				<SelectInput
 					options={DAYS_OPTION}
 					value={daysValue}
-					placeholder='Select days of training'
+					placeholder={t('trainings.form.selectDaysOfTraining')}
 					onChange={(o) => setDaysValue(o)}
 					multiple={true}
 				/>
 				<SelectInput
 					options={MUSCLES_OPTIONS}
 					value={muscleValue}
-					placeholder='Select muscle groups'
+					placeholder={t('trainings.form.selectMuscleGroups')}
 					onChange={(o) => setMuscleValue(o)}
 					multiple
 				/>
@@ -83,7 +86,7 @@ const CreateWorkoutForm = () => {
 							className='p-4 pb-0 flex items-center gap-2 flex-wrap w border border-gray-400 rounded-lg'>
 							<FormInput
 								type='text'
-								placeholder='Exercise name'
+								placeholder={t('trainings.form.exerciseName')}
 								register={register}
 								registerName={`exercises.${index}.exerciseName`}
 								required={true}
@@ -92,7 +95,7 @@ const CreateWorkoutForm = () => {
 
 							<FormInput
 								type='number'
-								placeholder='Sets'
+								placeholder={t('trainings.workoutItem.sets')}
 								register={register}
 								registerName={`exercises.${index}.sets`}
 								width='w-18'
@@ -103,7 +106,7 @@ const CreateWorkoutForm = () => {
 
 							<FormInput
 								type='number'
-								placeholder='Reps'
+								placeholder={t('trainings.workoutItem.reps')}
 								register={register}
 								registerName={`exercises.${index}.reps`}
 								width='w-18'
@@ -114,7 +117,7 @@ const CreateWorkoutForm = () => {
 
 							<FormInput
 								type='number'
-								placeholder='Weight'
+								placeholder={t('trainings.workoutItem.weight')}
 								register={register}
 								registerName={`exercises.${index}.weight`}
 								width='w-18'
@@ -124,7 +127,7 @@ const CreateWorkoutForm = () => {
 
 							<FormInput
 								type='text'
-								placeholder='Description (optional)'
+								placeholder={t('trainings.form.description')}
 								register={register}
 								registerName={`exercises.${index}.exerciseDescription`}
 								width='flex-grow'
@@ -152,7 +155,7 @@ const CreateWorkoutForm = () => {
 			<button
 				type='submit'
 				className='mt-4 border-none outline-none w-40 h-12 bg-green-500 font-bold rounded-lg hover:scale-110 duration-300'>
-				Save workout
+				{t('trainings.form.saveBtn')}
 			</button>
 		</form>
 	);

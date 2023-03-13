@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
 import store from './redux/store';
 
+import './i18n';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>

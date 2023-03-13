@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TailSpin } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,9 +12,12 @@ import TotalCalories from './TotalCalories';
 const NutritionMacros = () => {
 	const dispatch = useDispatch();
 	const { loading, date } = useSelector((state) => state.dailyMacros);
+
 	useEffect(() => {
 		dispatch(setDailyMacros(date));
 	}, [dispatch, date]);
+
+	const { t } = useTranslation();
 
 	if (loading) {
 		return (
@@ -34,7 +38,7 @@ const NutritionMacros = () => {
 		<div className='p-12 py-8'>
 			<div className='flex items-center justify-between'>
 				<h1 className='font-bold text-4xl'>
-					Calories for {getDateNumber(date)} {` `}
+					{t('nutrition.macros.title')} {getDateNumber(date)} {` `}
 					{getMonthName(date)}
 				</h1>
 				<NutritionDates />

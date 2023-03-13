@@ -9,6 +9,7 @@ import SelectInput from '../formElements/SelectInput';
 import api from '../../features/api';
 import { DAYS_OPTION, MUSCLES_OPTIONS } from '../../constants/constatns';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const EditWorkout = ({ workout }) => {
 	const [muscleValue, setMuscleValue] = useState([]);
@@ -60,15 +61,19 @@ const EditWorkout = ({ workout }) => {
 		navigate('/workouts');
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<div className='px-8 py-6 z-30'>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 				<div className='flex flex-col gap-4 '>
 					<div className='flex flex-col gap-2'>
-						<span className='font-bold text-lg'>Name of Workout</span>
+						<span className='font-bold text-lg'>
+							{t('trainings.form.nameOfWorkout')}
+						</span>
 						<FormInput
 							type='text'
-							placeholder='Name of workout'
+							placeholder={t('trainings.form.nameOfWorkout')}
 							register={register}
 							registerName='workoutName'
 							required={true}
@@ -78,21 +83,25 @@ const EditWorkout = ({ workout }) => {
 						/>
 					</div>
 					<div className='flex flex-col gap-2'>
-						<span className='font-bold text-lg'>Days of training</span>
+						<span className='font-bold text-lg'>
+							{t('trainings.form.daysOfTraining')}
+						</span>
 						<SelectInput
 							options={DAYS_OPTION}
 							value={daysValue}
-							placeholder='Select days of training'
+							placeholder={t('trainings.form.selectDaysOfTraining')}
 							onChange={(o) => setDaysValue(o)}
 							multiple={true}
 						/>
 					</div>
 					<div className='flex flex-col gap-2'>
-						<span className='font-bold text-lg'>Muscle groups</span>
+						<span className='font-bold text-lg'>
+							{t('trainings.form.muscleGroups')}
+						</span>
 						<SelectInput
 							options={MUSCLES_OPTIONS}
 							value={muscleValue}
-							placeholder='Select muscle groups'
+							placeholder={t('trainings.form.selectMuscleGroups')}
 							onChange={(o) => setMuscleValue(o)}
 							multiple
 						/>
@@ -104,7 +113,7 @@ const EditWorkout = ({ workout }) => {
 								className='p-4 pb-0 flex items-center gap-2 flex-wrap w border border-gray-400 rounded-lg'>
 								<FormInput
 									type='text'
-									placeholder='Exercise name'
+									placeholder={t('trainings.form.exerciseName')}
 									register={register}
 									registerName={`exercises.${index}.exerciseName`}
 									required={true}
@@ -113,7 +122,7 @@ const EditWorkout = ({ workout }) => {
 
 								<FormInput
 									type='number'
-									placeholder='Sets'
+									placeholder={t('trainings.workoutItem.sets')}
 									register={register}
 									registerName={`exercises.${index}.sets`}
 									width='w-18'
@@ -124,7 +133,7 @@ const EditWorkout = ({ workout }) => {
 
 								<FormInput
 									type='number'
-									placeholder='Reps'
+									placeholder={t('trainings.workoutItem.reps')}
 									register={register}
 									registerName={`exercises.${index}.reps`}
 									width='w-18'
@@ -135,7 +144,7 @@ const EditWorkout = ({ workout }) => {
 
 								<FormInput
 									type='number'
-									placeholder='Weight'
+									placeholder={t('trainings.workoutItem.weight')}
 									register={register}
 									registerName={`exercises.${index}.weight`}
 									width='w-18'
@@ -145,7 +154,7 @@ const EditWorkout = ({ workout }) => {
 
 								<FormInput
 									type='text'
-									placeholder='Description (optional)'
+									placeholder={t('trainings.form.description')}
 									register={register}
 									registerName={`exercises.${index}.exerciseDescription`}
 									width='flex-grow'
@@ -181,12 +190,12 @@ const EditWorkout = ({ workout }) => {
 					<button
 						type='submit'
 						className='border-none outline-none w-40 h-12 bg-green-500 font-bold rounded-lg hover:scale-110 duration-300'>
-						Save workout
+						{t('trainings.form.saveBtn')}
 					</button>
 					<Link
 						to={`/workouts/${workout._id}`}
 						className='flex items-center justify-center border-none outline-none w-40 h-12 bg-red-500 font-bold rounded-lg hover:scale-110 duration-300'>
-						Cancel
+						{t('trainings.form.cancelBtn')}
 					</Link>
 				</div>
 			</form>

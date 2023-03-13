@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 const Timer = () => {
@@ -7,6 +8,8 @@ const Timer = () => {
 	const [isActive] = useState(true);
 	const [isPaused, setIsPaused] = useState(true);
 	const increment = useRef(null);
+
+	const { t } = useTranslation();
 
 	const { timeWorkoutWasStarted } = useSelector(
 		(state) => state.trainingSession
@@ -60,13 +63,13 @@ const Timer = () => {
 				<button
 					onClick={handlePause}
 					className='font-bold text-lg p-2 text-center bg-green-400 border-none outline-none rounded-lg hover:scale-110 duration-200'>
-					Pause workout
+					{t('trainings.trainingSession.pauseBtn')}
 				</button>
 			) : (
 				<button
 					onClick={handleResume}
 					className='font-bold w-32 text-lg p-2 text-center bg-green-400 border-none outline-none rounded-lg hover:scale-110 duration-200'>
-					Resume
+					{t('trainings.trainingSession.resumeBtn')}
 				</button>
 			)}
 		</div>

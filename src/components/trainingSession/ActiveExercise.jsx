@@ -9,6 +9,7 @@ import {
 	setTrainingFinishExercise,
 } from '../../redux/actions/trainingSessionActions';
 import api from '../../features/api';
+import { useTranslation } from 'react-i18next';
 
 const ActiveExercise = () => {
 	const dispatch = useDispatch();
@@ -55,11 +56,14 @@ const ActiveExercise = () => {
 			.catch((err) => console.log(err));
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<div>
 			<p className='font-bold text-3xl mt-5'>
-				{activeExercise.exerciseName} {activeExercise.sets} sets x{' '}
-				{activeExercise.reps} reps with {activeExercise.weight} kg
+				{activeExercise.exerciseName} {activeExercise.sets}{' '}
+				{t('trainings.trainingSession.setsX')} {activeExercise.reps}{' '}
+				{t('trainings.trainingSession.repsWith')} {activeExercise.weight} kg
 			</p>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -71,11 +75,13 @@ const ActiveExercise = () => {
 						<div
 							className='border border-gray-300 rounded-lg p-4 w-96'
 							key={field.id}>
-							<p className='font-bold text-xl'>Set № {index + 1}</p>
+							<p className='font-bold text-xl'>
+								{t('trainings.trainingSession.set')} № {index + 1}
+							</p>
 							<div className='flex gap-4 mt-2 items-center'>
 								<FormInput
 									type='number'
-									placeholder='Reps'
+									placeholder={t('trainings.workoutItem.reps')}
 									register={register}
 									registerName={`setsDone.${index}.repsDone`}
 									width='w-18'
@@ -87,7 +93,7 @@ const ActiveExercise = () => {
 
 								<FormInput
 									type='number'
-									placeholder='Weight'
+									placeholder={t('trainings.workoutItem.weight')}
 									register={register}
 									registerName={`setsDone.${index}.weightDone`}
 									width='w-18'
@@ -118,13 +124,13 @@ const ActiveExercise = () => {
 					<button
 						type='submit'
 						className='border-none outline-none p-3 h-12 bg-green-400 font-bold rounded-lg hover:scale-110 duration-300'>
-						Finish Exercise
+						{t('trainings.trainingSession.finishExercise')}
 					</button>
 					<button
 						type='button'
 						onClick={selectActiveExercise}
 						className='border-none outline-none p-3 h-12 bg-blue-300 font-bold rounded-lg hover:scale-110 duration-300'>
-						Select another exercise
+						{t('trainings.trainingSession.selectAnotherExercise')}
 					</button>
 				</div>
 			</form>

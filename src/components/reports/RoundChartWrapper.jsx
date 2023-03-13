@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import NutritionMacrosRoundChart from './NutritionMacrosRoundChart';
@@ -19,19 +20,23 @@ const RoundChartWrapper = () => {
 		return Math.round(percantage * 10) / 10;
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<div className='p-5 h-56 shadow-card rounded-lg flex justify-between'>
 			<div className='flex flex-col justify-between'>
 				<span className='font-bold text-3xl text-blue-400'>
-					Carbs - {findMacrosPercantage(totalMacros, totalCarbs)}% ({totalCarbs}
+					{t('nutrition.report.optionCarbs')} -{' '}
+					{findMacrosPercantage(totalMacros, totalCarbs)}% ({totalCarbs}
 					g)
 				</span>
 				<span className='font-bold text-3xl text-red-400'>
-					Protein - {findMacrosPercantage(totalMacros, totalProtein)}% (
-					{totalProtein}g)
+					{t('nutrition.report.optionProtein')} -{' '}
+					{findMacrosPercantage(totalMacros, totalProtein)}% ({totalProtein}g)
 				</span>
 				<span className='font-bold text-3xl text-yellow-300'>
-					Fats - {findMacrosPercantage(totalMacros, totalFats)}% ({totalFats}g)
+					{t('nutrition.report.optionFats')} -{' '}
+					{findMacrosPercantage(totalMacros, totalFats)}% ({totalFats}g)
 				</span>
 			</div>
 			<NutritionMacrosRoundChart />

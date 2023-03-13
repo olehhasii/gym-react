@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import api from '../../features/api';
@@ -9,6 +10,7 @@ const SessionExerciseList = ({ exercises }) => {
 	const { trainingSession } = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const { t } = useTranslation();
 
 	if (!exercises) {
 		return;
@@ -46,17 +48,17 @@ const SessionExerciseList = ({ exercises }) => {
 		<div>
 			{checkIfAllExercisesIsDone() ? (
 				<p className='font-bold text-3xl mt-5 mb-6'>
-					You have finished all exercises. Please end your workout.
+					{t('trainings.trainingSession.finishedAll')}
 				</p>
 			) : (
 				<p className='font-bold text-3xl mt-5 mb-6'>
-					Select exercise from your list
+					{t('trainings.trainingSession.selectExercise')}
 				</p>
 			)}
 			<button
 				className='bordred-none outline-none p-3 text-lg bg-green-400 font-bold rounded-lg hover:scale-110 duration-200'
 				onClick={onFinishWorkout}>
-				Finish Workout
+				{t('trainings.trainingSession.finisheBtn')}
 			</button>
 			<ul className='list-none mt-6 flex flex-col gap-4'>
 				{exercises.map((exercise) => {

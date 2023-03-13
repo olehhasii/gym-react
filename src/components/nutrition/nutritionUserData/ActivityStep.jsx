@@ -1,26 +1,29 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import RadioInput from '../../formElements/RadioInput';
 
 const ActivityStep = ({ register }) => {
+	const { t } = useTranslation();
+
 	return (
 		<div>
 			<RadioInput
 				id='sedentary'
-				labelText='Sedentary lifestyle'
+				labelText={t('nutrition.params.form.sedentary')}
 				value='sedentary'
 				register={register}
 				registerName='activityLevel'
 			/>
 			<RadioInput
 				id='light'
-				labelText='Light exercises (1-2 day per week)'
+				labelText={t('nutrition.params.form.light')}
 				value='light'
 				register={register}
 				registerName='activityLevel'
 			/>
 			<RadioInput
 				id='moderate'
-				labelText='Moderate exercises (3-5 day per week)'
+				labelText={t('nutrition.params.form.moderate')}
 				defaultChecked={true}
 				value='moderate'
 				register={register}
@@ -28,7 +31,7 @@ const ActivityStep = ({ register }) => {
 			/>
 			<RadioInput
 				id='heavy'
-				labelText='Heavy exercises (5-7 day per week)'
+				labelText={t('nutrition.params.form.heavy')}
 				value='heavy'
 				register={register}
 				registerName='activityLevel'

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../../features/api';
@@ -24,6 +25,8 @@ const WorkoutDetails = ({
 	const dispatch = useDispatch();
 
 	const rootDiv = document.getElementById('root');
+
+	const { t } = useTranslation();
 
 	const onDeleteWorkout = () => {
 		api
@@ -56,23 +59,23 @@ const WorkoutDetails = ({
 						} block font-bold w-32 text-lg p-2 text-center rounded-lg `}
 						onClick={() => setOpenTrainModal(true)}
 						disabled={_id}>
-						Train
+						{t('trainings.workoutItem.trainBtn')}
 					</button>
 					<button
 						onClick={() => setSearchParams({ edit: true })}
 						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
-						Edit
+						{t('trainings.workoutItem.editBtn')}
 					</button>
 					<button
 						className='font-bold w-32 text-lg p-2 text-center bg-red-500 rounded-lg hover:scale-110 duration-200'
 						onClick={() => setOpenDeleteModal(true)}>
-						Delete
+						{t('trainings.workoutItem.deleteBtn')}
 					</button>
 				</div>
 			</div>
 			<div>
 				<span className='text-xl flex items-center gap-3 flex-wrap'>
-					Muscle groups:{' '}
+					{t('trainings.workoutItem.muscleGroups')}:{' '}
 					{muscleGroups.map((group) => (
 						<span className='border border-gray-300 rounded-md p-2'>
 							{group}
@@ -80,7 +83,7 @@ const WorkoutDetails = ({
 					))}
 				</span>
 				<span className='text-xl flex items-center gap-3 flex-wrap mt-2'>
-					Days:{' '}
+					{t('trainings.workoutItem.days')}:{' '}
 					{daysOfWorkout.map((day) => (
 						<span className='border border-gray-300 rounded-md p-2'>{day}</span>
 					))}
@@ -93,7 +96,7 @@ const WorkoutDetails = ({
 							setOpenDeleteModal(false);
 						}}
 						onConfirmHandler={onDeleteWorkout}
-						text='Are you sure you want to delete this workout?'
+						text={t('trainings.workoutItem.modal.textDelete')}
 					/>,
 					rootDiv
 				)}
@@ -104,7 +107,7 @@ const WorkoutDetails = ({
 							setOpenTrainModal(false);
 						}}
 						onConfirmHandler={onStartTraining}
-						text='Start training?'
+						text={t('trainings.workoutItem.modal.textStartTraining')}
 					/>,
 					rootDiv
 				)}

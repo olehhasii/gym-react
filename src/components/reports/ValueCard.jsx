@@ -1,10 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ValueCard = ({ amount, value, valueName, img, color, active }) => {
+	const { t } = useTranslation();
+
 	return (
 		<div
 			className={`${color} p-5 w-[30vh] h-[18vh] rounded-2xl hover:scale-110 duration-300`}>
-			<h3 className='font-bold text-lg text-center'>Total {valueName} Eaten</h3>
+			<h3 className='font-bold text-lg text-center'>
+				{t('nutrition.report.total')} {valueName} {t('nutrition.report.eaten')}
+			</h3>
 			<div className='flex items-center mt-4'>
 				<img src={img} alt='calories' className='w-14 h-14' />
 				<div className='ml-4'>

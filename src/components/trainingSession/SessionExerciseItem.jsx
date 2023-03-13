@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import api from '../../features/api';
 
@@ -14,6 +15,8 @@ const SessionExerciseItem = ({ exercise, done }) => {
 		dispatch(setActiveExercise(exercise));
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<li
 			className={`${
@@ -25,20 +28,26 @@ const SessionExerciseItem = ({ exercise, done }) => {
 					{exercise.exerciseName}
 				</span>
 				<div className='flex gap-4'>
-					<span className='text-xl'>Planned sets: {exercise.sets}</span>
-					<span className='text-xl'>Planned reps: {exercise.reps}</span>
-					<span className='text-xl'>Planned weight: {exercise.weight} kg</span>
+					<span className='text-xl'>
+						{t('trainings.trainingSession.plannedSets')}: {exercise.sets}
+					</span>
+					<span className='text-xl'>
+						{t('trainings.trainingSession.plannedReps')}: {exercise.reps}
+					</span>
+					<span className='text-xl'>
+						{t('trainings.trainingSession.plannedWeight')}: {exercise.weight} kg
+					</span>
 				</div>
 			</div>
 			{!done ? (
 				<button
 					className='w-32 h-12 bg-green-400 font-bold rounded-lg hover:scale-110 duration-200'
 					onClick={selectActiveExercise}>
-					Select
+					{t('trainings.trainingSession.selectBtn')}
 				</button>
 			) : (
 				<span className='font-bold text-xl text-green-500'>
-					Exercise is finished
+					{t('trainings.trainingSession.finishedExercise')}
 				</span>
 			)}
 		</li>

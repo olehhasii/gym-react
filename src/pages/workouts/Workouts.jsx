@@ -7,6 +7,7 @@ import NoWorkouts from '../../components/workouts/NoWorkouts';
 import { setWorkouts } from '../../redux/actions/workoutsActions';
 import WorkoutsList from '../../components/workouts/WorkoutsList';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Workouts = () => {
 	const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const Workouts = () => {
 	}, [dispatch]);
 
 	const { workouts, loading } = useSelector((state) => state.workouts);
+
+	const { t } = useTranslation();
 
 	if (loading) {
 		return (
@@ -41,17 +44,17 @@ const Workouts = () => {
 	return (
 		<div className='p-8'>
 			<div className='mb-6 flex items-center'>
-				<h1 className='font-bold text-3xl'>Your saved workouts</h1>
+				<h1 className='font-bold text-3xl'>{t('trainings.title')}</h1>
 				<div className='ml-auto flex items-center gap-6'>
 					<Link
 						to='/workouts/create-workout'
 						className='p-3 bg-blue-300 font-bold text-lg rounded-lg hover:scale-110 duration-200'>
-						Create workout
+						{t('trainings.createBtn')}
 					</Link>
 					<Link
 						to='/test'
 						className='p-3 bg-blue-300 font-bold text-lg rounded-lg hover:scale-110 duration-200'>
-						Browse ready workouts
+						{t('trainings.browseBtn')}
 					</Link>
 				</div>
 			</div>

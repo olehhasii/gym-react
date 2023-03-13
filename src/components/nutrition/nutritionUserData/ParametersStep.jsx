@@ -2,14 +2,17 @@ import React from 'react';
 
 import RadioInput from '../../formElements/RadioInput';
 import FormInput from '../../formElements/FormInput';
+import { useTranslation } from 'react-i18next';
 
 const ParametersStep = ({ register, errors }) => {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<div>
 				<RadioInput
 					id='male'
-					labelText='Male'
+					labelText={t('nutrition.params.form.male')}
 					value='male'
 					register={register}
 					registerName='gender'
@@ -18,7 +21,7 @@ const ParametersStep = ({ register, errors }) => {
 
 				<RadioInput
 					id='female'
-					labelText='Female'
+					labelText={t('nutrition.params.form.female')}
 					value='female'
 					register={register}
 					registerName='gender'
@@ -31,7 +34,7 @@ const ParametersStep = ({ register, errors }) => {
 					)}
 					<FormInput
 						type='number'
-						placeholder='Age (years)'
+						placeholder={t('nutrition.params.form.age')}
 						register={register}
 						registerName='age'
 						required={true}
@@ -47,7 +50,7 @@ const ParametersStep = ({ register, errors }) => {
 					)}
 					<FormInput
 						type='number'
-						placeholder='Height (cm)'
+						placeholder={t('nutrition.params.form.height')}
 						register={register}
 						registerName='height'
 						required={true}
@@ -63,7 +66,7 @@ const ParametersStep = ({ register, errors }) => {
 					)}
 					<FormInput
 						type='number'
-						placeholder='Weight (kg)'
+						placeholder={t('nutrition.params.form.weight')}
 						register={register}
 						registerName='weight'
 						required={true}
@@ -75,7 +78,7 @@ const ParametersStep = ({ register, errors }) => {
 					{errors.bodyFat && <span className='text-red-600'>min 1/max 70</span>}
 					<FormInput
 						type='number'
-						placeholder='Body fat % (Optional)'
+						placeholder={t('nutrition.params.form.bodyFat')}
 						register={register}
 						registerName='bodyFat'
 						min={1}

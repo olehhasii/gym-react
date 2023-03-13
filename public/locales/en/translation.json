@@ -1,7 +1,176 @@
-{
-    "title": "Welcome to react using react-i18next",
-    "description": {
-      "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-      "part2": "Switch language between english and german using buttons above."
+{   
+    "navigation": {
+        "overview":"Overview",
+        "workouts": "Workouts",
+        "trainingHistory": "Training History",
+        "trainingReports": "Training Reports",
+        "activeTraining": "Active Training",
+        "nutrition": "Nutrition",
+        "nutritionReport": "Nutrition Report"
+    },
+    "overview": {
+        "todaysActivity": {
+            "title": "Today's activity",
+            "workoutName": "Chest workout",
+            "exercises": {
+                "first": "Bench press",
+                "second": "Incline dumbell press",
+                "third": "Buterrfly"
+            },
+            "sets": "sets of",
+            "reps": "reps"
+        },
+        "todaysCalories": {
+            "title": "Today's calories"
+        },
+        "macros": {
+            "title": "Macros",
+            "carbs": "Carbs",
+            "protein": "Protein",
+            "fats": "Fats"
+        },
+        "recomendedActivity": {
+            "title": "Recomended activity",
+            "workoutName": "Full body",
+            "description": "Full body workout is perfect for any experience level. Beginners will thrive when using full body workouts. Intermediates will continue to notice progress towards their goals. And advanced lifters will be able to maintain their size and slowly build upon their established foundation.",
+            "btn": "Try it out"
+        }
+    },
+    "trainings": {
+        "title": "Your saved workouts",
+        "createBtn": "Create workout",
+        "browseBtn": "Browse ready workouts",
+        "noWorkoutTxt": "No workouts added",
+        "createOne": "Create One",
+        "chooseFromReady": "Choose from ready",
+        "workoutItem": {
+            "muscleGroups": "Muscle groups",
+            "days": "Days",
+            "viewBtn": "View",
+            "editBtn": "Edit",
+            "trainBtn": "Train",
+            "deleteBtn": "Delete",
+            "exercises": "Exercises",
+            "sets": "Sets",
+            "reps": "Reps",
+            "weight": "Weight",
+            "modal": {
+                "textDelete": "Are you sure you want to delete this workout?",
+                "textStartTraining": "Start training?",
+                "confirmBtn": "Confirm",
+                "cancelBtn": "Cancel"
+            }
+        },
+        "form": {
+            "createTitle": "Create your own workout plan!",
+            "createDescription": "Add exercices, reps, sets and muscle group to start tracking your sport activities. This will help you to stick to the plan and reach your goals.",
+            "nameOfWorkout": "Name of Workout",
+            "daysOfTraining": "Days of training",
+            "selectDaysOfTraining": "Select days of trainings",
+            "muscleGroups": "Muscle groups",
+            "selectMuscleGroups": "Select muscle groups",
+            "exerciseName": "Exercise Name",
+            "description": "Desctiption (optional)",
+            "saveBtn": "Save workout",
+            "cancelBtn": "Cancel"
+        },
+        "trainingSession": {
+            "selectExercise": "Select exercise from your list",
+            "finishedAll": "You have finished all exercises. Please end your workout.",
+            "finisheBtn": "Finish Workout",
+            "pauseBtn": "Pause workout",
+            "resumeBtn": "Resume",
+            "plannedSets": "Planned sets",
+            "plannedReps": "Planned reps",
+            "plannedWeight": "Planned weight",
+            "selectBtn": "Select",
+            "finishedExercise": "Exercise is finished",
+            "setsX": "sets x",
+            "repsWith": "reps with",
+            "finishExercise": "Finish Exercise",
+            "selectAnotherExercise": "Select another exercise",
+            "set": "Set"
+        },
+        "trainingsLogs": {
+            "noLogs": "You have no trainings logs yet",
+            "title": "Your training history",
+            "workoutName": "Workout Name",
+            "muscleGroups":"Muscle groups",
+            "date": "Date", 
+            "time": "Time",
+            "trainingLogTitle": "Training Log Details",
+            "timeSpent": "Time spent",
+            "setNumber": "Set №",
+            "repsDone": "Reps Done",
+            "weightDone": "Weight Done"
+        },
+        "report": {
+            "timesTrained": "Times you trained",
+            "minutes": "Minutes",
+            "favourite": "Favourite muscle group",
+            "exerciseDone": "Exercises done",
+            "week": "Week",
+            "month": "Month"
+        }
+    },
+    "nutrition": {
+        "params": {
+            "title": "Start tracking your daily nutrition!",
+            "description": "Tell about yourself and your goals, so we can provide you recomended daily calories intake.",
+            "form": {
+                "submitBtn": "Submit",
+                "nextBtn": "Continue",
+                "backBtn": "Back",
+                "loseWeight": "Lose weight",
+                "gainWeigth": "Gain weight",
+                "maintainWeight": "Maintain weight",
+                "male": "Male",
+                "female": "Female",
+                "age": "Age (years)",
+                "height": "Height (cm)",
+                "weight": "Weight (kg)",
+                "bodyFat": "Body fat % (Optional)",
+                "sedentary": "Sedentary lifestyle",
+                "light": "Light exercices (1-2 day pre week)",
+                "moderate": "Moderate exercices (3-5 day per week)",
+                "heavy": "Heavy exercises (5-7 day per week)",
+                "goals": "Your Goals",
+                "parameters": "Parameters",
+                "activity": "Activity"
+            }
+        },
+        "macros": {
+            "title": "Calories for",
+            "eaten": "Eaten",
+            "left": "Left",
+            "carbs": "Carbs",
+            "protein":"Protein",
+            "fats":"Fats",
+            "breakfast": "breakfast",
+            "lunch": "lunch",
+            "dinner": "dinner",
+            "snacks": "snacks",
+            "noData": "No data, please add products",
+            "productName": "Product name",
+            "weight": "Weight (g)",
+            "addProduct": "Add product",
+            "saveMeal": "Save meal"
+        },
+        "report": {
+            "calories": "Calories",
+            "protein": "Protein",
+            "carbs": "Carbs",
+            "fats": "Fats",
+            "total": "Total",
+            "eaten": "Eaten",
+            "analysis": "Analysis for",
+            "optionCalories": "Calories",
+            "optionCarbs": "Carbs",
+            "optionProtein": "Protein",
+            "optionFats": "Fats",
+            "week": "Week",
+            "month":"Month",
+            "year": "Year"
+        }
     }
-  }
+}

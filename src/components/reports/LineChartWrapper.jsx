@@ -13,6 +13,7 @@ import {
 } from '../../helpers/dates';
 import { setReportNutritionTimeLine } from '../../redux/actions/reportNutritionsActions';
 import NutritionLineChart from './NutritionLineChart';
+import { useTranslation } from 'react-i18next';
 
 const NutritionChartWrapper = () => {
 	const [nutrientName, setNutrientName] = useState('calories');
@@ -52,6 +53,8 @@ const NutritionChartWrapper = () => {
 
 	const dateForChecingButton = getFirstDayOfWeek(new Date());
 
+	const { t } = useTranslation();
+
 	return (
 		<div className='h-96 p-4 shadow-card rounded-lg'>
 			<div className='flex items-center'>
@@ -59,7 +62,7 @@ const NutritionChartWrapper = () => {
 					<FaChevronLeft className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 mr-2' />
 				</button>
 				<h1 className='text-xl font-bold text-center'>
-					Analysis for {nutrientName} (
+					{t('nutrition.report.analysis')} {nutrientName} (
 					{`${getMonthName(startDate)} ${getDateNumber(startDate)}`} -{' '}
 					{`${getMonthName(endDate)} ${getDateNumber(endDate)}`})
 				</h1>
@@ -76,18 +79,22 @@ const NutritionChartWrapper = () => {
 						}}
 						id='nutrient'
 						className='w-38 w-36 p-2 mr-4 border border-gray-300 rounded-lg outline-none'>
-						<option value='calories'>Calories</option>
-						<option value='carbs'>Carbs</option>
-						<option value='protein'>Protein</option>
-						<option value='fats'>Fats</option>
+						<option value='calories'>
+							{t('nutrition.report.optionCalories')}
+						</option>
+						<option value='carbs'>{t('nutrition.report.optionCarbs')}</option>
+						<option value='protein'>
+							{t('nutrition.report.optionProtein')}
+						</option>
+						<option value='fats'>{t('nutrition.report.optionFats')}</option>
 					</select>
 					<select
 						onChange={test}
 						id='dateRange'
 						className='w-38 w-36 p-2 border border-gray-300 rounded-lg outline-none'>
-						<option value='week'>Week</option>
-						<option value='month'>Month</option>
-						<option value='year'>Year</option>
+						<option value='week'>{t('nutrition.report.week')}</option>
+						<option value='month'>{t('nutrition.report.month')}</option>
+						<option value='year'>{t('nutrition.report.year')}</option>
 					</select>
 				</div>
 			</div>

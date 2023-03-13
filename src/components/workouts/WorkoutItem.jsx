@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { setTrainingSession } from '../../redux/actions/trainingSessionActions';
@@ -15,6 +16,8 @@ const WorkoutItem = ({ key, workout }) => {
 	const rootDiv = document.getElementById('root');
 
 	const { _id } = useSelector((state) => state.trainingSession);
+
+	const { t } = useTranslation();
 
 	const onStartTraining = () => {
 		const timeWorkoutWasStarted = new Date();
@@ -35,13 +38,13 @@ const WorkoutItem = ({ key, workout }) => {
 			<span className='font-bold text-2xl'>{workout.workoutName}</span>
 			<div className='flex flex-col'>
 				<span>
-					Muscle groups:{' '}
+					{t('trainings.workoutItem.muscleGroups')}:{' '}
 					{workout.muscleGroups.map((group, index) =>
 						index === workout.muscleGroups.length - 1 ? group : group + '/'
 					)}{' '}
 				</span>
 				<span>
-					Days:{' '}
+					{t('trainings.workoutItem.days')}:{' '}
 					{workout.daysOfWorkout.map((day, index) =>
 						index === workout.daysOfWorkout.length - 1 ? day : day + '/'
 					)}
@@ -51,7 +54,7 @@ const WorkoutItem = ({ key, workout }) => {
 				<Link
 					to={`${workout._id}`}
 					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
-					View
+					{t('trainings.workoutItem.viewBtn')}
 				</Link>
 				<button
 					className={`${
@@ -61,12 +64,12 @@ const WorkoutItem = ({ key, workout }) => {
 					} font-bold w-20 p-2 text-center rounded-lg `}
 					onClick={() => setOpenTrainModal(true)}
 					disabled={_id}>
-					Train
+					{t('trainings.workoutItem.trainBtn')}
 				</button>
 				<Link
 					to={`${workout._id}?edit=true`}
 					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
-					Edit
+					{t('trainings.workoutItem.editBtn')}
 				</Link>
 			</div>
 

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaChevronRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 import OpenedMeal from './OpenedMeal';
 
-const MealsListItem = ({ img, mealName }) => {
+const MealsListItem = ({ img, mealName, mealTxt }) => {
 	const [active, setIsActive] = useState(false);
 
 	const meal = useSelector((state) => state.dailyMacros.meals[mealName]);
+
+	const { t } = useTranslation();
 
 	return (
 		<div className='shadow-card rounded-md p-3'>
@@ -15,20 +18,27 @@ const MealsListItem = ({ img, mealName }) => {
 				<div className='flex items-center'>
 					<img src={img} alt='meal' className='w-12 h-12' />
 					<div className='ml-5'>
-						<h3 className='font-bold first-letter:capitalize'>{mealName}</h3>
+						<h3 className='font-bold first-letter:capitalize'>{mealTxt}</h3>
 						{meal.totalCalories !== 0 && (
 							<>
 								<span className=''>{meal.totalCalories} kcal / </span>
-								<span>Carbs - {meal.totalCarbs ? meal.totalCarbs : 0}g/ </span>
 								<span>
-									Protein - {meal.totalProtein ? meal.totalProtein : 0}g/{' '}
+									{t('nutrition.macros.carbs')} -{' '}
+									{meal.totalCarbs ? meal.totalCarbs : 0}g/{' '}
 								</span>
-								<span>Fats - {meal.totalFats ? meal.totalFats : 0}g</span>
+								<span>
+									{t('nutrition.macros.protein')} -{' '}
+									{meal.totalProtein ? meal.totalProtein : 0}g/{' '}
+								</span>
+								<span>
+									{t('nutrition.macros.fats')} -{' '}
+									{meal.totalFats ? meal.totalFats : 0}g
+								</span>
 							</>
 						)}
 						{!meal.totalCalories && (
 							<span className='text-sm font-bold'>
-								No data, please add products.
+								{t('nutrition.macros.noData')}
 							</span>
 						)}
 					</div>

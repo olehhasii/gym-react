@@ -11,9 +11,12 @@ import { useSelector } from 'react-redux';
 
 import logo from '../../assets/guts.png';
 import NavigationLink from './NavigationLink';
+import { useTranslation } from 'react-i18next';
 
 const Navigation = ({ isFull }) => {
 	const { _id } = useSelector((state) => state.trainingSession);
+
+	const { t } = useTranslation();
 
 	return (
 		<div
@@ -41,45 +44,45 @@ const Navigation = ({ isFull }) => {
 			<div>
 				<ul className='text-sm font-bold'>
 					<NavigationLink
-						linkText='Overview'
+						linkText={t('navigation.overview')}
 						linkUrl='/'
 						isFull={isFull}
 						icon={<FaHome className='text-xl' />}
 					/>
 					<NavigationLink
-						linkText='Workouts'
+						linkText={t('navigation.workouts')}
 						linkUrl='/workouts'
 						isFull={isFull}
 						icon={<FaDumbbell className='text-xl' />}
 					/>
 					<NavigationLink
-						linkText='Training History'
+						linkText={t('navigation.trainingHistory')}
 						linkUrl='/history'
 						isFull={isFull}
 						icon={<FaHistory className='text-xl' />}
 					/>
 					<NavigationLink
-						linkText='Training Reports'
+						linkText={t('navigation.trainingReports')}
 						linkUrl='/trainings-chart'
 						isFull={isFull}
 						icon={<CgChart className='text-xl' />}
 					/>
 					{_id && (
 						<NavigationLink
-							linkText='Active Training'
+							linkText={t('navigation.activeTraining')}
 							linkUrl={`/training-session/${_id}`}
 							isFull={isFull}
 							icon={<CgGym className='text-xl' />}
 						/>
 					)}
 					<NavigationLink
-						linkText='Nutrition'
+						linkText={t('navigation.nutrition')}
 						linkUrl='/nutrition'
 						isFull={isFull}
 						icon={<FaNutritionix className='text-xl' />}
 					/>
 					<NavigationLink
-						linkText='Nutrition Report'
+						linkText={t('navigation.nutritionReport')}
 						linkUrl='/nutrition-charts'
 						isFull={isFull}
 						icon={<FaRegChartBar className='text-xl' />}
