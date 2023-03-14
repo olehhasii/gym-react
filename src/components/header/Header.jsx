@@ -4,6 +4,7 @@ import { MdDarkMode, MdLightMode, MdSearch } from 'react-icons/md';
 import HeaderButton from './HeaderButton';
 import avatar from '../../assets/musashi.jpg';
 import HeaderMenu from './HeaderMenu';
+import SelectLanguage from './SelectLanguage';
 
 const Header = ({ isFull, onSetFull }) => {
 	const [lightMode, setLightMode] = useState(true);
@@ -69,6 +70,7 @@ const Header = ({ isFull, onSetFull }) => {
 						onClickHandler={onLightModeHandler}
 					/>
 				)}
+				<SelectLanguage />
 				<HeaderButton
 					icon={
 						<img

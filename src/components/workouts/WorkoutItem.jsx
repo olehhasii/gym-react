@@ -50,10 +50,10 @@ const WorkoutItem = ({ key, workout }) => {
 					)}
 				</span>
 			</div>
-			<div className='flex gap-6'>
+			<div className='flex gap-4'>
 				<Link
 					to={`${workout._id}`}
-					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
+					className='font-bold w-28  p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 					{t('trainings.workoutItem.viewBtn')}
 				</Link>
 				<button
@@ -61,14 +61,14 @@ const WorkoutItem = ({ key, workout }) => {
 						_id
 							? 'bg-gray-300 cursor-not-allowed'
 							: 'bg-green-400 hover:scale-110 duration-200'
-					} font-bold w-20 p-2 text-center rounded-lg `}
+					} font-bold w-28 p-2 text-center rounded-lg `}
 					onClick={() => setOpenTrainModal(true)}
 					disabled={_id}>
 					{t('trainings.workoutItem.trainBtn')}
 				</button>
 				<Link
 					to={`${workout._id}?edit=true`}
-					className='font-bold w-20 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
+					className='font-bold w-28 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
 					{t('trainings.workoutItem.editBtn')}
 				</Link>
 			</div>
@@ -80,7 +80,7 @@ const WorkoutItem = ({ key, workout }) => {
 							setOpenTrainModal(false);
 						}}
 						onConfirmHandler={onStartTraining}
-						text='Start training?'
+						text={t('trainings.workoutItem.modal.textStartTraining')}
 					/>,
 					rootDiv
 				)}

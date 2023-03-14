@@ -1,7 +1,176 @@
 {
-    "title": "Привіт",
-    "description": {
-      "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-      "part2": "Switch language between english and german using buttons above."
+  "navigation": {
+    "overview": "Головна",
+    "workouts": "Тренування",
+    "trainingHistory": "Історія тренувань",
+    "trainingReports": "Аналіз тренувань",
+    "activeTraining": "Поточне тренування",
+    "nutrition": "Харчування",
+    "nutritionReport": "Аналіз харчування"
+  },
+  "overview": {
+    "todaysActivity": {
+      "title": "Сьогоднішнє тренування",
+      "workoutName": "Груди + біцепс",
+      "exercises": {
+        "first": "Жим штанги",
+        "second": "Жим гантелей",
+        "third": "Метелик"
+      },
+      "sets": "підходи на",
+      "reps": "повторів"
+    },
+    "todaysCalories": {
+      "title": "Сьогодніші калорії"
+    },
+    "macros": {
+      "title": "Нутрієнти",
+      "carbs": "Вуглеводи",
+      "protein": "Білки",
+      "fats": "Жири"
+    },
+    "recomendedActivity": {
+      "title": "Рекомендоване тренування",
+      "workoutName": "Фулбаді",
+      "description": "Експерти в області фітнеса в один голос запевняють, що такі тренування ідеальні для новачків. Перші місяці в залі людина знайомиться з тренажерами, вправами і освоює правильну техніку, тому тренування, що задіє всі м’язи тіла – прекрасний варіант.",
+      "btn": "Спробувати"
+    }
+  },
+  "trainings": {
+    "title": "Збережені програми",
+    "createBtn": "Створити програму",
+    "browseBtn": "Переглянути готові програми",
+    "noWorkoutTxt": "Не збережено тренувань",
+    "createOne": "Створити",
+    "chooseFromReady": "Вибрати із готових",
+    "workoutItem": {
+      "muscleGroups": "Групи м'язів",
+      "days": "Дні",
+      "viewBtn": "Відкрити",
+      "editBtn": "Редагувати",
+      "trainBtn": "Тренуватись",
+      "deleteBtn": "Видалити",
+      "exercises": "Вправи",
+      "sets": "Підходи",
+      "reps": "Повторів",
+      "weight": "Вага",
+      "modal": {
+        "textDelete": "Ви впевнені, що хочете видали це тренування?",
+        "textStartTraining": "Почати тренування?",
+        "confirmBtn": "Підтвердити",
+        "cancelBtn": "Скасувати"
+      }
+    },
+    "form": {
+      "createTitle": "Створіть власну програму тренування!",
+      "createDescription": "Додайте вправи, визначіть підходи, повтори вагу і групи м'язів, щоб вже сьогодны почати відслідковувати власний прогрес. Досягніть свої цілей!",
+      "nameOfWorkout": "Назва програми",
+      "daysOfTraining": "Дні тренування",
+      "selectDaysOfTraining": "Виберіть дні тренування",
+      "muscleGroups": "Групи м'язів",
+      "selectMuscleGroups": "Виберіть групи м’язів",
+      "exerciseName": "Назва вправи",
+      "description": "Опис (необов'язково)",
+      "saveBtn": "Зберегти",
+      "cancelBtn": "Скасувати"
+    },
+    "trainingSession": {
+      "selectExercise": "Виберіть вправу із списку",
+      "finishedAll": "Ви завершили усі вправи. Можете закінчити тренування.",
+      "finisheBtn": "Завершити тренування",
+      "pauseBtn": "Пауза",
+      "resumeBtn": "Відновити",
+      "plannedSets": "Запплановано підходів",
+      "plannedReps": "Запплановано повторів",
+      "plannedWeight": "Запланована вага",
+      "selectBtn": "Вибрати",
+      "finishedExercise": "Вправа завершена",
+      "setsX": "підходи x",
+      "repsWith": "повтори з вагою",
+      "finishExercise": "Завершити вправу",
+      "selectAnotherExercise": "Вибрати іншу вправу",
+      "set": "Підхід"
+    },
+    "trainingsLogs": {
+      "noLogs": "У вас жодного запису про тренування",
+      "title": "Історія тренувань",
+      "workoutName": "Назва програми",
+      "muscleGroups": "Групи м'язів",
+      "date": "Дата",
+      "time": "Час",
+      "trainingLogTitle": "Деталі тренування",
+      "timeSpent": "Часу витрачено",
+      "setNumber": "Підхід №",
+      "repsDone": "Повторів зроблено",
+      "weightDone": "Вага"
+    },
+    "report": {
+      "timesTrained": "Сесій тренування",
+      "minutes": "Хвилин",
+      "favourite": "Улюблена група м’язів",
+      "exerciseDone": "Вправ виконано",
+      "week": "Тиждень",
+      "month": "Місяць"
+    }
+  },
+  "nutrition": {
+    "params": {
+      "title": "Почніть відслідковувати своє харчування!",
+      "description": "Розкажіть про себе і свої цілі, щоб ми могли рекомендувати щодену калорійність",
+      "form": {
+        "submitBtn": "Підтвердити",
+        "nextBtn": "Продовжити",
+        "backBtn": "Назад",
+        "loseWeight": "Схуднути",
+        "gainWeigth": "Набрати вагу",
+        "maintainWeight": "Пдітримувати поточну вагу",
+        "male": "Чоловік",
+        "female": "Жінка",
+        "age": "Вік ",
+        "height": "Зріст (cm)",
+        "weight": "Вага (kg)",
+        "bodyFat": "Відсоток жиру % (Необов'язково)",
+        "sedentary": "Неактивний стиль життя",
+        "light": "Легкі тренування (1-2 рази на тиждень)",
+        "moderate": "Середні тренування (3-5 разів на тиждень)",
+        "heavy": "Тяжкі тренування (5-7 разів на тиждень)",
+        "goals": "Ваші цілі",
+        "parameters": "Параметри",
+        "activity": "Активність"
+      }
+    },
+    "macros": {
+      "title": "Калорійність для",
+      "eaten": "Спожито",
+      "left": "Залишилось",
+      "carbs": "Вуглеводи",
+      "protein": "Білки",
+      "fats": "Жири",
+      "breakfast": "сніданок",
+      "lunch": "обід",
+      "dinner": "вечеря",
+      "snacks": "інше",
+      "noData": "Немає даних, додайте продукти",
+      "productName": "Назва продукту",
+      "weight": "Вага (г.)",
+      "addProduct": "Додати",
+      "saveMeal": "Зберегти"
+    },
+    "report": {
+      "calories": "Калорій",
+      "protein": "Білків",
+      "carbs": "Вуглеводів",
+      "fats": "Жирів",
+      "total": "Загалом",
+      "eaten": "спожито",
+      "analysis": "Аналіз для",
+      "optionCalories": "Калорії",
+      "optionCarbs": "Вуглеводи",
+      "optionProtein": "Білки",
+      "optionFats": "Жири",
+      "week": "Тиждень",
+      "month": "Місяць",
+      "year": "Рік"
     }
   }
+}

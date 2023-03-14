@@ -8,7 +8,7 @@ i18n
 	.use(Backend)
 	.use(initReactI18next)
 	.init({
-		fallbackLng: 'en',
+		fallbackLng: 'ua',
 		debug: true,
 		whitelist: availableLanguages,
 		interpolation: {
