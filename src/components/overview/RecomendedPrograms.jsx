@@ -5,13 +5,17 @@ const RecomendedPrograms = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div>
-			<h3 className='font-bold text-xl mb-3'>
+		<div className=''>
+			<h3 className='font-bold text-xl mb-2 mt-5'>
 				{t('overview.recomendedActivity.title')}
 			</h3>
 			<div className='p-4 shadow-card rounded-lg'>
 				<div className='p-4 flex bg-blue-200 rounded-lg gap-4'>
-					<img src={programImg} alt='training' className=' h-60' />
+					<img
+						src={programImg}
+						alt='training'
+						className=' h-60 hidden lg:block'
+					/>
 					<div>
 						<h3 className='text-xl font-bold'>
 							{t('overview.recomendedActivity.workoutName')}

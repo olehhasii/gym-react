@@ -16,7 +16,7 @@ const ValueCarsdList = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className='flex flex-col gap-6'>
+		<div className='flex lg:flex-col gap-6 flex-wrap justify-center mb-4 lg:mb-0'>
 			<ValueCard
 				amount={totalCalories}
 				value='kcal'

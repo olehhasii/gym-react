@@ -7,7 +7,7 @@ const ExercisesList = ({ exercises }) => {
 
 	return (
 		<div className='mt-4'>
-			<h2 className='font-bold text-3xl'>
+			<h2 className='font-bold text-2xl lg:text-3xl'>
 				{t('trainings.workoutItem.exercises')}
 			</h2>
 			<ul className='flex flex-wrap gap-6 mt-4'>

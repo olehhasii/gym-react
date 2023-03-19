@@ -9,7 +9,7 @@ const OverviewMacros = () => {
 	const percentageFat = Math.round((55 / 76) * 100);
 
 	return (
-		<div className='w-[45%]'>
+		<div className=' grow'>
 			<h3 className='font-bold text-xl mb-3'>{t('overview.macros.title')}</h3>
 			<div className=' flex flex-col gap-2'>
 				<div className='flex flex-col items-center shadow-card px-3  rounded-3xl'>

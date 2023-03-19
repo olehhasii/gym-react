@@ -94,7 +94,7 @@
     "trainingsLogs": {
       "noLogs": "У вас жодного запису про тренування",
       "title": "Історія тренувань",
-      "workoutName": "Назва програми",
+      "workoutName": "Назва",
       "muscleGroups": "Групи м'язів",
       "date": "Дата",
       "time": "Час",

@@ -125,7 +125,7 @@ const EditWorkout = ({ workout }) => {
 									placeholder={t('trainings.workoutItem.sets')}
 									register={register}
 									registerName={`exercises.${index}.sets`}
-									width='w-18'
+									width='w-20 md:w-18'
 									min={1}
 									max={200}
 									required={true}
@@ -136,7 +136,7 @@ const EditWorkout = ({ workout }) => {
 									placeholder={t('trainings.workoutItem.reps')}
 									register={register}
 									registerName={`exercises.${index}.reps`}
-									width='w-18'
+									width='w-20 md:w-18'
 									min={1}
 									max={500}
 									required={true}
@@ -147,7 +147,7 @@ const EditWorkout = ({ workout }) => {
 									placeholder={t('trainings.workoutItem.weight')}
 									register={register}
 									registerName={`exercises.${index}.weight`}
-									width='w-18'
+									width='w-20 md:w-18'
 									min={1}
 									max={500}
 								/>
@@ -159,7 +159,7 @@ const EditWorkout = ({ workout }) => {
 									registerName={`exercises.${index}.exerciseDescription`}
 									width='flex-grow'
 								/>
-								<div className='flex gap-2 items-center ml-auto'>
+								<div className='flex gap-2 items-center ml-auto w'>
 									{index === fields.length - 1 && (
 										<button
 											onClick={() =>

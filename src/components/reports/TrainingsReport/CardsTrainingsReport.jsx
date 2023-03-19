@@ -11,7 +11,7 @@ const CardsTrainingsReport = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className='mt-8 flex gap-4 justify-between'>
+		<div className='mt-8 flex flex-col md:flex-row gap-4 items-center'>
 			<CardTrainingStat
 				bgColor='bg-green-200'
 				text={t('trainings.report.timesTrained')}

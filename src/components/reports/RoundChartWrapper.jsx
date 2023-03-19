@@ -23,18 +23,18 @@ const RoundChartWrapper = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className='p-5 h-56 shadow-card rounded-lg flex justify-between'>
-			<div className='flex flex-col justify-between'>
-				<span className='font-bold text-3xl text-blue-400'>
+		<div className='p-5 lg:h-56 shadow-card rounded-lg flex justify-between flex-col lg:flex-row'>
+			<div className='flex flex-col lg:justify-between justify-center items-center lg:items-baseline mb-4'>
+				<span className='font-bold lg:text-3xl text-blue-400'>
 					{t('nutrition.report.optionCarbs')} -{' '}
 					{findMacrosPercantage(totalMacros, totalCarbs)}% ({totalCarbs}
 					g)
 				</span>
-				<span className='font-bold text-3xl text-red-400'>
+				<span className='font-bold lg:text-3xl text-red-400'>
 					{t('nutrition.report.optionProtein')} -{' '}
 					{findMacrosPercantage(totalMacros, totalProtein)}% ({totalProtein}g)
 				</span>
-				<span className='font-bold text-3xl text-yellow-300'>
+				<span className='font-bold lg:text-3xl text-yellow-300'>
 					{t('nutrition.report.optionFats')} -{' '}
 					{findMacrosPercantage(totalMacros, totalFats)}% ({totalFats}g)
 				</span>

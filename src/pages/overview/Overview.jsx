@@ -1,20 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+
 import OverviewMacros from '../../components/overview/OverviewMacros';
-import OverviewProgramCard from '../../components/overview/OverviewProgramCard';
 import OverviewTodayActivity from '../../components/overview/OverviewTodayActivity';
 import RecomendedPrograms from '../../components/overview/RecomendedPrograms';
-import ProgressBar from '../../components/ui/ProgressBar';
+
 import ProgressCircle from '../../components/ui/ProgressCircle';
 
 const Overview = () => {
-	const { username } = useSelector((state) => state.userInfo);
 	const { t } = useTranslation();
 
 	return (
 		<div className='p-8'>
-			<div className='flex gap-10 flex-wrap'>
+			<div className='flex flex-col gap-10 flex-wrap md:flex-row  '>
 				<OverviewTodayActivity />
 				<div>
 					{/* <h3 className='font-bold text-xl mb-3'>Todays calories</h3> */}
@@ -28,8 +26,8 @@ const Overview = () => {
 					</div>
 				</div>
 				<OverviewMacros />
-				<RecomendedPrograms />
 			</div>
+			<RecomendedPrograms />
 		</div>
 	);
 };

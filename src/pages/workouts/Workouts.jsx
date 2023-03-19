@@ -42,18 +42,20 @@ const Workouts = () => {
 		);
 	}
 	return (
-		<div className='p-8'>
-			<div className='mb-6 flex items-center'>
-				<h1 className='font-bold text-3xl'>{t('trainings.title')}</h1>
-				<div className='ml-auto flex items-center gap-6'>
+		<div className='md:p-8 p-4'>
+			<div className='mb-6 flex flex-col items-center md:flex-row justify-center '>
+				<h1 className='font-bold text-2xl lg:text-3xl'>
+					{t('trainings.title')}
+				</h1>
+				<div className='ml-auto mt-3 md:mt-0 flex items-center gap-6'>
 					<Link
 						to='/workouts/create-workout'
-						className='p-3 bg-blue-300 font-bold text-lg rounded-lg hover:scale-110 duration-200'>
+						className='p-2 text-center  bg-blue-300 font-bold text-sm lg:text-lg rounded-lg hover:scale-110 duration-200'>
 						{t('trainings.createBtn')}
 					</Link>
 					<Link
 						to='/test'
-						className='p-3 bg-blue-300 font-bold text-lg rounded-lg hover:scale-110 duration-200'>
+						className='p-2 text-center bg-blue-300 font-bold text-sm lg:text-lg rounded-lg hover:scale-110 duration-200'>
 						{t('trainings.browseBtn')}
 					</Link>
 				</div>

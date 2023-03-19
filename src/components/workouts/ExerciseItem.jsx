@@ -6,10 +6,10 @@ const ExerciseItem = ({ exercise }) => {
 
 	return (
 		<li
-			className='flex flex-col gap-4 p-4 border bordet-gray-300 rounded-lg'
+			className='flex flex-col gap-4 p-3 border bordet-gray-300 rounded-lg'
 			key={exercise.exerciseName}>
 			<h3 className='font-bold text-xl'>{exercise.exerciseName}</h3>
-			<div className='flex gap-1 text-lg'>
+			<div className='flex gap-1 lg:text-lg'>
 				<span>
 					{t('trainings.workoutItem.sets')}: {exercise.sets} |
 				</span>

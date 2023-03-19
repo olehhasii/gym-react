@@ -48,7 +48,7 @@ const TrainingHistoryPage = () => {
 
 	return (
 		<div className='p-8'>
-			<h2 className='font-bold text-3xl'>
+			<h2 className='font-bold text-2xl md:text-3xl'>
 				{t('trainings.trainingsLogs.title')}
 			</h2>
 			<TrainingHistoryTable logs={trainingLogs} />

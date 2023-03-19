@@ -30,7 +30,7 @@ const WorkoutPage = () => {
 		return <EditWorkout workout={workout} />;
 	}
 	return (
-		<div className='p-8 z-30'>
+		<div className='p-6 z-30'>
 			<WorkoutDetails
 				workoutName={workout.workoutName}
 				daysOfWorkout={workout.daysOfWorkout}

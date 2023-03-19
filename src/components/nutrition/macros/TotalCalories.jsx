@@ -18,8 +18,8 @@ const TotalCalories = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className='w-1/2 max-h-96 p-8 px-12 rounded-lg shadow-card flex flex-col gap-4'>
-			<div className='flex justify-between items-center'>
+		<div className='lg:w-1/2 max-h-96 p-8 px-4 lg:px-12 rounded-lg shadow-card lg:flex flex-col gap-4'>
+			<div className='lg:flex justify-between items-center hidden'>
 				<div className='relative flex flex-col items-center'>
 					<span className='text-xl font-bold'>
 						{t('nutrition.macros.eaten')}
@@ -42,6 +42,33 @@ const TotalCalories = () => {
 					</span>
 				</div>
 			</div>
+
+			<div className='w-full flex justify-center items-center flex-col lg:hidden mb-3'>
+				<div className='w-28 h-28 mb-3'>
+					<ProgressCircle
+						total={caloriesPerDay}
+						current={caloriesConsumed}
+						valueName='kcal'
+					/>
+				</div>
+				<div className='flex justify-between gap-16 '>
+					<div className='relative flex flex-col items-center'>
+						<span className='lg:text-xl font-bold'>
+							{t('nutrition.macros.left')}
+						</span>
+						<span className='lg:text-xl '>
+							{Math.round((caloriesPerDay - caloriesConsumed) * 10) / 10} kcal
+						</span>
+					</div>
+					<div className='relative flex flex-col items-center'>
+						<span className='lg:text-xl font-bold'>
+							{t('nutrition.macros.eaten')}
+						</span>
+						<span className='lg:text-xl'>{caloriesConsumed} kcal</span>
+					</div>
+				</div>
+			</div>
+
 			<hr className='h-0.5 bg-green-400' />
 			<div className='flex justify-between mt-8'>
 				<ProgressBar

@@ -51,12 +51,12 @@ const SessionExerciseList = ({ exercises }) => {
 					{t('trainings.trainingSession.finishedAll')}
 				</p>
 			) : (
-				<p className='font-bold text-3xl mt-5 mb-6'>
+				<p className='font-bold text-xl md:text-3xl mt-5 mb-6'>
 					{t('trainings.trainingSession.selectExercise')}
 				</p>
 			)}
 			<button
-				className='bordred-none outline-none p-3 text-lg bg-green-400 font-bold rounded-lg hover:scale-110 duration-200'
+				className='bordred-none outline-none p-3 text-base md:text-lg bg-green-400 font-bold rounded-lg hover:scale-110 duration-200'
 				onClick={onFinishWorkout}>
 				{t('trainings.trainingSession.finisheBtn')}
 			</button>

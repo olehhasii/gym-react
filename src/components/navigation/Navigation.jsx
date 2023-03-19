@@ -13,7 +13,7 @@ import logo from '../../assets/guts.png';
 import NavigationLink from './NavigationLink';
 import { useTranslation } from 'react-i18next';
 
-const Navigation = ({ isFull }) => {
+const Navigation = ({ isFull, hidden, responsive, refResponsive }) => {
 	const { _id } = useSelector((state) => state.trainingSession);
 
 	const { t } = useTranslation();
@@ -21,8 +21,11 @@ const Navigation = ({ isFull }) => {
 	return (
 		<div
 			className={`${
-				isFull ? 'w-64' : 'w-20'
-			} fixed top-0 left-0 h-full border-r border-0 border-solid border-gray-300 duration-500 transition-all`}>
+				isFull ? 'navig' : 'w-20'
+			} ${hidden} ${responsive} h-full border-r border-0 border-solid border-gray-300 duration-500 transition-all`}
+			ref={refResponsive}>
+			{' '}
+			{/* fixed top-0 left-0 */}
 			<div className='flex p-6'>
 				<img src={logo} alt='logo' className='h-12 mr-8' />
 				<h2

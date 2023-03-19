@@ -6,7 +6,7 @@ const OpenedMeal = ({ meal, onCloseOpened }) => {
 	const { food, name } = meal;
 
 	return (
-		<div className='mt-2'>
+		<div className='mt-4'>
 			<ul className='ml-4 flex justify-start flex-wrap gap-8'>
 				{food &&
 					food.length !== 0 &&

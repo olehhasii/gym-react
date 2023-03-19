@@ -56,12 +56,12 @@ const NutritionChartWrapper = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className='h-96 p-4 shadow-card rounded-lg'>
+		<div className='h-96 p-4 shadow-card rounded-lg mb-4 lg:mb-0'>
 			<div className='flex items-center'>
 				<button className='outline-none' onClick={selectPreviousWeek}>
-					<FaChevronLeft className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 mr-2' />
+					<FaChevronLeft className='lg:w-5 lg:h-5 w-3 h-3 hover:scale-125 cursor-pointer duration-300 lg:mr-2 ml-1' />
 				</button>
-				<h1 className='text-xl font-bold text-center'>
+				<h1 className='text-sm lg:text-xl font-bold text-center'>
 					{t('nutrition.report.analysis')} {nutrientName} (
 					{`${getMonthName(startDate)} ${getDateNumber(startDate)}`} -{' '}
 					{`${getMonthName(endDate)} ${getDateNumber(endDate)}`})
@@ -69,7 +69,7 @@ const NutritionChartWrapper = () => {
 				{dateToIsoSting(dateForChecingButton) !==
 					dateToIsoSting(new Date(startDate)) && (
 					<button className='outline-none' onClick={selectNextWeek}>
-						<FaChevronRight className='w-5 h-5 hover:scale-125 cursor-pointer duration-300 ml-2' />
+						<FaChevronRight className='lg:w-5 lg:h-5 w-3 h-3 hover:scale-125 cursor-pointer duration-300 lg:ml-2 mr-2' />
 					</button>
 				)}
 				<div className='ml-auto'>
@@ -78,7 +78,7 @@ const NutritionChartWrapper = () => {
 							setNutrientName(e.target.value);
 						}}
 						id='nutrient'
-						className='w-38 w-36 p-2 mr-4 border border-gray-300 rounded-lg outline-none'>
+						className='w-20 lg:w-36 p-2 mr-4 border border-gray-300 rounded-lg outline-none text-xs lg:text-base mb-2 lg:mb-0'>
 						<option value='calories'>
 							{t('nutrition.report.optionCalories')}
 						</option>
@@ -91,7 +91,7 @@ const NutritionChartWrapper = () => {
 					<select
 						onChange={test}
 						id='dateRange'
-						className='w-38 w-36 p-2 border border-gray-300 rounded-lg outline-none'>
+						className='w-20 lg:w-36  p-2 border border-gray-300 rounded-lg outline-none text-xs lg:text-base'>
 						<option value='week'>{t('nutrition.report.week')}</option>
 						<option value='month'>{t('nutrition.report.month')}</option>
 						<option value='year'>{t('nutrition.report.year')}</option>

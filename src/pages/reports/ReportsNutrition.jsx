@@ -39,9 +39,9 @@ const ReportsNutrition = () => {
 	}
 
 	return (
-		<div className='px-12 py-8 flex justify-between'>
+		<div className='px-6 py-8 flex justify-between flex-col lg:flex-row'>
 			<ValueCarsdList />
-			<div className='flex flex-col w-3/4 justify-between'>
+			<div className='flex flex-col lg:w-3/4 justify-between'>
 				<NutritionChartWrapper />
 				<RoundChartWrapper />
 			</div>

@@ -100,7 +100,7 @@ const NutritionChart = ({ nutrientName }) => {
 	};
 
 	return (
-		<div className='h-80'>
+		<div className='lg:h-80 h-72'>
 			<Line data={data} options={options} />
 		</div>
 	);

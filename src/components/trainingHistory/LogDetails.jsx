@@ -9,7 +9,7 @@ const LogDetails = ({ trainingLog }) => {
 	return (
 		<div className='mt-6'>
 			<h3 className='font-bold text-2xl'>{trainingLog.workoutName}</h3>
-			<div className='flex text-lg gap-3 mt-3'>
+			<div className='flex text-sm lg:text-lg gap-3 mt-3'>
 				<span>
 					{t('trainings.trainingsLogs.date')}:{' '}
 					<span>{getDateString(trainingLog.timeWorkoutWasStarted)} |</span>

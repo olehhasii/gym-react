@@ -60,8 +60,8 @@ const ActiveExercise = () => {
 
 	return (
 		<div>
-			<p className='font-bold text-3xl mt-5'>
-				{activeExercise.exerciseName} {activeExercise.sets}{' '}
+			<p className='font-bold text-xl lg:text-3xl mt-5'>
+				{activeExercise.exerciseName} | {activeExercise.sets}{' '}
 				{t('trainings.trainingSession.setsX')} {activeExercise.reps}{' '}
 				{t('trainings.trainingSession.repsWith')} {activeExercise.weight} kg
 			</p>
@@ -75,7 +75,7 @@ const ActiveExercise = () => {
 						<div
 							className='border border-gray-300 rounded-lg p-4 w-96'
 							key={field.id}>
-							<p className='font-bold text-xl'>
+							<p className='font-bold lg:text-xl'>
 								{t('trainings.trainingSession.set')} № {index + 1}
 							</p>
 							<div className='flex gap-4 mt-2 items-center'>
@@ -84,7 +84,7 @@ const ActiveExercise = () => {
 									placeholder={t('trainings.workoutItem.reps')}
 									register={register}
 									registerName={`setsDone.${index}.repsDone`}
-									width='w-18'
+									width='w-20 md:w-32'
 									min={1}
 									max={500}
 									required={true}
@@ -96,7 +96,7 @@ const ActiveExercise = () => {
 									placeholder={t('trainings.workoutItem.weight')}
 									register={register}
 									registerName={`setsDone.${index}.weightDone`}
-									width='w-18'
+									width='w-20 md:w-32'
 									min={1}
 									max={500}
 									mb='mb-0'
@@ -123,13 +123,13 @@ const ActiveExercise = () => {
 				<div className='flex gap-4 mt-6 items-center'>
 					<button
 						type='submit'
-						className='border-none outline-none p-3 h-12 bg-green-400 font-bold rounded-lg hover:scale-110 duration-300'>
+						className='text-sm md:text-base text-center border-none outline-none p-2 h-12 bg-green-400 font-bold rounded-lg hover:scale-110 duration-300'>
 						{t('trainings.trainingSession.finishExercise')}
 					</button>
 					<button
 						type='button'
 						onClick={selectActiveExercise}
-						className='border-none outline-none p-3 h-12 bg-blue-300 font-bold rounded-lg hover:scale-110 duration-300'>
+						className='text-sm md:text-base border-none outline-none p-2 h-12 bg-blue-300 font-bold rounded-lg hover:scale-110 duration-300'>
 						{t('trainings.trainingSession.selectAnotherExercise')}
 					</button>
 				</div>

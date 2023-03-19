@@ -9,7 +9,11 @@ const NutritionNoUserParams = () => {
 
 	return (
 		<div className='flex'>
-			<img src={img} alt='food' className='h-[calc(100vh_-_4rem)]' />
+			<img
+				src={img}
+				alt='food'
+				className='h-[calc(100vh_-_4rem)] hidden lg:block'
+			/>
 			<div className='p-14 py-12 w-full'>
 				<div>
 					<h1 className='font-bold text-3xl mb-2'>

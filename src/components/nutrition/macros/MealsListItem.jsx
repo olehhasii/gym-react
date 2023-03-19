@@ -16,21 +16,23 @@ const MealsListItem = ({ img, mealName, mealTxt }) => {
 		<div className='shadow-card rounded-md p-3'>
 			<div className='flex items-center justify-between h-16'>
 				<div className='flex items-center'>
-					<img src={img} alt='meal' className='w-12 h-12' />
-					<div className='ml-5'>
+					<img src={img} alt='meal' className='lg:w-12 lg:h-12 w-8 h-8' />
+					<div className='ml-3'>
 						<h3 className='font-bold first-letter:capitalize'>{mealTxt}</h3>
 						{meal.totalCalories !== 0 && (
 							<>
-								<span className=''>{meal.totalCalories} kcal / </span>
-								<span>
+								<span className='text-sm lg:text-base'>
+									{meal.totalCalories} kcal /{' '}
+								</span>
+								<span className='text-sm lg:text-base'>
 									{t('nutrition.macros.carbs')} -{' '}
 									{meal.totalCarbs ? meal.totalCarbs : 0}g/{' '}
 								</span>
-								<span>
+								<span className='text-sm lg:text-base'>
 									{t('nutrition.macros.protein')} -{' '}
 									{meal.totalProtein ? meal.totalProtein : 0}g/{' '}
 								</span>
-								<span>
+								<span className='text-sm lg:text-base'>
 									{t('nutrition.macros.fats')} -{' '}
 									{meal.totalFats ? meal.totalFats : 0}g
 								</span>
@@ -46,7 +48,7 @@ const MealsListItem = ({ img, mealName, mealTxt }) => {
 				<FaChevronRight
 					className={`${
 						active && 'rotate-90'
-					} w-6 h-6  hover:scale-125 cursor-pointer duration-300`}
+					} lg:w-6 lg:h-6 w-3 h-3  hover:scale-125 cursor-pointer duration-300`}
 					onClick={() => setIsActive((state) => !state)}
 				/>
 			</div>

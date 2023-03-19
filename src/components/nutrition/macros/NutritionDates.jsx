@@ -40,20 +40,20 @@ const NutritionDates = () => {
 	};
 
 	return (
-		<div className='flex'>
+		<div className='flex mt-3 lg:mt-0'>
 			{datesArray[0] !== todayDate && (
 				<button onClick={onNewDate} className='outline-none'>
-					<FaChevronLeft className='w-6 h-6 hover:scale-125 cursor-pointer duration-300 mr-4' />
+					<FaChevronLeft className='lg:w-6 lg:h-6 w-3 h-3 hover:scale-125 cursor-pointer duration-300 mr-4' />
 				</button>
 			)}
-			<ul className='flex gap-6 '>
+			<ul className='flex gap-2 lg:gap-6 '>
 				{datesArray.map((date) => {
 					const active = date === activeDate ? true : false;
 					return <DateButton date={date} keyProp={date} active={active} />;
 				})}
 			</ul>
 			<button onClick={onPastDate} className='outline-none'>
-				<FaChevronRight className='w-6 h-6 hover:scale-125 cursor-pointer duration-300 ml-4' />
+				<FaChevronRight className='lg:w-6 lg:h-6 w-3 h-3 hover:scale-125 cursor-pointer duration-300 ml-4' />
 			</button>
 		</div>
 	);

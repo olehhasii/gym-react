@@ -9,7 +9,7 @@ const NavLayout = ({ isFullNavigation, onSetIsFullNavigation }) => {
 	return (
 		<>
 			<Header isFull={isFullNavigation} onSetFull={onSetIsFullNavigation} />
-			<Navigation isFull={isFullNavigation} />
+			<Navigation isFull={isFullNavigation} hidden={'hidden lg:block'} />
 			<MainWrapper>
 				<Outlet />
 			</MainWrapper>

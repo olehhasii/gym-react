@@ -54,7 +54,7 @@ const AddMealForm = ({ mealName, onCloseOpened }) => {
 							registerName={`food.${index}.name`}
 							min={2}
 							height='h-10'
-							width='w-64'
+							width='lg:w-64 w-32'
 							max={20}
 							required={true}
 						/>
@@ -78,14 +78,14 @@ const AddMealForm = ({ mealName, onCloseOpened }) => {
 			})}
 			<button
 				type='button'
-				className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-10 w-32 rounded-md font-bold border-none '
+				className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-8 w-24 lg:h-10 lg:w-32 rounded-md font-bold border-none text-sm lg:text-base'
 				onClick={() => append({ name: '', weight: 0 })}>
 				{t('nutrition.macros.addProduct')}
 			</button>
 			{!errors.food?.root?.message && (
 				<button
 					type='submit'
-					className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-10 w-32 rounded-md font-bold border-none ml-4'>
+					className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-8 w-24 lg:h-10 lg:w-32 text-sm lg:text-base rounded-md font-bold border-none ml-4'>
 					{t('nutrition.macros.saveMeal')}
 				</button>
 			)}

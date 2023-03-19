@@ -9,7 +9,7 @@ const OverviewTodayActivity = () => {
 			<h3 className='font-bold text-xl mb-3'>
 				{t('overview.todaysActivity.title')}
 			</h3>
-			<div className='flex w-96 gap-4 '>
+			<div className='flex gap-4 lg:w-96'>
 				<div className='p-3 flex justify-center items-center bg-blue-300 rounded-3xl'>
 					<span className='font-bold text-center'>
 						{t('overview.todaysActivity.workoutName')}
