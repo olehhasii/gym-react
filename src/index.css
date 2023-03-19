@@ -9,7 +9,7 @@ body {
 #root {
   height: 100vh;
   position: relative;
- 
+  display: flex;
 }
 
 * {
@@ -17,4 +17,9 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.navig {
+  max-width: 16rem;
+  width: 100%;
 }

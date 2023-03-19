@@ -14,9 +14,13 @@ const DateButton = ({ date, keyProp, disabled = false, active }) => {
 				disabled={disabled}
 				className={`${
 					active ? 'bg-green-500' : 'bg-green-100'
-				}  flex flex-col items-center justify-center w-16 h-20 rounded-full`}>
-				<span className='font-bold'>{getMonthName(date)}</span>
-				<span className='font-bold text-xl'>{getDateNumber(date)}</span>
+				}  flex flex-col items-center justify-center w-10 h-14 lg:w-16 lg:h-20 rounded-full`}>
+				<span className='font-bold text-xs lg:text-base'>
+					{getMonthName(date)}
+				</span>
+				<span className='font-bold text-sm lg:text-xl'>
+					{getDateNumber(date)}
+				</span>
 			</button>
 		</li>
 	);

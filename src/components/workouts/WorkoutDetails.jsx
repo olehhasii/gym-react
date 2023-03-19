@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../../features/api';
@@ -25,6 +26,8 @@ const WorkoutDetails = ({
 
 	const rootDiv = document.getElementById('root');
 
+	const { t } = useTranslation();
+
 	const onDeleteWorkout = () => {
 		api
 			.delete(`/training/remove/${workoutId}`)
@@ -45,42 +48,42 @@ const WorkoutDetails = ({
 
 	return (
 		<div className='flex flex-col flex-wrap gap-4 '>
-			<div className='flex justify-between'>
+			<div className='flex justify-between flex-col md:flex-row'>
 				<h1 className='font-bold text-3xl'>{workoutName}</h1>
-				<div className='flex gap-3'>
+				<div className='flex gap-3 mt-3 md:mt-0'>
 					<button
 						className={`${
 							_id
 								? 'bg-gray-300 cursor-not-allowed '
 								: 'bg-green-400 hover:scale-110 duration-200'
-						} block font-bold w-32 text-lg p-2 text-center rounded-lg `}
+						} block font-bold text-sm lg:text-lg lg:w-32 p-2 text-center rounded-lg `}
 						onClick={() => setOpenTrainModal(true)}
 						disabled={_id}>
-						Train
+						{t('trainings.workoutItem.trainBtn')}
 					</button>
 					<button
 						onClick={() => setSearchParams({ edit: true })}
-						className='block font-bold w-32 text-lg p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
-						Edit
+						className='block font-bold text-sm lg:text-lg lg:w-32 p-2 text-center bg-green-400 rounded-lg hover:scale-110 duration-200'>
+						{t('trainings.workoutItem.editBtn')}
 					</button>
 					<button
-						className='font-bold w-32 text-lg p-2 text-center bg-red-500 rounded-lg hover:scale-110 duration-200'
+						className='font-bold text-sm lg:text-lg lg:w-32 p-2 text-center bg-red-500 rounded-lg hover:scale-110 duration-200'
 						onClick={() => setOpenDeleteModal(true)}>
-						Delete
+						{t('trainings.workoutItem.deleteBtn')}
 					</button>
 				</div>
 			</div>
 			<div>
-				<span className='text-xl flex items-center gap-3 flex-wrap'>
-					Muscle groups:{' '}
+				<span className='lg:text-xl text-lg flex items-center gap-3 flex-wrap'>
+					{t('trainings.workoutItem.muscleGroups')}:{' '}
 					{muscleGroups.map((group) => (
 						<span className='border border-gray-300 rounded-md p-2'>
 							{group}
 						</span>
 					))}
 				</span>
-				<span className='text-xl flex items-center gap-3 flex-wrap mt-2'>
-					Days:{' '}
+				<span className='lg:text-xl text-lg flex items-center gap-3 flex-wrap mt-2'>
+					{t('trainings.workoutItem.days')}:{' '}
 					{daysOfWorkout.map((day) => (
 						<span className='border border-gray-300 rounded-md p-2'>{day}</span>
 					))}
@@ -93,7 +96,7 @@ const WorkoutDetails = ({
 							setOpenDeleteModal(false);
 						}}
 						onConfirmHandler={onDeleteWorkout}
-						text='Are you sure you want to delete this workout?'
+						text={t('trainings.workoutItem.modal.textDelete')}
 					/>,
 					rootDiv
 				)}
@@ -104,7 +107,7 @@ const WorkoutDetails = ({
 							setOpenTrainModal(false);
 						}}
 						onConfirmHandler={onStartTraining}
-						text='Start training?'
+						text={t('trainings.workoutItem.modal.textStartTraining')}
 					/>,
 					rootDiv
 				)}

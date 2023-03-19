@@ -11,6 +11,7 @@ import ActivityStep from './ActivityStep';
 import api from '../../../features/api';
 
 import { setUser } from '../../../redux/actions/userActions';
+import { useTranslation } from 'react-i18next';
 
 const NutritionUserDataForm = () => {
 	const {
@@ -18,6 +19,8 @@ const NutritionUserDataForm = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+
+	const { t } = useTranslation();
 
 	const { step, currentStepIndex, isFirstStep, isLastStep, back, next } =
 		useMiltistepForm([
@@ -41,11 +44,22 @@ const NutritionUserDataForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{step}
 				<div className='flex justify-end'>
-					{!isFirstStep && <FormStepButton text='Back' onClick={back} />}
+					{!isFirstStep && (
+						<FormStepButton
+							text={t('nutrition.params.form.backBtn')}
+							onClick={back}
+						/>
+					)}
 					{isLastStep ? (
-						<FormStepButton text='Submit' type='submit' />
+						<FormStepButton
+							text={t('nutrition.params.form.submitBtn')}
+							type='submit'
+						/>
 					) : (
-						<FormStepButton type='submit' text='Continue' />
+						<FormStepButton
+							type='submit'
+							text={t('nutrition.params.form.nextBtn')}
+						/>
 					)}
 				</div>
 			</form>

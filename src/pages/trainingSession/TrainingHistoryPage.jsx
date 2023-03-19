@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TailSpin } from 'react-loader-spinner';
 
 import TrainingHistoryTable from '../../components/trainingHistory/TrainingHistoryTable';
@@ -8,6 +9,8 @@ import api from '../../features/api';
 const TrainingHistoryPage = () => {
 	const [trainingLogs, setTrainingLogs] = useState([]);
 	const [loading, setLoading] = useState(false);
+
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		setLoading(true);
@@ -38,14 +41,16 @@ const TrainingHistoryPage = () => {
 		return (
 			<div className='flex justify-center items-center h-full'>
 				<p className='font-bold text-3xl mb-20'>
-					You have no trainings logs yet
+					{t('trainings.trainingsLogs.noLogs')}
 				</p>
 			</div>
 		);
 
 	return (
 		<div className='p-8'>
-			<h2 className='font-bold text-3xl'>Your training history</h2>
+			<h2 className='font-bold text-2xl md:text-3xl'>
+				{t('trainings.trainingsLogs.title')}
+			</h2>
 			<TrainingHistoryTable logs={trainingLogs} />
 		</div>
 	);

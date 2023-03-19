@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setDailyMacros } from '../../../redux/actions/dailyMacrosActions';
 import FormInput from '../../formElements/FormInput';
 import api from '../../../features/api';
+import { useTranslation } from 'react-i18next';
 
 const AddMealForm = ({ mealName, onCloseOpened }) => {
 	const date = useSelector((state) => state.dailyMacros.date);
@@ -37,6 +38,8 @@ const AddMealForm = ({ mealName, onCloseOpened }) => {
 		});
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 			<p className='mb-4 text-center font-bold '>
@@ -46,18 +49,18 @@ const AddMealForm = ({ mealName, onCloseOpened }) => {
 				return (
 					<div key={field.id} className='flex items-center gap-2'>
 						<FormInput
-							placeholder='Product name'
+							placeholder={t('nutrition.macros.productName')}
 							register={register}
 							registerName={`food.${index}.name`}
 							min={2}
 							height='h-10'
-							width='w-64'
+							width='lg:w-64 w-32'
 							max={20}
 							required={true}
 						/>
 						<FormInput
 							type='number'
-							placeholder='Weight g'
+							placeholder={t('nutrition.macros.weight')}
 							register={register}
 							registerName={`food.${index}.weight`}
 							height='h-10'
@@ -75,15 +78,15 @@ const AddMealForm = ({ mealName, onCloseOpened }) => {
 			})}
 			<button
 				type='button'
-				className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-10 w-32 rounded-md font-bold border-none '
+				className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-8 w-24 lg:h-10 lg:w-32 rounded-md font-bold border-none text-sm lg:text-base'
 				onClick={() => append({ name: '', weight: 0 })}>
-				Add product
+				{t('nutrition.macros.addProduct')}
 			</button>
 			{!errors.food?.root?.message && (
 				<button
 					type='submit'
-					className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-10 w-32 rounded-md font-bold border-none ml-4'>
-					Save meal
+					className='cursor-pointer bg-green-500 hover:scale-105 duration-300 h-8 w-24 lg:h-10 lg:w-32 text-sm lg:text-base rounded-md font-bold border-none ml-4'>
+					{t('nutrition.macros.saveMeal')}
 				</button>
 			)}
 		</form>

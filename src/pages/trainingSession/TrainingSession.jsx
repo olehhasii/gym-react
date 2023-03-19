@@ -10,7 +10,7 @@ const TrainingSession = () => {
 	const { trainingSession: workout } = useSelector((state) => state);
 
 	return (
-		<div className='p-8'>
+		<div className='p-6'>
 			<Timer />
 			{workout.activeExercise ? (
 				<ActiveExercise />

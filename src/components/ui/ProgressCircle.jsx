@@ -17,10 +17,10 @@ const ProgressCircle = ({ total, current, valueName }) => {
 				trailColor: '#bbf7d0',
 				textColor: 'black',
 			})}>
-			<span className='font-bold text-xl'>
+			<span className='font-bold lg:text-xl'>
 				{current}/{total}
 			</span>
-			<span className='text-lg'>{valueName}</span>
+			<span className='text-sm lg:text-lg'>{valueName}</span>
 		</CircularProgressbarWithChildren>
 	);
 };

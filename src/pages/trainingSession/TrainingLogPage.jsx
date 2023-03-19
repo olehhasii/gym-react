@@ -5,12 +5,15 @@ import { TailSpin } from 'react-loader-spinner';
 import api from '../../features/api';
 import LogDetails from '../../components/trainingHistory/LogDetails';
 import ExercisesTable from '../../components/trainingHistory/ExercisesTable';
+import { useTranslation } from 'react-i18next';
 
 const TrainingLogPage = () => {
 	const [trainingLog, setTrainingLog] = useState(null);
 	const [loading, setLoading] = useState(false);
 
 	const { logId } = useParams();
+
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		setLoading(true);
@@ -36,7 +39,9 @@ const TrainingLogPage = () => {
 
 	return (
 		<div className='p-8'>
-			<h2 className='font-bold text-2xl'>Training Log Details</h2>
+			<h2 className='font-bold text-2xl'>
+				{t('trainings.trainingsLogs.trainingLogTitle')}
+			</h2>
 			<LogDetails trainingLog={trainingLog} />
 			{trainingLog.exercises.map((exercise) => (
 				<ExercisesTable key={exercise.exerciseName} exercise={exercise} />

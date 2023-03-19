@@ -18,6 +18,7 @@ import TrainingSessionVerify from './features/TrainingSessionVerify';
 import TrainingHistoryPage from './pages/trainingSession/TrainingHistoryPage';
 import TrainingLogPage from './pages/trainingSession/TrainingLogPage';
 import ReportsTrainings from './pages/reports/ReportsTrainings';
+import { Suspense } from 'react';
 
 function App() {
 	const [isFullNavigation, setIsFullNavigation] = useState(true);
@@ -26,7 +27,7 @@ function App() {
 	};
 
 	return (
-		<>
+		<Suspense fallback={null}>
 			<Routes>
 				<Route path='/auth' element={<Authentication />}>
 					<Route path='login' element={<LoginForm />} />
@@ -126,7 +127,7 @@ function App() {
 			</Routes>
 			<AuthVerify />
 			<TrainingSessionVerify />
-		</>
+		</Suspense>
 	);
 }
 

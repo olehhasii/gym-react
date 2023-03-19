@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ModalOverlay = ({ onClose, text, onConfirmHandler }, childern) => {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<div
@@ -12,12 +15,12 @@ const ModalOverlay = ({ onClose, text, onConfirmHandler }, childern) => {
 					<button
 						className='border-nono outline-none w-32 h-12 bg-green-400 font-bold hover:scale-110 duration-200'
 						onClick={onConfirmHandler}>
-						Confirm
+						{t('trainings.workoutItem.modal.confirmBtn')}
 					</button>
 					<button
 						className='border-none outline-none w-32 h-12 bg-red-400 font-bold hover:scale-110 duration-200'
 						onClick={onClose}>
-						Close
+						{t('trainings.workoutItem.modal.cancelBtn')}
 					</button>
 				</div>
 			</div>

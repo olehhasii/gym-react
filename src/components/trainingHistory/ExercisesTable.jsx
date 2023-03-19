@@ -1,13 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import TableHeader from '../ui/TableHeader';
 import ExerciseRow from './ExerciseRow';
 
 const ExercisesTable = ({ exercise }) => {
+	const { t } = useTranslation();
+
 	if (JSON.stringify(exercise) === '{}') {
 		return;
 	}
-
-	console.log(exercise);
 
 	const allSetsDone =
 		+exercise.sets === exercise.setsDone.length ||
@@ -26,10 +27,18 @@ const ExercisesTable = ({ exercise }) => {
 	return (
 		<table className='w-full shadow-card mt-6'>
 			<caption className='text-left font-bold text-xl mb-2'>
-				{exercise.exerciseName} {exercise.sets} sets | {exercise.reps} reps |{' '}
+				{exercise.exerciseName} {exercise.sets}{' '}
+				{t('trainings.workoutItem.sets')} | {exercise.reps}{' '}
+				{t('trainings.workoutItem.reps')} |{' '}
 				{exercise.weight ? exercise.weight + ' kg' : 'No weight'}
 			</caption>
-			<TableHeader headers={['Set №', 'Reps Done', 'Weight Done']} />
+			<TableHeader
+				headers={[
+					t('trainings.trainingsLogs.setNumber'),
+					t('trainings.trainingsLogs.repsDone'),
+					t('trainings.trainingsLogs.weightDone'),
+				]}
+			/>
 			<tbody>
 				{exerciseData.setsDone.map((set, index) => (
 					<ExerciseRow

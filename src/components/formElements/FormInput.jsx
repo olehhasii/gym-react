@@ -15,7 +15,7 @@ const FormInput = ({
 	return (
 		<input
 			type={type}
-			className={`${width} ${height} ${mb} p-4 border border-gray-300 rounded-lg outline-none focus:border-black`}
+			className={`${width} ${height} ${mb} p-2 md:p-4 text-sm md:text-base border border-gray-300 rounded-lg outline-none focus:border-black`}
 			placeholder={placeholder}
 			min={min}
 			max={max}
