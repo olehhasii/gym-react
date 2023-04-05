@@ -98,18 +98,6 @@ const NutritionChartWrapper = () => {
 					</select>
 				</div>
 			</div>
-			{/* <button
-				onClick={() => {
-					dispatch(
-						setReportNutritionTimeLine({
-							timeLine: 'week',
-							startDate: '2023-01-20T16:03:59.589Z',
-							endDate: '2023-01-27T16:03:59.589Z',
-						})
-					);
-				}}>
-				Click me
-			</button> */}
 			<NutritionLineChart nutrientName={nutrientName} />
 		</div>
 	);

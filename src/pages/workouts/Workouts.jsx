@@ -54,7 +54,7 @@ const Workouts = () => {
 						{t('trainings.createBtn')}
 					</Link>
 					<Link
-						to='/test'
+						to='/ready-workouts'
 						className='p-2 text-center bg-blue-300 font-bold text-sm lg:text-lg rounded-lg hover:scale-110 duration-200'>
 						{t('trainings.browseBtn')}
 					</Link>

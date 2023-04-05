@@ -9,7 +9,6 @@ import {
 import { CgGym, CgChart } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
 
-import logo from '../../assets/guts.png';
 import NavigationLink from './NavigationLink';
 import { useTranslation } from 'react-i18next';
 
@@ -26,8 +25,8 @@ const Navigation = ({ isFull, hidden, responsive, refResponsive }) => {
 			ref={refResponsive}>
 			{' '}
 			{/* fixed top-0 left-0 */}
-			<div className='flex p-6'>
-				<img src={logo} alt='logo' className='h-12 mr-8' />
+			<div className='flex justify-center items-center py-6'>
+				{/* <img src={logo} alt='logo' className='h-12 mr-8' /> */}
 				<h2
 					className={
 						isFull

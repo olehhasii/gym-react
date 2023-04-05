@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import AuthInput from '../AuthInput';
 import AuthButton from './AuthButton';
@@ -28,13 +29,16 @@ const LoginForm = () => {
 		navigate('/');
 		dispathc(setUser());
 	};
+
+	const { t } = useTranslation();
+
 	return (
-		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>
-			<h2 className='font-bold text-3xl mb-8'>Sign into your account</h2>
+		<div className='p-14 shadow-2xl border border-solid border-gray-400'>
+			<h2 className='font-bold text-3xl mb-8'>{t('auth.login.title')}</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 				<div className='mb-6'>
 					<AuthInput
-						label='Email address'
+						label={t('auth.login.email')}
 						register={register}
 						required
 						name='email'
@@ -48,7 +52,7 @@ const LoginForm = () => {
 				</div>
 				<div className='mb-6'>
 					<AuthInput
-						label='Password'
+						label={t('auth.login.password')}
 						register={register}
 						required
 						name='password'
@@ -61,12 +65,12 @@ const LoginForm = () => {
 						</p>
 					)}
 				</div>
-				<AuthButton text='Sign in' />
+				<AuthButton text={t('auth.login.btn')} />
 			</form>
 			<Link
 				to='/auth/signup'
 				className='mt-6 block underline duration-300 hover:text-green_txt font-bold'>
-				Don't have an account? Create one!
+				{t('auth.login.dontHaveAccount')}
 			</Link>
 		</div>
 	);

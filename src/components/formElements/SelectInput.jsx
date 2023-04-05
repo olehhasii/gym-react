@@ -35,7 +35,8 @@ const SelectInput = ({ multiple, value, onChange, options, placeholder }) => {
 			onBlur={() => setIsOpen(false)}
 			onClick={() => setIsOpen((prev) => !prev)}
 			tabIndex={0}
-			className='relative flex-grow w-full min-h-[3.5rem] p-2 flex items-center gap-4 border border-gray-300 rounded-lg outline-none focus:border-black'>
+			className=' relative flex-grow w-full min-h-[3.5rem] p-2 flex items-center gap-4 border border-gray-300 rounded-lg outline-none focus:border-black'
+			data-testid='select-input'>
 			<span className='flex-grow gap-3 flex flex-wrap'>
 				{multiple &&
 					value.map((v) => (

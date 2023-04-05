@@ -1,4 +1,21 @@
 {
+  "auth": {
+    "login": {
+      "title": "Увійдіть у свій акаунт",
+      "password": "Пароль",
+      "email": "Email",
+      "dontHaveAccount": "Не маєте акаунта? Зареєструйтесь!",
+      "btn": "Увійти"
+    },
+    "signup": {
+      "title": "Створіть акаунт",
+      "password": "Пароль",
+      "email": "Email",
+      "username": "Ім'я користувача",
+      "haveAccount": "Уже маєте акаунт? Увійдіть!",
+      "btn": "Зареєструватися"
+    }
+  },
   "navigation": {
     "overview": "Головна",
     "workouts": "Тренування",

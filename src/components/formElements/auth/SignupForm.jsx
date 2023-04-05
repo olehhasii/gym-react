@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthInput from '../AuthInput';
 import api from '../../../features/api';
 import { EMAIL_PATTERN } from '../../../constants/constatns';
+import { useTranslation } from 'react-i18next';
 
 const SignupForm = () => {
 	const navigate = useNavigate();
@@ -21,13 +22,16 @@ const SignupForm = () => {
 		});
 		navigate('/auth/login');
 	};
+
+	const { t } = useTranslation();
+
 	return (
-		<div className='p-14  w-1/3 min-h-full border-l border-solid border-gray-300'>
-			<h2 className='font-bold text-3xl mb-8'>Create an account</h2>
+		<div className='p-14 w-[500px] shadow-2xl border border-solid border-gray-400'>
+			<h2 className='font-bold text-3xl mb-8'>{t('auth.signup.title')}</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
 				<div className='mb-6'>
 					<AuthInput
-						label='Email address'
+						label={t('auth.signup.email')}
 						register={register}
 						required
 						name='email'
@@ -41,7 +45,7 @@ const SignupForm = () => {
 				</div>
 				<div className='mb-6'>
 					<AuthInput
-						label='Username'
+						label={t('auth.signup.username')}
 						register={register}
 						required
 						name='username'
@@ -54,7 +58,7 @@ const SignupForm = () => {
 				</div>
 				<div className='mb-6'>
 					<AuthInput
-						label='Password'
+						label={t('auth.signup.password')}
 						register={register}
 						required
 						name='password'
@@ -66,12 +70,12 @@ const SignupForm = () => {
 						</p>
 					)}
 				</div>
-				<AuthButton text='Sign up' />
+				<AuthButton text={t('auth.signup.btn')} />
 			</form>
 			<Link
 				to='/auth/login'
 				className='mt-6 block underline duration-300 hover:text-green_txt '>
-				Already have an account? Sign in!
+				{t('auth.signup.haveAccount')}
 			</Link>
 		</div>
 	);
