@@ -12,12 +12,12 @@ This is a pet project of a sport and nutrition web-app that allows users to crea
 
 **Note: Unfortunately, I can't deploy the server part and give access to the database, so you won't be able to start project, but you can contact me and we figure this out together**
 
-1.Clone this and [SERVER](https://github.com/olehhasii/gym-api-nest.js) repository to your local machine using git clone.
-2.Navigate to the root directory of the project.
-3.Install the dependencies using npm install for both the client and server folders.
-4.Create a .env file in the server part, and set the required environment variables for MongoDB connection, and JWT secret.
-5.Start the client ### `npm start` and server ### `npm run devt` concurrently in the root directory.
-6.Access the web-app in your web browser at http://localhost:3000.
+1. Clone this and [SERVER](https://github.com/olehhasii/gym-api-nest.js) repository to your local machine using git clone.
+2. Navigate to the root directory of the project.
+3. Install the dependencies using npm install for both the client and server folders.
+4. Create a .env file in the server part, and set the required environment variables for MongoDB connection, and JWT secret.
+5. Start the client ### `npm start` and server ### `npm run devt` concurrently in the root directory.
+6. Access the web-app in your web browser at http://localhost:3000.
 
 ## Contributing
 Contributions are welcome! If you would like to contribute to this project, please fork the repository, create a branch, make your changes, and submit a pull request. Please provide detailed information about the changes you made and any additional instructions for reviewing.
