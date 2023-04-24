@@ -16,7 +16,7 @@ This is a pet project of a sport and nutrition web-app that allows users to crea
 2. Navigate to the root directory of the project.
 3. Install the dependencies using npm install for both the client and server folders.
 4. Create a .env file in the server part, and set the required environment variables for MongoDB connection, and JWT secret.
-5. Start the client `npm start` and server `npm run devt` concurrently in the root directory.
+5. Start the client `npm start` and server `npm run start:dev` concurrently in the root directory.
 6. Access the web-app in your web browser at http://localhost:3000.
 
 ## Contributing
